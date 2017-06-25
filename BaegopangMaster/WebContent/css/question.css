@@ -1,0 +1,38 @@
+@CHARSET "EUC-KR";
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+#data_table{
+	display: inline-block;
+	float: left;
+	margin-left: 110px;
+}
+#data_table > h1{
+	display: inline-block;
+	font-family: 'Hanna', serif;
+}
+#data_table > h6{
+	display: inline-block;
+	float: right;
+	margin-top: 45px;
+	color: #a0a0a0;
+	font-size: 13px;
+	font-family: 'Hanna', serif;
+}
+th{
+	text-align: center !important;
+}
+.container{
+	display: inline;
+}
+.container > h1{
+	display: inline-block;
+	margin-left: 5%;
+	margin-top: 0;
+	font-family: 'Hanna', serif;
+}
+.mid_src{
+	margin-bottom: 30px;
+}
+.bbsList{
+	border:1px solid #ccc; 
+	background:white;
+}

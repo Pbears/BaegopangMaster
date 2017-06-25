@@ -1,5 +1,5 @@
 @CHARSET "EUC-KR";
-
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 body {
 	margin:0;
 	background: #f1f0ef;
@@ -24,7 +24,13 @@ body {
 	display: inline-block;
 	margin:0 25px;
 }
-
+#searchContainer > a{
+	text-decoration: none;
+	padding: 25px;
+	color: aliceblue;
+	font-weight: bold;
+	font-size: 20px;
+}
 #navy{
 	margin-right: 170px;
 }
@@ -35,8 +41,8 @@ img{
 
 #loginForm{
 	display: inline-block;
-	margin-top: 100px;
-	margin-left: 160px;
+	margin-top: 40px;
+	margin-right: 140px;
 }
 
 .mid_contents{
@@ -73,33 +79,36 @@ input[type=submit]:hover {
     border-radius: 5px;
     padding: 0;
     width: 28%;
-    margin-bottom: 80px;
-    margin-left: 14%;
+    margin-bottom: 20px;
+    margin-left: 11%;
 }
 
 .bot_contents{
-	margin-left: 14%;
+	margin-left: 11%;
 	width: 80%;
-	background: white;
+	background: #f1f0ef;
 	display: -webkit-box;
+	margin-bottom: 40px;
 }
 #notice,#point,#service{
 	border: 1px solid;
-	width: 28%;
-	height: 400px;
+	width: 29%;
+	height: 250px;
 	margin-right: 100px;
 	border: 1px solid #ccc;
+	background: white;
 }
 #wpoint {
-	height: 110px;
+	height: 70px;
 }
 #wpoint p, #mpoint p{
 	color: #646464;
+	padding: 0 40px;
 }
 .dropbtn1, .dropbtn2, .dropbtn3, .dropbtn4, .dropbtn5 {
     background-color: #ff8c00;
     color: white;
-    padding: 25px 20px;
+    padding: 20px 20px;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -108,7 +117,7 @@ input[type=submit]:hover {
     font-weight: bold;
     font-family: sans-serif;
 }
-.container{ width: 1200px;}
+.mid_contents > .container{ width: 900px; margin-right: 160px;}
 .dropdown1, .dropdown2 {
     position: relative;
     display: inline-block;
@@ -143,7 +152,7 @@ input[type=submit]:hover {
     display: block;
     font-size: 20px;
     text-decoration: none;
-    font-family: sans-serif;
+    font-family: 'Hanna', serif;
 }
 .dropdown-content3 a, .dropdown-content4 a, .dropdown-content5 a{
     color: black;
@@ -151,7 +160,7 @@ input[type=submit]:hover {
     display: block;
     font-size: 20px;
     text-decoration: none;
-    font-family: sans-serif;
+    font-family: 'Hanna', serif;
 }
 
 .dropdown-content1 a:hover {background-color: #f1f1f1;  text-decoration: underline;}
@@ -174,7 +183,7 @@ input[type=submit]:hover {
     background-color: #FFB559;
 }
 .carousel-inner {
-	height: 430px;
+	height: 320px;
 	margin-top: 20px;
 }
 #loginForm a p{
@@ -182,21 +191,28 @@ input[type=submit]:hover {
 	text-align: right;
 	text-decoration: none;
 }
-p{
+.bot_contents p{
 	margin: 0 0 10px;
-	padding: 30px;
+	padding: 20px 30px;
 	font-size: 25px;
 	font-weight: bold;
 }
-label{
-	font-size: 25px;
+.noti_title p{
+	padding: 20px;
+}
+#loginForm label{
+	font-size: 20px;
 }
 #service > img{
 	width: 80%;
-	margin-left: 60px;
+	margin-left: 50px;
+	height: 110px;
 	
 }
-/* .footer{
-	margin-top: 150px;
-	background: #ff8c00;
-} */
+#notice_list{
+	margin-left: 50px;
+}
+#notice_list > ui > li{
+	padding: 10px;	
+	font-size: 15px;
+}

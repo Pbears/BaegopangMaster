@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<link href="/BaegopangMaster/css/bootstrap.min.css" rel="stylesheet">
-<link href="/BaegopangMaster/css/Main.css" rel="stylesheet" />
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/Main.css" rel="stylesheet" />
 <style>
 html {
 	margin: 50px;
 }
 
 header {
-	padding: 1em;
+	padding: 1em 1em 0 1em;
 	border: 1px;
 	border-color: black;
 	color: black;
@@ -39,6 +39,10 @@ header {
 	margin: auto;
 }
 
+#locationBtn {
+	margin-left: 250px;
+}
+
 .searchContainer {
 	margin: o auto;
 }
@@ -55,8 +59,7 @@ button#loginBtn.btn btn-default btn-lg {
 <header>
 	<div id="headerContainer">
 		<div id="mainTitle" align="center">
-			<a href=""> <img alt=""
-				src="/BaegopangMaster/img/beagopangTitle.png">
+			<a href=""> <img src="../img/beagopangTitle.png">
 			</a>
 		</div>
 		<div id="searchContainer">
@@ -66,7 +69,7 @@ button#loginBtn.btn btn-default btn-lg {
 						<div class="dropdown1">
 							<button class="dropbtn1">내 음식점</button>
 							<div class="dropdown-content1">
-								<a href="#">메뉴 추가</a> <a href="#">메뉴 삭제</a> <a href="#">주 문</a>
+								<a href="menuManager.jsp">메뉴 관리</a><a href="masterOrder.jsp">주 문</a>
 							</div>
 						</div>
 
@@ -75,20 +78,16 @@ button#loginBtn.btn btn-default btn-lg {
 						<div class="dropdown2">
 							<button class="dropbtn2">통 계</button>
 							<div class="dropdown-content2">
-								<a href="#">월별 매출</a> <a href="#">일별 매출</a> <a href="#">요일별
-									베스트</a> <a href="#">날씨별 베스트</a> <a href="#">나이별 베스트</a> <a href="#">성별별
-									베스트</a>
+								<a href="#">매출별 통계</a><a href="#">베스트 통계</a>
 							</div>
 						</div>
 
 					</td>
-
 					<td>
 						<div class="dropdown3">
 							<button class="dropbtn3">포인트</button>
 							<div class="dropdown-content3">
-								<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link
-									3</a>
+	
 							</div>
 						</div>
 					</td>
@@ -96,7 +95,7 @@ button#loginBtn.btn btn-default btn-lg {
 						<div class="dropdown4">
 							<button class="dropbtn4">마이페이지</button>
 							<div class="dropdown-content4">
-								<a href="#">탈퇴</a> <a href="#">내정보 보기</a>
+								<a href="#">내정보 보기</a>
 							</div>
 						</div>
 
@@ -108,7 +107,7 @@ button#loginBtn.btn btn-default btn-lg {
 						<div class="dropdown5">
 							<button class="dropbtn5">고객센터</button>
 							<div class="dropdown-content5">
-								<a href="#">문의</a> <a href="#">고객센터</a>
+								<a href="question.jsp">문의</a>
 							</div>
 						</div>
 
