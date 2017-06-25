@@ -7,15 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
-<link href="../css/Main.css" rel="stylesheet" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="/BaegopangMaster/css/Main.css" rel="stylesheet" />
+<link rel="stylesheet" href="/BaegopangMaster/css/bootstrap.css">
 <script	
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
 
 <script type="text/javascript">
 	function mouseOv(obj) {
@@ -107,7 +102,7 @@
 		<div id="service">
 			<p>입점 안내</p>
 			<p style="font-size: 25px; color: #646464; margin: 0; padding: 0 50px;">음식점 성장 파트너, 배고팡</p>
-			<img src="../img/info.jpg">
+			<img src="/BaegopangMaster/img/info.jpg">
 		</div>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>

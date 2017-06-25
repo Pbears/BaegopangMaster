@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/Main.css" rel="stylesheet" />
+<link href="/BaegopangMaster/css/bootstrap.min.css" rel="stylesheet">
+<link href="/BaegopangMaster/css/Main.css" rel="stylesheet" />
 <style>
 html {
 	margin: 50px;
@@ -59,7 +59,7 @@ button#loginBtn.btn btn-default btn-lg {
 <header>
 	<div id="headerContainer">
 		<div id="mainTitle" align="center">
-			<a href=""> <img src="../img/beagopangTitle.png">
+			<a href=""> <img src="/BaegopangMaster/img/beagopangTitle.png">
 			</a>
 		</div>
 		<div id="searchContainer">
@@ -98,11 +98,7 @@ button#loginBtn.btn btn-default btn-lg {
 								<a href="#">내정보 보기</a>
 							</div>
 						</div>
-
-
 					</td>
-
-
 					<td>
 						<div class="dropdown5">
 							<button class="dropbtn5">고객센터</button>
@@ -115,13 +111,8 @@ button#loginBtn.btn btn-default btn-lg {
 					<td>
 						<button type="button" class="btn btn-default " id="loginBtn">
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-							
-							
 						</button>
-
 					</td>
-
-
 				</tr>
 			</table>
 		</div>

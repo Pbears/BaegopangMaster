@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <link rel="stylesheet" href="/BaegopangMaster/css/bootstrap.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
 .inputLog {
@@ -36,7 +37,7 @@
 			<!-- 첫칸 -->
 			<div class="col-sm-4" style="background-color: lavender;">
 				<h2 align="center">배고팡 프로필</h2>
-				<br> <img src="/baegopangMaster/img/noimg.jpg"
+				<br> <img src="/BaegopangMaster/img/noimg.jpg"
 					class="img-circle" alt="Cinque Terre" width="304" height="236">
 				<br>
 				<br>
@@ -148,7 +149,4 @@
 
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
-<script src="//code.jquery.com/jquery.min.js"></script>
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 </html>

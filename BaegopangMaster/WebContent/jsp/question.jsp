@@ -5,9 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<link href="../css/question.css" rel="stylesheet" />
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<!-- 
+
+		이거 뭔 링크냐 필요없으면 지워 
+		
+-->
+<link href="/BaegopangMaster/css/question.css" rel="stylesheet" />
+<link rel="stylesheet" href="/BaegopangMaster/css/bootstrap.css">
 <link rel="shortcut icon" href="../favicon.ico">
 <!-- <link rel="stylesheet" type="text/css" href="../css/demo.css" /> -->
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
