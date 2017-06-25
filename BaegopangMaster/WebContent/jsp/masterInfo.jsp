@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<link rel="stylesheet" href="/BaegopangMaster/css/bootstrap.css">
 <title>Insert title here</title>
 <style type="text/css">
 .inputLog {
@@ -23,8 +24,6 @@
 }
 
 </style>
-<link rel="stylesheet"
-	href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 </head>
 <body>
 	 <%-- <jsp:include page="header.jsp"></jsp:include>  --%>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<link href="/baegopangMaster/css/bootstrap.min.css" rel="stylesheet">
-<link href="/baegopangMaster/css/Main.css" rel="stylesheet" />
+<link href="/BaegopangMaster/css/bootstrap.min.css" rel="stylesheet">
+<link href="/BaegopangMaster/css/Main.css" rel="stylesheet" />
 <style>
 html {
 	margin: 50px;
@@ -39,7 +39,6 @@ header {
 	margin: auto;
 }
 
-
 .searchContainer {
 	margin: o auto;
 }
@@ -57,7 +56,7 @@ button#loginBtn.btn btn-default btn-lg {
 	<div id="headerContainer">
 		<div id="mainTitle" align="center">
 			<a href=""> <img alt=""
-				src="/baegopangMaster/img/beagopangTitle.png">
+				src="/BaegopangMaster/img/beagopangTitle.png">
 			</a>
 		</div>
 		<div id="searchContainer">
@@ -83,9 +82,6 @@ button#loginBtn.btn btn-default btn-lg {
 						</div>
 
 					</td>
-
-
-
 
 					<td>
 						<div class="dropdown3">

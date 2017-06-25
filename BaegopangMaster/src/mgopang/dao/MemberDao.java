@@ -1,10 +1,7 @@
 package mgopang.dao;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import mgopang.bean.ZipcodeBean;
 import mgopang.util.SqlSessionFactoryManager;
 
 public class MemberDao {
