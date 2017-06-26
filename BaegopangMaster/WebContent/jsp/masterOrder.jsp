@@ -70,7 +70,11 @@
 	  <jsp:include page="header.jsp" />  
 
 	<div class="container">
-		<h2>주문 내역</h2>
+		<h1>주문 내역</h1>
+		<p>사장님께 알려드리는 주문내역입니다. 꼭 확인해주세요</p>
+		<br>    
+		<br>    
+		<br>
 
 		<!-- 검색바 -->
 		<div id="searchContainer">
