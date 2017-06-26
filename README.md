@@ -1,6 +1,6 @@
-<<<<<<< HEAD
 # BaegopangMaster
 사장님 사이트
 =======
 # baegopangMaster
->>>>>>> branch 'master' of https://github.com/Pbears/BaegopangMaster.git
+
+음식 주문,배달 프로젝트 배고팡 유저 사이트
