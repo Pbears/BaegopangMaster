@@ -9,6 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 <link rel="stylesheet" href="/BaegopangMaster/css/bootstrap.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 <title>Insert title here</title>
@@ -27,7 +28,7 @@
 		String data = request.getParameter("data");
 		OrderDao dao = new OrderDao();
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("storename", "원할머니보쌈-논현점");
+		map.put("storename", "교촌치킨-논현1호점");
 		int totalRow = dao.getTotalRow(map);
 
 		int pageScale = 10;
@@ -65,7 +66,8 @@
 		   list = BrandDao.searchBrand(map);
 		} */
 	%>
-	<jsp:include page="header.jsp" />
+	
+	  <jsp:include page="header.jsp" />  
 
 	<div class="container">
 		<h2>주문 내역</h2>
@@ -116,7 +118,7 @@
 						href="#collapse<%=i%>"><%=bean.getOrdernumber()%></a></td>
 
 					<td><a class="panel-title" data-toggle="collapse"
-						href="#collapse<%=i%>"><%=bean.getOrdertime()%>></a></td>
+						href="#collapse<%=i%>"><%=bean.getOrdertime()%></a></td>
 
 					<td><a class="panel-title" data-toggle="collapse"
 						href="#collapse<%=i%>"><%=bean.getMembername()%></a></td>
@@ -135,6 +137,7 @@
 
 					<td><button type="button" class="btn btn-primary active">승인</button></td>
 				</tr>
+				
 				<tr>
 					<td colspan="7">
 						<div id="collapse<%=i%>" class="panel-collapse collapse">
@@ -240,4 +243,6 @@
 
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 </html>
