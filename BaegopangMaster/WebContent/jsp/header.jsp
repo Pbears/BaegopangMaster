@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <link href="/BaegopangMaster/css/bootstrap.min.css" rel="stylesheet">
 <link href="/BaegopangMaster/css/Main.css" rel="stylesheet" />
 <style>
@@ -67,25 +67,25 @@ button#loginBtn.btn btn-default btn-lg {
 				<tr>
 					<td>
 						<div class="dropdown1">
-							<button class="dropbtn1">³» ΐ½½ΔΑ΅</button>
+							<button class="dropbtn1">λ‚΄ μμ‹μ </button>
 							<div class="dropdown-content1">
-								<a href="menuManager.jsp">Έή΄Ί °όΈ®</a><a href="masterOrder.jsp">ΑΦ Ή®</a>
+								<a href="menuManager.jsp">λ©”λ‰΄ κ΄€λ¦¬</a><a href="masterOrder.jsp">μ£Ό λ¬Έ</a>
 							</div>
 						</div>
 
 					</td>
 					<td>
 						<div class="dropdown2">
-							<button class="dropbtn2">Ελ °θ</button>
+							<button class="dropbtn2">ν†µ κ³„</button>
 							<div class="dropdown-content2">
-								<a href="#">ΈΕΓβΊ° Ελ°θ</a><a href="#">Ί£½ΊΖ® Ελ°θ</a>
+								<a href="#">λ§¤μ¶λ³„ ν†µκ³„</a><a href="#">λ² μ¤νΈ ν†µκ³„</a>
 							</div>
 						</div>
 
 					</td>
 					<td>
 						<div class="dropdown3">
-							<button class="dropbtn3">ΖχΐΞΖ®</button>
+							<button class="dropbtn3">ν¬μΈνΈ</button>
 							<div class="dropdown-content3">
 	
 							</div>
@@ -93,17 +93,17 @@ button#loginBtn.btn btn-default btn-lg {
 					</td>
 					<td>
 						<div class="dropdown4">
-							<button class="dropbtn4">Έ¶ΐΜΖδΐΜΑφ</button>
+							<button class="dropbtn4">λ§μ΄νμ΄μ§€</button>
 							<div class="dropdown-content4">
-								<a href="#">³»Α¤ΊΈ ΊΈ±β</a>
+								<a href="#">λ‚΄μ •λ³΄ λ³΄κΈ°</a>
 							</div>
 						</div>
 					</td>
 					<td>
 						<div class="dropdown5">
-							<button class="dropbtn5">°ν°΄ΌΎΕΝ</button>
+							<button class="dropbtn5">κ³ κ°μ„Όν„°</button>
 							<div class="dropdown-content5">
-								<a href="question.jsp">Ή®ΐΗ</a>
+								<a href="question.jsp">λ¬Έμ</a>
 							</div>
 						</div>
 

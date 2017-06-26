@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
@@ -71,37 +71,37 @@
 					name="log_id" placeholder="Your ID">
 				<label for="lname">PassWord</label> <input type="text" id="lname"
 					name="lastname" placeholder="Your Password"> <input
-					type="submit" value="Login"> <a href="#"><p>»çÀå´Ô
-						°¡ÀÔÇÏ±â</p></a>
+					type="submit" value="Login"> <a href="#"><p>ì‚¬ìž¥ë‹˜
+						ê°€ìž…í•˜ê¸°</p></a>
 			</form>
 		</div>
 	</div>
 	<div class="bot_contents">
 		<div id="notice">
-			<p style="display: inline-block; margin-bottom: 20px; margin-right: 140px">°øÁö»çÇ×</p>
+			<p style="display: inline-block; margin-bottom: 20px; margin-right: 140px">ê³µì§€ì‚¬í•­</p>
 			<a href="#" style="padding: 0px;" class="noti_title">
-				<p style="display: inline-block; font-size: 20px; color: #646464;">´õº¸±â</p>
+				<p style="display: inline-block; font-size: 20px; color: #646464;">ë”ë³´ê¸°</p>
 			</a>
 			<div id="notice_list">
 				<ui>
-					<li>È¸¿ø°¡ÀÔ ½Ã ÁÖÀÇ»çÇ×</li>
-					<li>¹è°íÆÎ ÀÓ½ÃÈÞ¹«-6¿ù21ÀÏ(¼ö)</li>
-					<li>»çÀå´Ô Àü¿ë»çÀÌÆ®°¡ ¿ÀÇÂÇß½À´Ï´Ù!</li>
+					<li>íšŒì›ê°€ìž… ì‹œ ì£¼ì˜ì‚¬í•­</li>
+					<li>ë°°ê³ íŒ¡ ìž„ì‹œíœ´ë¬´-6ì›”21ì¼(ìˆ˜)</li>
+					<li>ì‚¬ìž¥ë‹˜ ì „ìš©ì‚¬ì´íŠ¸ê°€ ì˜¤í”ˆí–ˆìŠµë‹ˆë‹¤!</li>
 				</ui>
 			</div>
 		</div>
 		<div id="point">
-			<p>Æ÷ÀÎÆ®</p>
+			<p>í¬ì¸íŠ¸</p>
 			<div id="wpoint">
-				<a href="#"><p>>Æ÷ÀÎÆ®¶õ?</p></a>
+				<a href="#"><p>>í¬ì¸íŠ¸ëž€?</p></a>
 			</div>
 			<div id="mpoint">
-				<a href="#"><p>>³» Æ÷ÀÎÆ® È®ÀÎÇÏ±â</p></a>
+				<a href="#"><p>>ë‚´ í¬ì¸íŠ¸ í™•ì¸í•˜ê¸°</p></a>
 			</div>
 		</div>
 		<div id="service">
-			<p>ÀÔÁ¡ ¾È³»</p>
-			<p style="font-size: 25px; color: #646464; margin: 0; padding: 0 50px;">À½½ÄÁ¡ ¼ºÀå ÆÄÆ®³Ê, ¹è°íÆÎ</p>
+			<p>ìž…ì  ì•ˆë‚´</p>
+			<p style="font-size: 25px; color: #646464; margin: 0; padding: 0 50px;">ìŒì‹ì  ì„±ìž¥ íŒŒíŠ¸ë„ˆ, ë°°ê³ íŒ¡</p>
 			<img src="/BaegopangMaster/img/info.jpg">
 		</div>
 	</div>

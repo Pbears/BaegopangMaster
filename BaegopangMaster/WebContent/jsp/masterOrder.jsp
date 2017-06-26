@@ -3,12 +3,12 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="mgopang.dao.OrderDao"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/BaegopangMaster/css/bootstrap.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 <title>Insert title here</title>
@@ -21,13 +21,13 @@
 </head>
 <body>
 	<%
-		request.setCharacterEncoding("EUC-KR");
+		request.setCharacterEncoding("UTF-8");
 		List<OrderBean> list = null;
 		String query = request.getParameter("query");
 		String data = request.getParameter("data");
 		OrderDao dao = new OrderDao();
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("storename", "¿øÇÒ¸Ó´Ïº¸½Ó-³íÇöÁ¡");
+		map.put("storename", "ì›í• ë¨¸ë‹ˆë³´ìŒˆ-ë…¼í˜„ì ");
 		int totalRow = dao.getTotalRow(map);
 
 		int pageScale = 10;
@@ -45,7 +45,7 @@
 			totalPage = 1;
 		int start = 1 + (currentPage - 1) * pageScale;
 		int end = pageScale + (currentPage - 1) * pageScale;
-		//out.print(query+"   "+data ); //Ãâ·ÂÈ®ÀÎ
+		//out.print(query+"   "+data ); //ì¶œë ¥í™•ì¸
 		int currentBlock = currentPage % pageScale == 0 ? (currentPage / pageScale) : (currentPage / pageScale + 1);
 		int startPage = 1 + (currentBlock - 1) * pageScale;
 		int endPage = pageScale + (currentBlock - 1) * pageScale;
@@ -68,9 +68,9 @@
 	<jsp:include page="header.jsp" />
 
 	<div class="container">
-		<h2>ÁÖ¹® ³»¿ª</h2>
+		<h2>ì£¼ë¬¸ ë‚´ì—­</h2>
 
-		<!-- °Ë»ö¹Ù -->
+		<!-- ê²€ìƒ‰ë°” -->
 		<div id="searchContainer">
 			<table align="center">
 				<tr>
@@ -90,20 +90,20 @@
 		<table class="table table-condensed">
 			<thead>
 				<tr>
-					<th>ÁÖ¹®¹øÈ£</th>
-					<th>ÁÖ¹®½Ã°£</th>
-					<th>ÀÌ¸§</th>
-					<th>ÀüÈ­¹øÈ£</th>
-					<th>ÁÖ¼Ò</th>
-					<th>¿äÃ»</th>
-					<th>»óÅÂ</th>
+					<th>ì£¼ë¬¸ë²ˆí˜¸</th>
+					<th>ì£¼ë¬¸ì‹œê°„</th>
+					<th>ì´ë¦„</th>
+					<th>ì „í™”ë²ˆí˜¸</th>
+					<th>ì£¼ì†Œ</th>
+					<th>ìš”ì²­</th>
+					<th>ìƒíƒœ</th>
 					<th></th>
 
 				</tr>
 			</thead>
 			<tbody>
 
-				<!-- ÇÑºí·° -->
+				<!-- í•œë¸”ëŸ­ -->
 
 				<%
 					for (int i = 0; i < list.size(); i++) {
@@ -133,14 +133,14 @@
 					<td><a class="panel-title" data-toggle="collapse"
 						href="#collapse<%=i%>"><%=bean.getState()%></a></td>
 
-					<td><button type="button" class="btn btn-primary active">½ÂÀÎ</button></td>
+					<td><button type="button" class="btn btn-primary active">ìŠ¹ì¸</button></td>
 				</tr>
 				<tr>
 					<td colspan="7">
 						<div id="collapse<%=i%>" class="panel-collapse collapse">
 							<ul class="list-group">
-								<li class="list-group-item">¸Ş´º : <%=bean.getMenuname()%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									¼ö·® : <%=bean.getAmount()%></li>
+								<li class="list-group-item">ë©”ë‰´ : <%=bean.getMenuname()%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									ìˆ˜ëŸ‰ : <%=bean.getAmount()%></li>
 							</ul>
 						</div>
 					</td>
@@ -156,7 +156,7 @@
 	</div>
 
 
-	<!-- ÆäÀÌÁöÀÌµ¿ÆäÀÌÂ¡ -->
+	<!-- í˜ì´ì§€ì´ë™í˜ì´ì§• -->
 	<div class="paging" style="text-align: center;">
 		<ul class="pagination">
 			<ul class="pager">
@@ -187,7 +187,7 @@
 				</li>
 				<span> <%
  	if (data != null) {
- 		data = URLEncoder.encode(request.getParameter("data"), "EUC-KR");
+ 		data = URLEncoder.encode(request.getParameter("data"), "UTF-8");
  	}
 
  	for (int i = startPage; i <= endPage; i++) {

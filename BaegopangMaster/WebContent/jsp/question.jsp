@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <!-- 
 
-		ÀÌ°Å ¹º ¸µÅ©³Ä ÇÊ¿ä¾øÀ¸¸é Áö¿ö 
+		ì´ê±° ë­” ë§í¬ëƒ í•„ìš”ì—†ìœ¼ë©´ ì§€ì›Œ 
 		
 -->
 <link href="/BaegopangMaster/css/question.css" rel="stylesheet" />
@@ -21,8 +21,8 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="mid_src">
 		<div id="data_table">
-			<h1>1´ë1 ¹®ÀÇ</h1>
-			<h6>»ó´ã ±Û ¾²±â</h6>
+			<h1>1ëŒ€1 ë¬¸ì˜</h1>
+			<h6>ìƒë‹´ ê¸€ ì“°ê¸°</h6>
 			<form action="" method="post" name="listFrm">
 				<table class="bbsList" style="border-collapse: collapse;"
 					border="1px solid black">
@@ -33,26 +33,26 @@
 						<col width="100" />
 					</colgroup>
 					<tr>
-						<th scope="col" style="text-align: center;">±Û ¹øÈ£</th>
-						<th scope="col" style="text-align: center;">±Û Á¦¸ñ</th>
-						<th scope="col" style="text-align: center;">¹®ÀÇ ÀÏÀÚ</th>
-						<th scope="col" style="text-align: center;">»ó ÅÂ</th>
+						<th scope="col" style="text-align: center;">ê¸€ ë²ˆí˜¸</th>
+						<th scope="col" style="text-align: center;">ê¸€ ì œëª©</th>
+						<th scope="col" style="text-align: center;">ë¬¸ì˜ ì¼ìž</th>
+						<th scope="col" style="text-align: center;">ìƒ íƒœ</th>
 					</tr>
 					<tbody>
 						<tr>
 							<div id="select">
 								<th>2</th>
-								<th>¸Þ´º¸¦ Ãß°¡ÇÏ°í ½Í¾î¿ä~</th>
+								<th>ë©”ë‰´ë¥¼ ì¶”ê°€í•˜ê³  ì‹¶ì–´ìš”~</th>
 								<th>2017.06.25</th>
-								<th>´ë±â Áß</th>
+								<th>ëŒ€ê¸° ì¤‘</th>
 							</div>
 						<tr>
 												<tr>
 							<div id="select">
 								<th>1</th>
-								<th>Æ÷ÀÎÆ®´Â ¹º°¡¿ä?</th>
+								<th>í¬ì¸íŠ¸ëŠ” ë­”ê°€ìš”?</th>
 								<th>2017.06.20</th>
-								<th>¿Ï·á</th>
+								<th>ì™„ë£Œ</th>
 							</div>
 						<tr>
 					</tbody>
@@ -64,33 +64,33 @@
 			<section class="ac-container">
 			<div>
 				<input id="ac-1" name="accordion-1" type="radio" checked /> <label
-					for="ac-1">ÁÖ·ù ±¸¸Å½Ã ÀÎÁõÀ» ÇÏ³ª¿ä</label>
+					for="ac-1">ì£¼ë¥˜ êµ¬ë§¤ì‹œ ì¸ì¦ì„ í•˜ë‚˜ìš”</label>
 				<article class="ac-small">
-				<p>19¼¼ ÀÌ»óÀÌ ¾Æ´Ï¶ó¸é, Ã»¼Ò³âº¸È£¹ý¿¡ µû¶ó ÁÖ·ù ÆÇ¸Å°¡ ±ÝÁöµÇ°í ÀÖ¾î ÁÖ·ù ±¸¸Å ½Ã¿¡´Â ¿¬·ÉÀÎÁõ È®ÀÎÀÌ
-					ÇÊ¿äÇÕ´Ï´Ù. ¹ø°Å·Î¿ì½Ã´õ¶óµµ °ÇÀüÇÑ À½ÁÖ¹®È­¸¦ À§ÇØ ¿¬·ÉÀÎÁõ ÈÄ ±¸¸Å¸¦ ºÎÅ¹µå¸³´Ï´Ù. .</p>
+				<p>19ì„¸ ì´ìƒì´ ì•„ë‹ˆë¼ë©´, ì²­ì†Œë…„ë³´í˜¸ë²•ì— ë”°ë¼ ì£¼ë¥˜ íŒë§¤ê°€ ê¸ˆì§€ë˜ê³  ìžˆì–´ ì£¼ë¥˜ êµ¬ë§¤ ì‹œì—ëŠ” ì—°ë ¹ì¸ì¦ í™•ì¸ì´
+					í•„ìš”í•©ë‹ˆë‹¤. ë²ˆê±°ë¡œìš°ì‹œë”ë¼ë„ ê±´ì „í•œ ìŒì£¼ë¬¸í™”ë¥¼ ìœ„í•´ ì—°ë ¹ì¸ì¦ í›„ êµ¬ë§¤ë¥¼ ë¶€íƒë“œë¦½ë‹ˆë‹¤. .</p>
 				</article>
 			</div>
 			<div>
 				<input id="ac-2" name="accordion-1" type="radio" /> <label
-					for="ac-2">½Ç¼ö·Î 4ÀÎºÐÀ» ½ÃÄ×¾î¿ä</label>
+					for="ac-2">ì‹¤ìˆ˜ë¡œ 4ì¸ë¶„ì„ ì‹œì¼°ì–´ìš”</label>
 				<article class="ac-medium">
-				<p>ÁÖ¹®Ãë¼Ò´Â 'Á¢¼ö´ë±â' ¿Í 'ÁÖ¹®¿Ï·á'»óÅÂÀÏ ¶§ °¡´ÉÇÏ¸ç, °¢ »óÅÂ¿¡ µû¶ó¼­ ¾Æ·¡ ¹æ¹ýÀ¸·Î Ãë¼ÒÇØ ÁÖ½Ã¸é
-					µË´Ï´Ù..</p>
+				<p>ì£¼ë¬¸ì·¨ì†ŒëŠ” 'ì ‘ìˆ˜ëŒ€ê¸°' ì™€ 'ì£¼ë¬¸ì™„ë£Œ'ìƒíƒœì¼ ë•Œ ê°€ëŠ¥í•˜ë©°, ê° ìƒíƒœì— ë”°ë¼ì„œ ì•„ëž˜ ë°©ë²•ìœ¼ë¡œ ì·¨ì†Œí•´ ì£¼ì‹œë©´
+					ë©ë‹ˆë‹¤..</p>
 				</article>
 			</div>
 			<div>
 				<input id="ac-3" name="accordion-1" type="radio" /> <label
-					for="ac-3">ÈÞ´ëÆùÀ¸·Î ¾ó¸¶±îÁö ÁÖ¹® ÇÒ ¼ö ÀÖ³ª¿ä?</label>
+					for="ac-3">íœ´ëŒ€í°ìœ¼ë¡œ ì–¼ë§ˆê¹Œì§€ ì£¼ë¬¸ í•  ìˆ˜ ìžˆë‚˜ìš”?</label>
 				<article class="ac-large">
-				<p>ÈÞ´ëÆùÀ¸·Î °áÁ¦ °¡´ÉÇÑ ±Ý¾×Àº Åë½Å»ç ¹× °³ÀÎº°·Î Â÷ÀÌ°¡ ÀÖ½À´Ï´Ù. ÀÚ¼¼ÇÑ °áÁ¦°¡´É ±Ý¾×Àº Åë½Å»ç·Î Á÷Á¢
-					È®ÀÎÀÌ °¡´ÉÇÕ´Ï´Ù. .</p>
+				<p>íœ´ëŒ€í°ìœ¼ë¡œ ê²°ì œ ê°€ëŠ¥í•œ ê¸ˆì•¡ì€ í†µì‹ ì‚¬ ë° ê°œì¸ë³„ë¡œ ì°¨ì´ê°€ ìžˆìŠµë‹ˆë‹¤. ìžì„¸í•œ ê²°ì œê°€ëŠ¥ ê¸ˆì•¡ì€ í†µì‹ ì‚¬ë¡œ ì§ì ‘
+					í™•ì¸ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤. .</p>
 				</article>
 			</div>
 			<div>
 				<input id="ac-4" name="accordion-1" type="radio" /> <label
-					for="ac-4">È¸¿øÅ»Åð¸¦ ÇÏ°í½Í¾î¿ä</label>
+					for="ac-4">íšŒì›íƒˆí‡´ë¥¼ í•˜ê³ ì‹¶ì–´ìš”</label>
 				<article class="ac-large">
-				<p>³» Á¤º¸ °ü¸®¿¡¼­ Å»Åð¿äÃ»À» ÇÏ°í °ü¸®ÀÚ°¡ ¿äÃ»À» ¹ÞÀ¸¸é ÀÚµ¿À¸·Î Å»ÅðÃ³¸®°¡ µË´Ï´Ù..</p>
+				<p>ë‚´ ì •ë³´ ê´€ë¦¬ì—ì„œ íƒˆí‡´ìš”ì²­ì„ í•˜ê³  ê´€ë¦¬ìžê°€ ìš”ì²­ì„ ë°›ìœ¼ë©´ ìžë™ìœ¼ë¡œ íƒˆí‡´ì²˜ë¦¬ê°€ ë©ë‹ˆë‹¤..</p>
 				</article>
 			</div>
 			</section>

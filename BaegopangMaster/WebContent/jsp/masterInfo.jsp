@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/BaegopangMaster/css/bootstrap.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 <title>Insert title here</title>
@@ -34,9 +34,9 @@
 	<div class="container-fluid" align="center">
 		<div class="row">
 			<div class="col-sm-2" style="background-color: lavenderblush;">.col-sm-4</div>
-			<!-- Ã¹Ä­ -->
+			<!-- ì²«ì¹¸ -->
 			<div class="col-sm-4" style="background-color: lavender;">
-				<h2 align="center">¹è°íÆÎ ÇÁ·ÎÇÊ</h2>
+				<h2 align="center">ë°°ê³ íŒ¡ í”„ë¡œí•„</h2>
 				<br> <img src="/BaegopangMaster/img/noimg.jpg"
 					class="img-circle" alt="Cinque Terre" width="304" height="236">
 				<br>
@@ -108,9 +108,9 @@
 									<div class="col-sm-10">
 										<label class="radio-inline"> <input type="radio"
 											controls name="gender" id="male" value="male"
-											checked="checked"> ³²
+											checked="checked"> ë‚¨
 										</label> <label class="radio-inline"> <input type="radio"
-											name="gender" id="female" value="female"> ¿©
+											name="gender" id="female" value="female"> ì—¬
 										</label>
 									</div>
 								</div>
@@ -135,9 +135,9 @@
 			</div>
 			<!--  -->
 			<div class="col-sm-1" style="background-color: lavenderblush;">.col-sm-4</div>
-			<!-- µÎ¹øÂ°Ä­ -->
+			<!-- ë‘ë²ˆì§¸ì¹¸ -->
 			<div class="col-sm-4" style="background-color: lavender;">
-				<h2 align="center">¿ì¸® °¡°Ô</h2>
+				<h2 align="center">ìš°ë¦¬ ê°€ê²Œ</h2>
 				<br>
 			</div>
 			<!--  -->
