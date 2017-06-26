@@ -4,13 +4,14 @@
 	display: inline-block;
 	float: left;
 	margin-left: 110px;
+	padding-top: 0 !important;
 }
 #data_table > h1{
 	display: inline-block;
 	font-family: 'Hanna', serif;
 }
 #data_table > h6{
-	display: inline-block;
+	display: none;
 	float: right;
 	margin-top: 45px;
 	color: #a0a0a0;

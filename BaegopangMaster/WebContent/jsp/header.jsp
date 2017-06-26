@@ -59,7 +59,7 @@ button#loginBtn.btn btn-default btn-lg {
 <header>
 	<div id="headerContainer">
 		<div id="mainTitle" align="center">
-			<a href=""> <img src="/BaegopangMaster/img/beagopangTitle.png">
+			<a href="main.jsp"> <img src="/BaegopangMaster/img/beagopangTitle.png">
 			</a>
 		</div>
 		<div id="searchContainer">

@@ -72,7 +72,7 @@
 				<label for="lname">PassWord</label> <input type="text" id="lname"
 					name="lastname" placeholder="Your Password"> <input
 					type="submit" value="Login"> <a href="#"><p>사장님
-						가입하기</p></a>
+						가입신청</p></a>
 			</form>
 		</div>
 	</div>
@@ -80,7 +80,7 @@
 		<div id="notice">
 			<p style="display: inline-block; margin-bottom: 20px; margin-right: 140px">공지사항</p>
 			<a href="#" style="padding: 0px;" class="noti_title">
-				<p style="display: inline-block; font-size: 20px; color: #646464;">더보기</p>
+				<p style="display: inline-block; font-size: 15px; color: #646464;">더보기</p>
 			</a>
 			<div id="notice_list">
 				<ui>
@@ -101,7 +101,7 @@
 		</div>
 		<div id="service">
 			<p>입점 안내</p>
-			<p style="font-size: 25px; color: #646464; margin: 0; padding: 0 50px;">음식점 성장 파트너, 배고팡</p>
+			<p style="font-size: 25px; color: #646464; margin: 0; padding: 0 50px; font-size: 20px;	">음식점 성장 파트너, 배고팡</p>
 			<img src="/BaegopangMaster/img/info.jpg">
 		</div>
 	</div>

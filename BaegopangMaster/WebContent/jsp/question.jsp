@@ -13,7 +13,6 @@
 <link href="/BaegopangMaster/css/question.css" rel="stylesheet" />
 <link rel="stylesheet" href="/BaegopangMaster/css/bootstrap.css">
 <link rel="shortcut icon" href="../favicon.ico">
-<!-- <link rel="stylesheet" type="text/css" href="../css/demo.css" /> -->
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 <script type="text/javascript" src="js/modernizr.custom.29473.js"></script>
 </head>
