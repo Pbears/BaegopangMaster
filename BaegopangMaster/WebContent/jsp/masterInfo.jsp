@@ -38,11 +38,12 @@
 		<div class="row">
 			<!-- <div class="col-sm-1" ></div> -->
 			<!-- 첫칸 -->
-			<div class="col-sm-5" style="background-color: white;">
+			<div class="col-sm-5" style="background-color: white; border-radius: 30px;">
 				<h1 align="center">배고팡 프로필</h1>
 				<br>
 				<br> <img src="/BaegopangMaster/img/noimg.jpg"
 					class="img-circle" alt="Cinque Terre" width="304" height="236">
+				<br>
 				<br>
 				<br>
 				
@@ -125,7 +126,7 @@
 									</div>
 								</div>
 								<div class="form-group">
-									
+									<a href="#" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-ban-circle"></span> Withdrawal</a>
 								</div>
 							</form>
 						</div>
@@ -138,14 +139,14 @@
 			<!--  -->
 			<div class="col-sm-2" ></div>
 			<!-- 두번째칸 -->
-			<div class="col-sm-5" style="background-color: white;">
+			<div class="col-sm-5" style="background-color: white;border-radius: 30px;">
 				<h1 align="center">점포 정보</h1>
 				<br>
 				<br> <img src="/BaegopangMaster/img/103.jpg"
 					class="img-rounded" alt="Cinque Terre" width="304" height="236">
 				<br>
 				<br>
-				
+				<br>				
 				
 				
 					<div class="inputLog">
@@ -232,6 +233,7 @@
 		</div>
 		<div class="col-sm-12" style="height:70px;"></div>
 			<div class="col-sm-12" ><a href="#" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-ok"></span> Modify</a>
+			
 										<a href="#" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span> Cancel</a></div>
 										<div class="col-sm-12" style="height:100px;"></div>
 	</div>
