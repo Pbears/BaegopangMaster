@@ -38,7 +38,7 @@
 		<div class="row">
 			<!-- <div class="col-sm-1" ></div> -->
 			<!-- 첫칸 -->
-			<div class="col-sm-5" style="background-color: white; border-radius: 30px;">
+			<div class="col-sm-5" style="background-color: white; border-radius: 30px; border: 1px solid;">
 				<h1 align="center">배고팡 프로필</h1>
 				<br>
 				<br> <img src="/BaegopangMaster/img/noimg.jpg"
@@ -58,7 +58,7 @@
 									<label for="inputName" class="col-sm-2 control-label">Name</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="name" name="name"
-											placeholder="Name">
+											placeholder="Name" disabled="disabled">
 									</div>
 								</div>
 								
@@ -66,7 +66,7 @@
 									<label for="inputId" class="col-sm-2 control-label">ID</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="id" name="id"
-											placeholder="ID">
+											placeholder="ID" disabled="disabled">
 									</div>
 								</div>
 								<div class="form-group">
@@ -113,16 +113,16 @@
 									<div class="col-sm-10">
 										<label class="radio-inline"> <input type="radio"
 											controls name="gender" id="male" value="male"
-											checked="checked"> 남
+											checked="checked" disabled="disabled"> 남
 										</label> <label class="radio-inline"> <input type="radio"
-											name="gender" id="female" value="female"> 여
+											name="gender" id="female" value="female" disabled="disabled"> 여
 										</label>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputBirth" class="col-sm-2 control-label">Birth</label>
 									<div class="col-sm-10">
-										<input id="datepicker" class="form-control" name="birth">
+										<input id="datepicker" class="form-control" name="birth" disabled="disabled">
 									</div>
 								</div>
 								<div class="form-group">
@@ -139,7 +139,7 @@
 			<!--  -->
 			<div class="col-sm-2" ></div>
 			<!-- 두번째칸 -->
-			<div class="col-sm-5" style="background-color: white;border-radius: 30px;">
+			<div class="col-sm-5" style="background-color: white;border-radius: 30px; border: 1px solid;">
 				<h1 align="center">점포 정보</h1>
 				<br>
 				<br> <img src="/BaegopangMaster/img/103.jpg"
@@ -158,7 +158,7 @@
 									<label for="inputName" class="col-sm-2 control-label">brandname</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="brandname" name="brandname"
-											placeholder="brandname">
+											placeholder="brandname" disabled="disabled">
 									</div>
 								</div>
 								
@@ -182,7 +182,7 @@
 										<input type="text" class="form-control" id="address1"
 											name="address1" disabled="disabled"> <input
 											type="text" class="form-control" id="address2"
-											name="address2" placeholder="Detail Address">
+											name="address2" placeholder="Detail Address" disabled="disabled">
 									</div>
 								</div>
 								<div class="form-group">
