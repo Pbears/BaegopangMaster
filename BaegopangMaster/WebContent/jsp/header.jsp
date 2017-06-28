@@ -39,9 +39,6 @@ header {
 	margin: auto;
 }
 
-#locationBtn {
-	margin-left: 250px;
-}
 
 .searchContainer {
 	margin: o auto;
