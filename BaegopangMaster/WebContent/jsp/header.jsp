@@ -3,7 +3,7 @@
 <link href="/BaegopangMaster/css/bootstrap.min.css" rel="stylesheet">
 <link href="/BaegopangMaster/css/Main.css" rel="stylesheet" />
 <style>
-html {
+ html {
 	margin: 50px;
 }
 
