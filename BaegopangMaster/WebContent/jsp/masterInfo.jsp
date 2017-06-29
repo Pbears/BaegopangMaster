@@ -158,7 +158,7 @@
 									<label for="inputName" class="col-sm-2 control-label">brandname</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="brandname" name="brandname"
-											placeholder="brandname" disabled="disabled">
+											placeholder="brandname" disabled="disabled" value="굽네치킨">
 									</div>
 								</div>
 								
@@ -166,7 +166,7 @@
 									<label for="inputId" class="col-sm-2 control-label">storename</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="storename" name="storename"
-											placeholder="storename">
+											placeholder="storename" value="굽네치킨-논현1호점">
 									</div>
 								</div>
 						
@@ -175,12 +175,9 @@
 								<div class="form-group">
 									<label for="inputAddress" class="col-sm-2 control-label">Address</label>
 									<div class="col-sm-10">
-										<button type="button" class="btn btn-default"
-											style="width: 100%" id="address" name="address">
-											<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-										</button>
+										
 										<input type="text" class="form-control" id="address1"
-											name="address1" disabled="disabled"> <input
+											name="address1" disabled="disabled" value="서울특별시 강남구 논현동"> <input
 											type="text" class="form-control" id="address2"
 											name="address2" placeholder="Detail Address" disabled="disabled">
 									</div>
@@ -189,10 +186,10 @@
 									<label for="inputTel" class="col-sm-2 control-label">Tel</label>
 									<div class="col-sm-10">
 										<div class="controls controls-row">
-											<input style="width: 30%;" type="text" id="tel1" name="tel1">
+											<input style="width: 30%;" type="text" id="tel1" name="tel1" value="050">
 											- <input style="width: 30%;" type="text" id="tel2"
-												name="tel2"> - <input style="width: 30%;"
-												type="text" id="tel3" name="tel3">
+												name="tel2" value="6381"> - <input style="width: 30%;"
+												type="text" id="tel3" name="tel3" value="0489">
 										</div>
 									</div>
 								</div>
@@ -200,7 +197,7 @@
 									<label for="inputId" class="col-sm-2 control-label">hours</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="hours" name="hours"
-											placeholder="hours">
+											placeholder="hours" value="12:00~익일02:30">
 									</div>
 								</div>
 								
@@ -208,8 +205,8 @@
 									<label for="inputId" class="col-sm-2 control-label">info</label>
 									<div class="col-sm-10">
 									
-										<textarea style="resize: none;" rows="5" class="form-control" id="info" name="info"
-											placeholder="info"></textarea>											
+										<textarea style="resize: none;" rows="10" class="form-control" id="info" name="info"
+											placeholder="info" >마지막 주문은 새벽1시40분 까지만 받습니다.</textarea>											
 									</div>
 									
 								</div>
