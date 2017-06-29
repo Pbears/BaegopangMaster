@@ -38,7 +38,7 @@
 		<div class="row">
 			<!-- <div class="col-sm-1" ></div> -->
 			<!-- 첫칸 -->
-			<div class="col-sm-5" style="background-color: white; border-radius: 30px; border: 1px solid;">
+			<div class="col-sm-5" style="background-color: white; border-radius: 30px; border: 1px solid #ccc">
 				<h1 align="center">배고팡 프로필</h1>
 				<br>
 				<br> <img src="/BaegopangMaster/img/noimg.jpg"
@@ -139,7 +139,7 @@
 			<!--  -->
 			<div class="col-sm-2" ></div>
 			<!-- 두번째칸 -->
-			<div class="col-sm-5" style="background-color: white;border-radius: 30px; border: 1px solid;">
+			<div class="col-sm-5" style="background-color: white;border-radius: 30px; border: 1px solid #ccc;">
 				<h1 align="center">점포 정보</h1>
 				<br>
 				<br> <img src="/BaegopangMaster/img/103.jpg"
