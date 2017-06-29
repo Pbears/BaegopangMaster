@@ -11,10 +11,9 @@
 	font-family: 'Hanna', serif;
 }
 #data_table > h6{
-	display: none;
 	float: right;
 	margin-top: 45px;
-	color: #a0a0a0;
+	color: dimgray;
 	font-size: 13px;
 	font-family: 'Hanna', serif;
 }

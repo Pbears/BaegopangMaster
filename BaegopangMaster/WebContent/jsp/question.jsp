@@ -5,14 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- 
-
-		이거 뭔 링크냐 필요없으면 지워 
-		
--->
 <link href="/BaegopangMaster/css/question.css" rel="stylesheet" />
-<link rel="stylesheet" href="/BaegopangMaster/css/bootstrap.css">
-<link rel="shortcut icon" href="../favicon.ico">
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 <script type="text/javascript" src="js/modernizr.custom.29473.js"></script>
 </head>
@@ -21,7 +14,7 @@
 	<div class="mid_src">
 		<div id="data_table">
 			<h1>1대1 문의</h1>
-			<h6>상담 글 쓰기</h6>
+			<h6>글 쓰기</h6>
 			<form action="" method="post" name="listFrm">
 				<table class="bbsList" style="border-collapse: collapse;"
 					border="1px solid black">

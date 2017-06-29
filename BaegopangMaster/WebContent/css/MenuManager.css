@@ -1,9 +1,8 @@
 @CHARSET "EUC-KR";
-@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
 body {
 	margin:0;
 	background: #f1f0ef;
-	padding-top: 0;
 }
 #logo{
 	float: left;
@@ -17,7 +16,7 @@ body {
 	background:#ff8c00;
 	height:80px;
 	text-align: right;
-	margin-bottom: 80px;
+	margin-bottom: 60px;
 	padding-right: 9%;
 }
 
@@ -25,82 +24,20 @@ body {
 	display: inline-block;
 	margin:0 25px;
 }
-#searchContainer > a{
+/* a{
 	text-decoration: none;
 	padding: 25px;
 	color: aliceblue;
-	font-weight: bold;
 	font-size: 20px;
-}
+} */
 #navy{
 	margin-right: 170px;
 }
 
-.mid_contents{
-	display: -webkit-inline-box;
-}
-
-/* input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-} */
-
-input[type=submit] {
-    width: 100%;
-    background-color: darkgray;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background: lightslategrey;
-    text-decoration: underline;
-}
-
-.mid_contents {
-    border-radius: 5px;
-    padding: 0;
-    width: 28%;
-    margin-bottom: 20px;
-    margin-left: 11%;
-}
-
-.bot_contents{
-	margin-left: 11%;
-	width: 80%;
-	background: #f1f0ef;
-	display: -webkit-box;
-	margin-bottom: 40px;
-}
-#notice,#point,#service{
-	border: 1px solid;
-	width: 29%;
-	height: 250px;
-	margin-right: 100px;
-	border: 1px solid #ccc;
-	background: white;
-}
-#wpoint {
-	height: 70px;
-}
-#wpoint p, #mpoint p{
-	color: #646464;
-	padding: 0 40px;
-	font-size: 20px;
-}
 .dropbtn1, .dropbtn2, .dropbtn3, .dropbtn4, .dropbtn5 {
     background-color: #ff8c00;
     color: white;
-    padding: 20px 20px;
+    padding: 25px 20px;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -109,13 +46,9 @@ input[type=submit]:hover {
     font-weight: bold;
     font-family: sans-serif;
 }
-.mid_contents > .container{ width: 900px; margin-right: 160px;}
 .dropdown1, .dropdown2 {
     position: relative;
     display: inline-block;
-}
-.dropdown1{
-	margin-left: 250px
 }
 .dropdown3, .dropdown4, .dropdown5 {
     position: relative;
@@ -144,7 +77,7 @@ input[type=submit]:hover {
     display: block;
     font-size: 20px;
     text-decoration: none;
-    font-family: 'Hanna', serif;
+    font-family: sans-serif;
 }
 .dropdown-content3 a, .dropdown-content4 a, .dropdown-content5 a{
     color: black;
@@ -152,7 +85,7 @@ input[type=submit]:hover {
     display: block;
     font-size: 20px;
     text-decoration: none;
-    font-family: 'Hanna', serif;
+    font-family: sans-serif;
 }
 
 .dropdown-content1 a:hover {background-color: #f1f1f1;  text-decoration: underline;}
@@ -174,31 +107,151 @@ input[type=submit]:hover {
 .dropdown3:hover .dropbtn3, .dropdown4:hover .dropbtn4, .dropdown5:hover .dropbtn5 {
     background-color: #FFB559;
 }
-.carousel-inner {
-	height: 320px;
-	margin-top: 20px;
-}
-
-.bot_contents p{
+/* 
+p{
 	margin: 0 0 10px;
-	padding: 20px 30px;
+	padding: 30px;
 	font-size: 25px;
 	font-weight: bold;
-}
-.noti_title p{
-	padding: 20px;
-}
+} */
 
-#service > img{
-	width: 80%;
-	margin-left: 50px;
-	height: 110px;
+.mid_MenuContents{
+	margin: auto;
+	width: 1600px;
+	border-radius: 5px; 
+}
+#insertMenu{
+	margin-top: 30px;
+	display: none; 	
+	padding: 50px;
+	background: white;
+	border: 1px solid #d2d2d2;
+	border-radius: 30px;  
+	padding: 30px;
 	
 }
-#notice_list{
-	margin-left: 50px;
+#insertMenu > input{
+	display: block;
+	margin: 10px;
 }
-#notice_list > ui > li{
-	padding: 10px;	
-	font-size: 15px;
+#f_contents{
+	display: inline-block;
+	overflow: auto;
+	height: 450px;
+	padding: 30px;
+	background: white;
+	width: 46%;
+	border: 1px solid #d2d2d2;
+}
+#f_contents > img{
+	margin: 0 20px 20px 0;
+	border-radius: 20px; 
+	height: 200px;
+}
+
+.mid_MenuContents > p{
+	font-size: 30px;
+	text-align: right;
+	padding: 10px;
+	margin-right: 35px;
+	color: #646464;
+}
+#menu img {
+	width: 350px;
+}
+#Menu2 {
+	margin-left: 30px;
+	text-align: left;
+}
+#Menu2 > input{
+	margin-bottom: 20px;
+}
+
+.form-group{
+	margin-bottom: 20px;
+	
+}
+.form-group > input{
+	height: 30px;
+	font-size: 20px;	
+	width: 260px;
+}
+table{
+	margin: auto;
+}
+.selMarket{
+	float: right;
+	width: 48%;
+	display: inline-block;
+	background: white;
+	border: 1px solid #d2d2d2;
+	border-radius: 20px; 
+}
+#menupan p{
+	font-family: 'Hanna', serif;
+	text-align: center;
+	font-size: 50px;
+	padding: 30px;
+}
+#s_contents{
+	overflow: auto;
+	height: 810px;
+	padding: 30px;
+}
+#s_contents img{
+	margin: 0 20px 20px 0;
+	border-radius: 20px;
+	height: 200px;
+	width: 300px;
+}
+#insertMenu{
+	/* display: none; */
+	display: inline-block;
+	width: 736px;
+	margin-left: 5%;
+}
+#insertMenu #insertTop p{
+	margin: 0;
+	padding: 0;
+	font-size: 40px;
+	display: inline-block;	
+	font-family: 'Hanna', serif;
+}
+#insertTop {
+	margin-bottom: 10px;
+}
+#insertTop img{
+	width: 35px;
+	float: right;
+	padding-top: 10px;
+}
+#btn{
+	text-align: center;
+	margin-top: 20px;
+}
+.insertBtn{
+	color: #fff;
+	background: #f0ad4e;
+	border-color: #eea236;
+	width: 150px;
+	height: 30px;
+	border: 2px solid;
+	border-radius: 10px;
+}
+textarea{
+	width: 260px;
+	font-size: 20px;
+
+}
+.form-control{
+		height: 50px;
+}
+
+#s_contents #infobtn{
+	position: absolute;
+	width: 150px;
+	height: 50px;
+	margin-top: 150px;
+	display: none;
+	opacity: 1.0;
 }
