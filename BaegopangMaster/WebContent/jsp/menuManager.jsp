@@ -39,18 +39,18 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="mid_MenuContents">
 		<div id="f_contents">
-			<img src="../img/chiken.jpg" width=300;
+			<img src="../img/noimage.jpg" width=300;
 				onclick="insertProc()" onmouseover="imgOver(this)"
 				onmouseout="imgOut(this)"> <img
-				src="../img/dosirock.jpg" width=300;
+				src="../img/noimage.jpg" width=300;
 				onclick="insertProc()" onmouseover="imgOver(this)"
 				onmouseout="imgOut(this)"> <img
-				src="../img/jja.jpg" width=300; onclick="insertProc()"
+				src="../img/noimage.jpg" width=300; onclick="insertProc()"
 				onmouseover="imgOver(this)" onmouseout="imgOut(this)"> <img
-				src="../img/jjam.jpg" width=300;
+				src="../img/noimage.jpg" width=300;
 				onclick="insertProc()" onmouseover="imgOver(this)"
 				onmouseout="imgOut(this)"> <img
-				src="../img/pizza.jpg" width=300;
+				src="../img/noimage.jpg" width=300;
 				onclick="insertProc()" onmouseover="imgOver(this)"
 				onmouseout="imgOut(this)">
 
@@ -64,11 +64,11 @@
 			</div>
 			<div id="s_contents">
 				<input type="button" value="상세" id="infobtn"> <img
-					src="../img/jja.jpg" onmouseover="btnOver(this)"
+					src="../img/noimage.jpg" onmouseover="btnOver(this)"
 					onmouseout="btnOut(this)";> <img
-					src="../img/tang.jpg" onmouseover="btnOver(this)"
+					src="../img/noimage.jpg" onmouseover="btnOver(this)"
 					onmouseout="btnOut(this)";> <img
-					src="../img/jjam.jpg" onmouseover="btnOver(this)"
+					src="../img/noimage.jpg" onmouseover="btnOver(this)"
 					onmouseout="btnOut(this)";>
 			</div>
 		</div>
@@ -76,13 +76,12 @@
 	<div id="insertMenu">
 		<div id="insertTop">
 			<p>메뉴 추가</p>
-			<img src="../img/close.png" onclick="closeSrc()">
 		</div>
 		<table>
 			<tr>
 				<td>
 					<div id="menu">
-						<img src="../img/chiken.jpg" width=300;>
+						<img src="../img/noimage.jpg" width=300;>
 					</div> `
 				</td>
 				<td style="text-align: right;">
