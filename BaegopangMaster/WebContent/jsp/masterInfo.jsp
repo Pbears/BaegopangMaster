@@ -15,6 +15,7 @@
 	height: 60%;
 }
 
+
 .inner{
  	width: 95; 
 	text-align: center;
