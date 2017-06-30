@@ -3,7 +3,7 @@
 <link href="/BaegopangMaster/css/bootstrap.min.css" rel="stylesheet">
 <link href="/BaegopangMaster/css/Main.css" rel="stylesheet" />
 <style>
- html {
+html {
 	margin: 50px;
 }
 
@@ -39,7 +39,6 @@ header {
 	margin: auto;
 }
 
-
 .searchContainer {
 	margin: o auto;
 }
@@ -56,7 +55,8 @@ button#loginBtn.btn btn-default btn-lg {
 <header>
 	<div id="headerContainer">
 		<div id="mainTitle" align="center">
-			<a href="main.jsp"> <img src="/BaegopangMaster/img/beagopangTitle.png">
+			<a href="main.jsp"> <img
+				src="/BaegopangMaster/img/beagopangTitle.png">
 			</a>
 		</div>
 		<div id="searchContainer">
@@ -66,7 +66,8 @@ button#loginBtn.btn btn-default btn-lg {
 						<div class="dropdown1">
 							<button class="dropbtn1">내 음식점</button>
 							<div class="dropdown-content1">
-								<a href="menuManager.jsp">메뉴 관리</a><a href="masterOrder.jsp">주 문</a>
+								<a href="menuManager.jsp">메뉴 관리</a><a href="masterOrder.jsp">주
+									문</a>
 							</div>
 						</div>
 
@@ -83,9 +84,7 @@ button#loginBtn.btn btn-default btn-lg {
 					<td>
 						<div class="dropdown3">
 							<button class="dropbtn3">포인트</button>
-							<div class="dropdown-content3">
-	
-							</div>
+							<div class="dropdown-content3"></div>
 						</div>
 					</td>
 					<td>
@@ -104,11 +103,6 @@ button#loginBtn.btn btn-default btn-lg {
 							</div>
 						</div>
 
-					</td>
-					<td>
-						<button type="button" class="btn btn-default " id="loginBtn">
-							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-						</button>
 					</td>
 				</tr>
 			</table>

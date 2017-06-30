@@ -114,9 +114,7 @@ input[type=submit]:hover {
     position: relative;
     display: inline-block;
 }
-.dropdown1{
-	margin-left: 250px
-}
+
 .dropdown3, .dropdown4, .dropdown5 {
     position: relative;
     display: inline-block;

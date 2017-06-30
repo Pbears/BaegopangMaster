@@ -67,136 +67,144 @@
 		   list = BrandDao.searchBrand(map);
 		} */
 	%>
-	
-	  <jsp:include page="header.jsp" />  
 
-	<div class="container">
-
-		<h1>주문 내역</h1>
-
-		<p>사장님께 알려드리는 주문내역입니다. 꼭확인해주세요~</p>
-		<br>    
-		<br>    
-		<br>
+	<jsp:include page="header.jsp" />
 
 
-		<!-- 검색바 -->
-		<div id="searchContainer">
-			<table align="center">
-				<tr>
-					<td><input type="button" id="locationBtn" value="location"
-						class="btn btn-default"></td>
-					<td><input type="text" id="searchWindow" class="form-control"
-						placeholder="Search"></td>
-					<td><input type="button" id="searchBtn" value="Refresh"
-						class="btn btn-default"></td>
-					<td><input type="button" id="searchBtn" value="Search"
-						class="btn btn-default"></td>
-				</tr>
-			</table>
-		</div>
-		<!--  -->
 
-		<table class="table table-condensed">
-			<thead>
-				<tr>
-					<th>주문번호</th>
-					<th>주문시간</th>
-					<th>이름</th>
-					<th>전화번호</th>
-					<th>주소</th>
-					<th>요청</th>
-					<th>상태</th>
-					<th></th>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
 
-				</tr>
-			</thead>
-			<tbody>
+				<h1>주문 내역</h1>
 
-				<!-- 한블럭 -->
-
-				<%
-					for (int i = 0; i < list.size(); i++) {
-						OrderBean bean = list.get(i);
-				%>
-
-				<tr>
-
-					<td><a class="panel-title" data-toggle="collapse"
-						href="#collapse<%=i%>"><%=bean.getOrdernumber()%></a></td>
-
-					<td><a class="panel-title" data-toggle="collapse"
-						href="#collapse<%=i%>"><%=bean.getOrdertime()%></a></td>
-
-					<td><a class="panel-title" data-toggle="collapse"
-						href="#collapse<%=i%>"><%=bean.getMembername()%></a></td>
-
-					<td><a class="panel-title" data-toggle="collapse"
-						href="#collapse<%=i%>"><%=bean.getMembertel()%></a></td>
-
-					<td><a class="panel-title" data-toggle="collapse"
-						href="#collapse<%=i%>"><%=bean.getMemberaddress()%></a></td>
-
-					<td><a class="panel-title" data-toggle="collapse"
-						href="#collapse<%=i%>"><%=bean.getOrderinfo()%></a></td>
-
-					<td><a class="panel-title" data-toggle="collapse"
-						href="#collapse<%=i%>"><%=bean.getState()%></a></td>
-
-					<td><button type="button" class="btn btn-primary active">승인</button></td>
-				</tr>
-				
-				<tr>
-					<td colspan="7">
-						<div id="collapse<%=i%>" class="panel-collapse collapse">
-							<ul class="list-group">
-								<li class="list-group-item">메뉴 : <%=bean.getMenuname()%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									수량 : <%=bean.getAmount()%></li>
-							</ul>
-						</div>
-					</td>
-					<td></td>
-				</tr>
-
-				<%
-					}
-				%>
-
-			</tbody>
-		</table>
-	</div>
+				<p>사장님께 알려드리는 주문내역입니다. 꼭확인해주세요~</p>
+				<br> <br> <br>
 
 
-	<!-- 페이지이동페이징 -->
-	<div class="paging" style="text-align: center;">
-		<ul class="pagination">
-			<ul class="pager">
-				<li><a href="/Baegoapng/jsp/masterOrder.jsp?page=1" aria-label="Previous">
-						<span aria-hidden="true">&laquo;</span>
-				</a></li>
-				<li>
-				<li>
-					<%
-						if (currentBlock > 1) {
-							if (currentPage != startPage) {
-					%> <a
-					href="/Baegoapng/jsp/masterOrder.jsp?page=<%=startPage - 1%>&query=<%=query%>&data=<%=data%>">
-						Previous </a> <%
+				<!-- 검색바 -->
+
+
+				<div id="searchContainer">
+					<table align="center">
+						<tr>
+							<td><input type="button" id="locationBtn" value="location"
+								class="btn btn-default"></td>
+							<td><input type="text" id="searchWindow"
+								class="form-control" placeholder="Search"></td>
+							<td><input type="button" id="searchBtn" value="Refresh"
+								class="btn btn-default"></td>
+							<td><input type="button" id="searchBtn" value="Search"
+								class="btn btn-default"></td>
+						</tr>
+					</table>
+				</div>
+				<!--  -->
+
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>주문번호</th>
+							<th>주문시간</th>
+							<th>이름</th>
+							<th>전화번호</th>
+							<th>주소</th>
+							<th>요청</th>
+							<th>상태</th>
+							<th></th>
+
+						</tr>
+					</thead>
+					<tbody>
+
+						<!-- 한블럭 -->
+
+						<%
+							for (int i = 0; i < list.size(); i++) {
+								OrderBean bean = list.get(i);
+						%>
+
+						<tr>
+
+							<td><a class="panel-title" data-toggle="collapse"
+								href="#collapse<%=i%>"><%=bean.getOrdernumber()%></a></td>
+
+							<td><a class="panel-title" data-toggle="collapse"
+								href="#collapse<%=i%>"><%=bean.getOrdertime()%></a></td>
+
+							<td><a class="panel-title" data-toggle="collapse"
+								href="#collapse<%=i%>"><%=bean.getMembername()%></a></td>
+
+							<td><a class="panel-title" data-toggle="collapse"
+								href="#collapse<%=i%>"><%=bean.getMembertel()%></a></td>
+
+							<td><a class="panel-title" data-toggle="collapse"
+								href="#collapse<%=i%>"><%=bean.getMemberaddress()%></a></td>
+
+							<td><a class="panel-title" data-toggle="collapse"
+								href="#collapse<%=i%>"><%=bean.getOrderinfo()%></a></td>
+
+							<td><a class="panel-title" data-toggle="collapse"
+								href="#collapse<%=i%>"><%=bean.getState()%></a></td>
+
+							<td><a href="#" class="btn btn-primary btn-success"><span
+									class="glyphicon glyphicon-ok"></span> 승인</a> <a href="#"
+								class="btn btn-primary btn-danger"><span
+									class="glyphicon glyphicon-remove"></span> 거절</a></td>
+						</tr>
+
+						<tr>
+							<td colspan="7">
+								<div id="collapse<%=i%>" class="panel-collapse collapse">
+									<ul class="list-group">
+										<li class="list-group-item">메뉴 : <%=bean.getMenuname()%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											수량 : <%=bean.getAmount()%></li>
+									</ul>
+								</div>
+							</td>
+							<td></td>
+						</tr>
+
+						<%
+							}
+						%>
+
+					</tbody>
+				</table>
+
+
+
+				<!-- 페이지이동페이징 -->
+				<div class="paging" style="text-align: center;">
+					<ul class="pagination">
+						<ul class="pager">
+							<li><a href="/Baegoapng/jsp/masterOrder.jsp?page=1"
+								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+							</a></li>
+							<li>
+							<li>
+								<%
+									if (currentBlock > 1) {
+										if (currentPage != startPage) {
+								%> <a
+								href="/Baegoapng/jsp/masterOrder.jsp?page=<%=startPage - 1%>&query=<%=query%>&data=<%=data%>">
+									Previous </a> <%
  	} else {
  %> <a href="#">Previous</a> <%
  	}
  	} else {
  		if (currentPage != startPage) {
  %> <a
-					href="/Baegoapng/jsp/masterOrder.jsp?page=<%=currentPage - 1%>&query=<%=query%>&data=<%=data%>">
-						Previous </a> <%
+								href="/Baegoapng/jsp/masterOrder.jsp?page=<%=currentPage - 1%>&query=<%=query%>&data=<%=data%>">
+									Previous </a> <%
  	} else {
  %> <a href="#">Previous</a> <%
  	}
  	}
  %>
-				</li>
-				<span> <%
+							</li>
+							<span> <%
  	if (data != null) {
  		data = URLEncoder.encode(request.getParameter("data"), "UTF-8");
  	}
@@ -204,45 +212,60 @@
  	for (int i = startPage; i <= endPage; i++) {
  		if (i == currentPage) {
  %>
-					<li><a href="#"><strong><%=i%></strong></a></li> <%
+								<li><a href="#"><strong><%=i%></strong></a></li> <%
  	} else {
  %>
-					<li><a
-						href="/Baegoapng/jsp/masterOrder.jsp?page=<%=i%>&query=<%=query%>&data=<%=data%>">
-							<%=i%>
-					</a></li> <%
+								<li><a
+									href="/Baegoapng/jsp/masterOrder.jsp?page=<%=i%>&query=<%=query%>&data=<%=data%>">
+										<%=i%>
+								</a></li> <%
  	}
  	}
  %>
-				</span>
-				<li>
-					<%
-						if (totalPage > endPage) {
-							if (currentPage != endPage) {
-					%> <a
-					href="/Baegoapng/jsp/masterOrder.jsp?page=<%=currentPage + 1%>&query=<%=query%>&data=<%=data%>">
-						Next </a> <%
+							</span>
+							<li>
+								<%
+									if (totalPage > endPage) {
+										if (currentPage != endPage) {
+								%> <a
+								href="/Baegoapng/jsp/masterOrder.jsp?page=<%=currentPage + 1%>&query=<%=query%>&data=<%=data%>">
+									Next </a> <%
  	} else {
  %> <a href="#">Next</a> <%
  	}
  	} else {
  		if (currentPage != endPage) {
  %> <a
-					href="/Baegoapng/jsp/masterOrder.jsp?page=<%=currentPage + 1%>&query=<%=query%>&data=<%=data%>">
-						Next </a> <%
+								href="/Baegoapng/jsp/masterOrder.jsp?page=<%=currentPage + 1%>&query=<%=query%>&data=<%=data%>">
+									Next </a> <%
  	} else {
  %> <a href="#">Next</a> <%
  	}
  	}
  %>
-				</li>
+							</li>
 
-				<li><a
-					href="/Baegoapng/jsp/masterOrder.jsp?page=<%=totalPage%>&query=<%=query%>&data=<%=data%>"
-					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-				</a></li>
-			</ul>
+							<li><a
+								href="/Baegoapng/jsp/masterOrder.jsp?page=<%=totalPage%>&query=<%=query%>&data=<%=data%>"
+								aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+							</a></li>
+						</ul>
+				</div>
+
+
+
+
+
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
 	</div>
+
+
+
+
+
+
 
 
 
@@ -252,5 +275,6 @@
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 <script src="//code.jquery.com/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 </html>
