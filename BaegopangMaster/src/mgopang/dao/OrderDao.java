@@ -3,6 +3,7 @@ package mgopang.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import mgopang.bean.OrderBean;
@@ -23,6 +24,18 @@ public class OrderDao {
      }
 	public List<OrderBean>selectOrder(HashMap<String, Object>map){
 		return sqlSessionFactory.openSession().selectList("selectOrder",map);
+	}
+	public void updateOrder(HashMap<String, Object>map){
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.update("updateOrder",map);
+			session.commit();
+		} catch (Exception e) {
+			session.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
 	}
 
 }
