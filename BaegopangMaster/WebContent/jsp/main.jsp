@@ -1,3 +1,5 @@
+<%@page import="mgopang.bean.MasterBean"%>
+<%@page import="mgopang.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,6 +24,11 @@
 </script>
 </head>
 <body>
+<%
+	String id = (String)session.getAttribute("id");
+	MemberDao dao = new MemberDao();
+	MasterBean bean = dao.selectMasterOne(id);
+%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="mid_contents">
 		<div class="container">
@@ -67,9 +74,9 @@
 		<div class="info_user">
 				<img src="../img/noimage.jpg" />
 			<div class="myinfo">
-				<p>이름</p>
-				<p>지점</p>
-				<p>포인트</p>
+				<p>이름 : <%=bean.getName() %></p>
+				<p>지점 : <%=bean.getStorename() %></p>
+				<p>포인트 : <%=bean.getPoint() %></p>
 				<p>댓글 확인</p>
 			</div>
 		</div>

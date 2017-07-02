@@ -16,9 +16,7 @@ public class OrderDao {
 		sqlSessionFactory=SqlSessionFactoryManager.getSqlSessionFactory();
 		
 	}
-	
 	public int getTotalRow(HashMap<String, Object>map) throws Exception{
-		
 		return sqlSessionFactory.openSession().selectOne("getTotalRow",map);
      }
 	public List<OrderBean>selectOrder(HashMap<String, Object>map){

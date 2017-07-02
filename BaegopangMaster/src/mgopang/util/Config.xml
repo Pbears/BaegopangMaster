@@ -19,6 +19,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <!-- DB연동 -->
     <typeAliases>
     	 <typeAlias type="mgopang.bean.OrderBean" alias="order"/> 
+    	 <typeAlias type="mgopang.bean.ZipcodeBean" alias="zipcode"/>
+    	 <typeAlias type="mgopang.bean.MasterBean" alias="master"/>
     </typeAliases>
     <environments default="development">
       <environment id="development">
@@ -58,7 +60,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     </environments>
     <mappers>
       <mapper resource="mgopang/xml/order.xml"/>
-
+	<mapper resource="mgopang/xml/member.xml"/>
+	<mapper resource="mgopang/xml/zipcode.xml"/>
     </mappers>
 </configuration>
 
