@@ -20,6 +20,7 @@ public class OrderDao {
 		
 	}
 	
+	
 	public int getTotalRow(HashMap<String, Object>map) throws Exception{
 		System.out.println(map.get("Q"));
 		System.out.println(map.get("D"));

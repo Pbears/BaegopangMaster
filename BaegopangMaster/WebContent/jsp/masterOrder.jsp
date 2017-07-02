@@ -20,6 +20,7 @@
 </style>
 <script >
 
+
 function sendCheck() {
     var obj = document.ast; //form까지의 주소
     if (obj.query.value == 'empty' || !obj.data.value) {

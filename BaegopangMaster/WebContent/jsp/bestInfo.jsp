@@ -18,6 +18,7 @@
       google.charts.setOnLoadCallback(drawChart3);
       google.charts.setOnLoadCallback(drawChart4);
       
+      
       function drawChart1() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],

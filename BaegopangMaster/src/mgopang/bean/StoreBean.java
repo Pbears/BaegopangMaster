@@ -10,6 +10,7 @@ public class StoreBean {
 	private String tel;
 	private int minprice;
 	private String info;
+	
 	public String getStorename() {
 		return storename;
 	}

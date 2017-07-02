@@ -20,6 +20,7 @@
 }
 
 
+
 .inner{
  	width: 95; 
 	text-align: center;

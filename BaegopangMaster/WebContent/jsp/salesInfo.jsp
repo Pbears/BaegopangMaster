@@ -19,6 +19,7 @@
 	google.charts.setOnLoadCallback(drawChart1);
 	google.charts.setOnLoadCallback(drawChart2);
 
+	
 	function drawChart1() {
 		var data = google.visualization.arrayToDataTable([
 				[ 'Year', 'Sales', 'Expenses' ], [ '2004', 1000, 400 ],
