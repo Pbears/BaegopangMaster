@@ -8,81 +8,87 @@
 <link rel="stylesheet" href="/BaegopangMaster/css/bootstrap.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
 <title>Insert title here</title>
 </head>
-<script>
-	$(function() {
-		var chart1 = Highcharts.chart('container', {
-			chart : {
-				type : 'line'
-			},
-			title : {
-				text : '월별 매출'
-			},
-
-			xAxis : {
-				categories : [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
-						'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
-			},
-			yAxis : {
-				title : {
-					text : '매출액'
-				}
-			},
-			plotOptions : {
-				line : {
-					dataLabels : {
-						enabled : true
-					},
-					enableMouseTracking : false
-				}
-			},
-			series : [
-					{
-						name : 'Tokyo',
-						data : [ 7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5,
-								23.3, 18.3, 13.9, 9.6 ]
-					},
-					{
-						name : 'London',
-						data : [ 3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6,
-								14.2, 10.3, 6.6, 4.8 ]
-					} ]
-		});
+<script type="text/javascript">
+	google.charts.load('current', {
+		'packages' : [ 'corechart' ]
 	});
+	google.charts.setOnLoadCallback(drawChart1);
+	google.charts.setOnLoadCallback(drawChart2);
+
+	
+	function drawChart1() {
+		var data = google.visualization.arrayToDataTable([
+				[ 'Year', 'Sales', 'Expenses' ], [ '2004', 1000, 400 ],
+				[ '2005', 1170, 460 ], [ '2006', 660, 1120 ],
+				[ '2007', 1030, 540 ] ]);
+
+		var options = {
+			title : '월 매출',
+			curveType : 'function',
+			legend : {
+				position : 'bottom'
+			}
+		};
+
+		var chart = new google.visualization.LineChart(document
+				.getElementById('curve_chart1'));
+
+		chart.draw(data, options);
+	}
+
+	function drawChart2() {
+		var data = google.visualization.arrayToDataTable([
+				[ 'Year', 'Sales', 'Expenses' ], [ '2004', 1000, 400 ],
+				[ '2005', 1170, 460 ], [ '2006', 660, 1120 ],
+				[ '2007', 1030, 540 ] ]);
+
+		var options = {
+			title : '일 매출',
+			curveType : 'function',
+			legend : {
+				position : 'bottom'
+			}
+		};
+
+		var chart = new google.visualization.LineChart(document
+				.getElementById('curve_chart2'));
+
+		chart.draw(data, options);
+	}
 </script>
-<body>
+<body style="background-color: white;">
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-1" style="background-color: lavender;">.col-sm-4</div>
+			<div class="col-sm-12" style="height: 100px;"></div>
+			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
 
 
 				<!--내부  -->
 
-				<div class="container-fluid">
+				<div class="container-fluid" align="center">
 					<div class="row">
-					<!-- 탭 -->
-						<div class="col-sm-12" >
-							<div class="container" align="center">
-								<h1>매출</h1>
-								<ul class="nav nav-tabs">
-									<li class="active"><a href="#">월매출</a></li>
-									<li><a href="#">Menu 1</a></li>
-									<li><a href="#">Menu 2</a></li>
-									<li><a href="#">Menu 3</a></li>
-								</ul>
-								<br>
-
+						<!-- 차트1-->
+						<div class="col-sm-12">
+							<div
+								style="width: 950px; height: 550px; background-color: white; border-radius: 30px; border: 1px solid #ccc;">
+								<div id="curve_chart1" style="width: 900px; height: 500px"></div>
 							</div>
 						</div>
+						<div class="col-sm-12" style="height: 100px;"></div>
 
-						<!--차트  -->
+						<!--차트2 -->
 						<div class="col-sm-12">
-							<div id="container"
-								style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+							<div
+								style="width: 950px; height: 550px; background-color: white; border-radius: 30px; border: 1px solid #ccc;">
+								<div id="curve_chart2" style="width: 900px; height: 500px"></div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -92,9 +98,9 @@
 
 
 			</div>
-			<div class="col-sm-1" style="background-color: lavender;">.col-sm-4</div>
+			<div class="col-sm-1"></div>
 		</div>
-		<div class="col-sm-12" style="background-color: lavender;">.col-sm-4</div>
+		<div class="col-sm-12" style="height: 100px;"></div>
 	</div>
 
 

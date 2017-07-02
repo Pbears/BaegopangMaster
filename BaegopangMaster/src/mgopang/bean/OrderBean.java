@@ -19,7 +19,6 @@ public class OrderBean {
 	
 	
 	
-	
 	public String getOrdernumber() {
 		return ordernumber;
 	}

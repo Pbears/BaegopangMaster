@@ -18,8 +18,27 @@
 	padding: initial;
 }
 </style>
+<script >
+
+
+function sendCheck() {
+    var obj = document.ast; //form까지의 주소
+    if (obj.query.value == 'empty' || !obj.data.value) {
+       alert('Not Search!');
+       obj.query.selectedIndex = 0;
+
+       obj.data.value = '';
+       obj.data.focus();
+    } else {
+       obj.submit();
+    }
+ }
+
+
+
+</script>
 </head>
-<body>
+<body style="background-color: white;">
 	<%
 		request.setCharacterEncoding("UTF-8");
 		List<OrderBean> list = null;
@@ -30,13 +49,12 @@
 
 		map.put("storename", "교촌치킨-논현1호점");
 
-		int totalRow = dao.getTotalRow(map);
 
 		int pageScale = 10;
 		map.put("Q", query);
 		map.put("D", data);
-
 		int currentPage = 0;
+		int totalRow = dao.getTotalRow(map);
 		try {
 			currentPage = Integer.parseInt(request.getParameter("page"));
 		} catch (Exception e) {
@@ -57,15 +75,15 @@
 		map.put("start", start);
 		map.put("end", end);
 
-		list = dao.selectOrder(map);
+	
 
-		/* if (query != null && data != null) {
+		 if (query != null && data != null) {
 		   map.put("query", query);
 		   map.put("data", data);
-		   list = BrandDao.searchBrand(map);
+		   list = dao.selectOrder(map);
 		} else {
-		   list = BrandDao.searchBrand(map);
-		} */
+			list = dao.selectOrder(map);
+		} 
 	%>
 
 	<jsp:include page="header.jsp" />
@@ -74,6 +92,7 @@
 
 
 	<div class="container-fluid">
+	<div class="col-sm-12" style="height:100px;"></div>
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
@@ -87,23 +106,48 @@
 				<!-- 검색바 -->
 
 
-				<div id="searchContainer">
-					<table align="center">
-						<tr>
-							<td><input type="button" id="locationBtn" value="location"
-								class="btn btn-default"></td>
-							<td><input type="text" id="searchWindow"
-								class="form-control" placeholder="Search"></td>
-							<td><input type="button" id="searchBtn" value="Refresh"
-								class="btn btn-default"></td>
-							<td><input type="button" id="searchBtn" value="Search"
-								class="btn btn-default"></td>
-						</tr>
-					</table>
-				</div>
+				 <div id="searcher" class="row">
+      <div class="input-group">
+
+         <form action="masterOrder.jsp" name="ast" method="post">
+            <table class="bbsWrite mgb35" align="center">
+               <colgroup>
+                  <col width="30" />
+                  <col width="400" />
+                  <col width="50" />
+               </colgroup>
+               <tbody>
+                  <tr>
+                     <td height="50"><select name="query" size="1"
+                        style="height: 34px;">
+                           <option value="empty" selected="selected">선택하세요</option>
+                           <option value="ordernumber">주문번호</option>
+                           <option value="membername">이름</option>
+                           <option value="membertel">전호번호</option>
+                     </select></td>
+                     <td><input type="text" class="form-control"
+                        placeholder="Search for..." name="data"></td>
+                     <td><span class="input-group-btn">
+                           <button class="btn btn-default" type="button">
+                              <a href="javascript:sendCheck()"> Search</a>
+                           </button>
+                     </span></td>
+                     <div style="postion: relative; left: 100px;">
+                        <td><a href="masterOrder.jsp?page=1"><button
+                                            type="button" class="btn btn-default">새로고침</button></a></td>
+                        <td>   
+                        
+                     </div>
+                  </tr>
+               </tbody>
+            </table>
+         </form>
+      </div>
+      <!-- /input-group -->
+   </div>
 				<!--  -->
 
-				<table class="table table-condensed">
+				<table class="table table-condensed"  >
 					<thead>
 						<tr>
 							<th>주문번호</th>
@@ -149,17 +193,39 @@
 							<td><a class="panel-title" data-toggle="collapse"
 								href="#collapse<%=i%>"><%=bean.getState()%></a></td>
 
-							<td><a href="#" class="btn btn-primary btn-success"><span
+							<%
+								if (bean.getState().equals("승인대기")) {
+							%>
+							<td align="center"><a
+								href="/BaegopangMaster/jsp/update/orderUpdate.jsp?state=<%=bean.getState()%>&ordernumber=<%=bean.getOrdernumber()%>"
+								class="btn btn-primary btn-success"><span
 									class="glyphicon glyphicon-ok"></span> 승인</a> <a href="#"
 								class="btn btn-primary btn-danger"><span
 									class="glyphicon glyphicon-remove"></span> 거절</a></td>
+							<%
+								} else if (bean.getState().equals("조리중")) {
+							%>
+							<td align="center"><a
+								href="/BaegopangMaster/jsp/update/orderUpdate.jsp?state=<%=bean.getState()%>&ordernumber=<%=bean.getOrdernumber()%>"
+								class="btn btn-block btn-primary"><span
+									class="glyphicon glyphicon-ok"></span> 발송</a> <%
+ 	} else if (bean.getState().equals("배송중")) {
+ %>
+							<td>&nbsp;</td>
+							<%
+								} else if (bean.getState().equals("배달완료")) {
+							%>
+							<td>&nbsp;</td>
+							<%
+								}
+							%>
 						</tr>
 
 						<tr>
 							<td colspan="7">
-								<div id="collapse<%=i%>" class="panel-collapse collapse">
-									<ul class="list-group">
-										<li class="list-group-item">메뉴 : <%=bean.getMenuname()%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<div id="collapse<%=i%>" class="panel-collapse collapse" >
+									<ul class="list-group" >
+										<li class="list-group-item" style="background-color: #f1f0ef">메뉴 : <%=bean.getMenuname()%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											수량 : <%=bean.getAmount()%></li>
 									</ul>
 								</div>
@@ -259,6 +325,7 @@
 
 			</div>
 			<div class="col-sm-1"></div>
+			<div class="col-sm-12" style="height:100px;"></div>
 		</div>
 	</div>
 
