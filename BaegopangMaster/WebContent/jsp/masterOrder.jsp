@@ -37,7 +37,7 @@ function sendCheck() {
 
 </script>
 </head>
-<body>
+<body style="background-color: white;">
 	<%
 		request.setCharacterEncoding("UTF-8");
 		List<OrderBean> list = null;
@@ -48,13 +48,12 @@ function sendCheck() {
 
 		map.put("storename", "교촌치킨-논현1호점");
 
-		int totalRow = dao.getTotalRow(map);
 
 		int pageScale = 10;
 		map.put("Q", query);
 		map.put("D", data);
-
 		int currentPage = 0;
+		int totalRow = dao.getTotalRow(map);
 		try {
 			currentPage = Integer.parseInt(request.getParameter("page"));
 		} catch (Exception e) {
@@ -75,7 +74,7 @@ function sendCheck() {
 		map.put("start", start);
 		map.put("end", end);
 
-		list = dao.selectOrder(map);
+	
 
 		 if (query != null && data != null) {
 		   map.put("query", query);
@@ -92,6 +91,7 @@ function sendCheck() {
 
 
 	<div class="container-fluid">
+	<div class="col-sm-12" style="height:100px;"></div>
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
@@ -146,7 +146,7 @@ function sendCheck() {
    </div>
 				<!--  -->
 
-				<table class="table table-condensed">
+				<table class="table table-condensed"  >
 					<thead>
 						<tr>
 							<th>주문번호</th>
@@ -210,11 +210,11 @@ function sendCheck() {
 									class="glyphicon glyphicon-ok"></span> 발송</a> <%
  	} else if (bean.getState().equals("배송중")) {
  %>
-							<td></td>
+							<td>&nbsp;</td>
 							<%
-								} else if (bean.getState().equals("배송완료")) {
+								} else if (bean.getState().equals("배달완료")) {
 							%>
-							<td></td>
+							<td>&nbsp;</td>
 							<%
 								}
 							%>
@@ -222,9 +222,9 @@ function sendCheck() {
 
 						<tr>
 							<td colspan="7">
-								<div id="collapse<%=i%>" class="panel-collapse collapse">
-									<ul class="list-group">
-										<li class="list-group-item">메뉴 : <%=bean.getMenuname()%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<div id="collapse<%=i%>" class="panel-collapse collapse" >
+									<ul class="list-group" >
+										<li class="list-group-item" style="background-color: #f1f0ef">메뉴 : <%=bean.getMenuname()%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											수량 : <%=bean.getAmount()%></li>
 									</ul>
 								</div>
@@ -324,6 +324,7 @@ function sendCheck() {
 
 			</div>
 			<div class="col-sm-1"></div>
+			<div class="col-sm-12" style="height:100px;"></div>
 		</div>
 	</div>
 

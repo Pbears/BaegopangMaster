@@ -76,7 +76,7 @@ button#loginBtn.btn btn-default btn-lg {
 						<div class="dropdown2">
 							<button class="dropbtn2">통 계</button>
 							<div class="dropdown-content2">
-								<a href="#">매출별 통계</a><a href="#">베스트 통계</a>
+								<a href="salesInfo.jsp">매출별 통계</a><a href="bestInfo.jsp">베스트 통계</a>
 							</div>
 						</div>
 

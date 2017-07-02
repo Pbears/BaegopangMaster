@@ -19,7 +19,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <!-- DB연동 -->
     <typeAliases>
     	 <typeAlias type="mgopang.bean.OrderBean" alias="order"/> 
+    	 <typeAlias type="mgopang.bean.MasterBean" alias="master"/> 
+    	 <typeAlias type="mgopang.bean.StoreBean" alias="store"/> 
     </typeAliases>
+    
     <environments default="development">
       <environment id="development">
         <transactionManager type="JDBC"/>

@@ -1,3 +1,7 @@
+<%@page import="mgopang.bean.StoreBean"%>
+<%@page import="mgopang.bean.MasterBean"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="mgopang.dao.OrderDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -30,13 +34,28 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<body>
+<body style="background-color: white;">
+<%
+String storename="교촌치킨-압구정신사점";
+
+OrderDao dao = new OrderDao();
+
+HashMap<String, Object> map = new HashMap<String, Object>();
+
+map.put("storename", storename);
+
+MasterBean mbean=dao.selectMaster(map);
+StoreBean sbean=dao.selectStore(map);
+
+%>
+
 	  <jsp:include page="header.jsp"></jsp:include>
 
 
 
 	<div class="container" align="center">
 		<div class="row">
+		<div class="col-sm-12" style="height:100px;"></div>
 			<!-- <div class="col-sm-1" ></div> -->
 			<!-- 첫칸 -->
 			<div class="col-sm-5" style="background-color: white; border-radius: 30px; border: 1px solid #ccc">
@@ -59,7 +78,7 @@
 									<label for="inputName" class="col-sm-2 control-label">Name</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="name" name="name"
-											placeholder="Name" disabled="disabled" value="박상훈">
+											placeholder="Name" disabled="disabled" value="<%=mbean.getName() %>">
 									</div>
 								</div>
 								
@@ -67,21 +86,21 @@
 									<label for="inputId" class="col-sm-2 control-label">ID</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="id" name="id"
-											placeholder="ID" disabled="disabled" value="babysean">
+											placeholder="ID" disabled="disabled" value="<%=mbean.getId() %>">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputPw" class="col-sm-2 control-label">Password</label>
 									<div class="col-sm-10">
 										<input type="password" class="form-control" id="pw" name="pw"
-											placeholder="Password" value="12341234">
+											placeholder="Password" value="<%=mbean.getPw() %>">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputPw" class="col-sm-2 control-label">Confirm</label>
 									<div class="col-sm-10">
 										<input type="password" class="form-control" id="pwConfirm"
-											name="pwConfirm" placeholder="Password Confirm" value="12341234">
+											name="pwConfirm" placeholder="Password Confirm" value="<%=mbean.getPw() %>">
 									</div>
 								</div>
 								
@@ -93,19 +112,19 @@
 											<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 										</button>
 										<input type="text" class="form-control" id="address1"
-											name="address1" disabled="disabled" value="경기도 부천시 원미구 중4동"> <input
+											name="address1" disabled="disabled" value="<%=mbean.getAddress() %>"> <input
 											type="text" class="form-control" id="address2"
-											name="address2" placeholder="Detail Address" value="은하마을 517동 301호">
+											name="address2" placeholder="Detail Address" value="">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="inputTel" class="col-sm-2 control-label">Tel</label>
 									<div class="col-sm-10">
 										<div class="controls controls-row">
-											<input style="width: 30%;" type="text" id="tel1" name="tel1" value="010">
+											<input style="width: 30%;" type="text" id="tel1" name="tel1" value="<%=mbean.getTel().split("-")[0] %>">
 											- <input style="width: 30%;" type="text" id="tel2"
-												name="tel2" value="1234"> - <input style="width: 30%;"
-												type="text" id="tel3" name="tel3" value="5678">
+												name="tel2" value="<%=mbean.getTel().split("-")[1] %>"> - <input style="width: 30%;"
+												type="text" id="tel3" name="tel3" value="<%=mbean.getTel().split("-")[2] %>">
 										</div>
 									</div>
 								</div>
@@ -123,11 +142,11 @@
 								<div class="form-group">
 									<label for="inputBirth" class="col-sm-2 control-label">Birth</label>
 									<div class="col-sm-10">
-										<input id="datepicker" class="form-control" name="birth" disabled="disabled" value="1992-10-27">
+										<input id="datepicker" class="form-control" name="birth" disabled="disabled" value="<%=mbean.getBirth() %>">
 									</div>
 								</div>
 								<div class="form-group">
-									<a href="#" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-ban-circle"></span> Withdrawal</a>
+									<a href="#" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-ban-circle"></span> Withdrawal</a>
 								</div>
 							</form>
 						</div>
@@ -156,10 +175,10 @@
 								action="/Baegopang/jsp/login/signUpProcess.jsp" name="signupFrm">
 								
 								<div class="form-group">
-									<label for="inputName" class="col-sm-2 control-label">brandname</label>
+									<label for="inputName" class="col-sm-2 control-label">brandno</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="brandname" name="brandname"
-											placeholder="brandname" disabled="disabled" value="굽네치킨">
+											placeholder="brandname" disabled="disabled" value="<%=sbean.getBrandno()%>">
 									</div>
 								</div>
 								
@@ -167,7 +186,7 @@
 									<label for="inputId" class="col-sm-2 control-label">storename</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="storename" name="storename"
-											placeholder="storename" value="굽네치킨-논현1호점">
+											placeholder="storename" value="<%=sbean.getStorename()%>">
 									</div>
 								</div>
 						
@@ -178,7 +197,7 @@
 									<div class="col-sm-10">
 										
 										<input type="text" class="form-control" id="address1"
-											name="address1" disabled="disabled" value="서울특별시 강남구 논현동"> <input
+											name="address1" disabled="disabled" value="<%=sbean.getLocation()%>"> <input
 											type="text" class="form-control" id="address2"
 											name="address2" placeholder="Detail Address" disabled="disabled">
 									</div>
@@ -187,10 +206,10 @@
 									<label for="inputTel" class="col-sm-2 control-label">Tel</label>
 									<div class="col-sm-10">
 										<div class="controls controls-row">
-											<input style="width: 30%;" type="text" id="tel1" name="tel1" value="050">
+											<input style="width: 30%;" type="text" id="tel1" name="tel1" value="<%=sbean.getTel().split("-")[0]%>">
 											- <input style="width: 30%;" type="text" id="tel2"
-												name="tel2" value="6381"> - <input style="width: 30%;"
-												type="text" id="tel3" name="tel3" value="0489">
+												name="tel2" value="<%=sbean.getTel().split("-")[1]%>"> - <input style="width: 30%;"
+												type="text" id="tel3" name="tel3" value="<%=sbean.getTel().split("-")[2]%>">
 										</div>
 									</div>
 								</div>
@@ -198,7 +217,7 @@
 									<label for="inputId" class="col-sm-2 control-label">hours</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="hours" name="hours"
-											placeholder="hours" value="12:00~익일02:30">
+											placeholder="hours" value="<%=sbean.getHours()%>">
 									</div>
 								</div>
 								
@@ -207,7 +226,7 @@
 									<div class="col-sm-10">
 									
 										<textarea style="resize: none;" rows="10" class="form-control" id="info" name="info"
-											placeholder="info" >마지막 주문은 새벽1시40분 까지만 받습니다.</textarea>											
+											placeholder="info" ><%=sbean.getInfo()%></textarea>											
 									</div>
 									
 								</div>
@@ -230,9 +249,9 @@
 			<!-- <div class="col-sm-12" ></div> -->
 		</div>
 		<div class="col-sm-12" style="height:70px;"></div>
-			<div class="col-sm-12" ><a href="#" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-ok"></span> Modify</a>
+			<div class="col-sm-12" ><a href="#" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-ok"></span> Modify</a>
 			
-										<a href="#" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-remove"></span> Cancel</a></div>
+									</div>
 										<div class="col-sm-12" style="height:100px;"></div>
 	</div>
 	

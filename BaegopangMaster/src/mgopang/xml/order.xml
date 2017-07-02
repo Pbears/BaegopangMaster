@@ -6,7 +6,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getTotalRow" parameterType="java.util.HashMap" resultType="java.lang.Integer">
 	
 	SELECT COUNT(*) FROM FOODORDER
-	WHERE STORENAME=#{storename}	
+	WHERE STORENAME=#{storename}
+	<if test="Q!=null">
+	AND   ${Q} LIKE '%'||#{D}||'%'
+	</if>
+	 ORDER BY ORDERTIME DESC
 	
 	</select>		
 	
@@ -15,7 +19,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   		SELECT ORDERNUMBER, MEMBERID, MEMBERNAME, MEMBERTEL, MEMBERADDRESS, PRICE, NVL(ORDERINFO,'없음') ORDERINFO, 
   		MENUNAME, AMOUNT, STORENAME, STOREADDRESS, STORETEL, TO_DATE(ORDERTIME,'YYYYMMDD HH24:MI:SS')ORDERTIME, STATE
 		FROM FOODORDER		
-		 WHERE STORENAME=#{storename} 
+		 WHERE STORENAME=#{storename}
+		 <if test="query!=null">
+		 AND ${query} LIKE '%'||#{data}||'%'
+		 </if>
+		  ORDER BY ORDERTIME DESC
+		 
+		  
 		 
 		
   	</select>
@@ -24,5 +34,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	     UPDATE FOODORDER SET STATE=#{state} WHERE ORDERNUMBER=#{ordernumber}
   	
   	
-  	</update>     
+  	</update>
+  	
+  	<select id="selectMaster" resultType="master" parameterType="java.util.HashMap">
+	
+  		SELECT ID, PW, NAME, ADDRESS, TEL, BIRTH, STORENAME FROM MASTER
+  		WHERE STORENAME=#{storename} 
+		 
+		
+  	</select>
+  	
+  	<select id="selectStore" resultType="store" parameterType="java.util.HashMap">
+	
+  		SELECT STORENAME, BRANDNO, LOCATION, GPA, HOURS, TEL, MINPRICE, INFO FROM STORE
+  		WHERE STORENAME=#{storename} 
+		 
+		
+  	</select>
+  	     
 </mapper>
