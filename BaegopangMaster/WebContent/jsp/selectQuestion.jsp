@@ -16,7 +16,7 @@
 	#btn_insert{
 		display: inline-block;
 		float: right;
-	}
+	}  
 	h1{
 		font-family: sans-serif;
 		font-weight: bold;

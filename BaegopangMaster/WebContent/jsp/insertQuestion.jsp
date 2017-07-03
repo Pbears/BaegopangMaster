@@ -12,7 +12,7 @@
 <style type="text/css">
 	#title_insert{
 		padding: 50px;
-	}
+	}  
 	#btn_insert{
 		display: inline-block;
 		float: right;

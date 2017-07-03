@@ -12,7 +12,7 @@ public class MenuManageDao {
 	
 	public MenuManageDao(){
 		sqlSessionFactory=SqlSessionFactoryManager.getSqlSessionFactory();
-	}
+	}  
 	
 	public List<MenuBean>selectMenu(String id){
 		return sqlSessionFactory.openSession().selectList("selectMenu", id);

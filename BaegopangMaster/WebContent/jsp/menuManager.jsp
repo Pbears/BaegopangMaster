@@ -75,7 +75,7 @@
 
 			<table>
 				<%	MenuBean istbean=(MenuBean)selList; %>
-
+  
 				<tr>
 					<td>
 						<div id="menu">
@@ -86,7 +86,6 @@
 						<div id="Menu2">
 							<%
 						selList=dao.selectMenuOne(picture);
-						/* MenuBean mbean=(MenuBean)selList; */
 					%>
 							<div class="form-group">
 								<label for="usr">¿Ã∏ß:</label> <input type="text"

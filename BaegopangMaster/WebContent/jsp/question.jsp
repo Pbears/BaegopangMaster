@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/modernizr.custom.29473.js"></script>
 </head>
 <body>
-	<%
+	<%  
 		String masterid="Clari ";
 		MasterAskDao dao = new MasterAskDao();
 		List<MasteraskadminBean> list = null;

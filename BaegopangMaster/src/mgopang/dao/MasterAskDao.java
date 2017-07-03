@@ -10,7 +10,7 @@ import mgopang.bean.MasteraskadminBean;
 import mgopang.util.SqlSessionFactoryManager;
 
 public class MasterAskDao {
-	private SqlSessionFactory sqlSessionFactory;
+	private SqlSessionFactory sqlSessionFactory;  
 	
 	public MasterAskDao(){
 		sqlSessionFactory=SqlSessionFactoryManager.getSqlSessionFactory();

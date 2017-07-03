@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT menuname,price,info
 		FROM menu
 		WHERE picture=#{picture}
-	</select>
+	</select>  
 	
 	<insert id="insertMenu" parameterType="java.lang.String">
 		INSERT INTO MENUBYSTORE()

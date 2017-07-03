@@ -7,7 +7,7 @@ public class MenuBean {
 	private String info;
 	private String picture;
 	public String getMenuname() {
-		return menuname;
+		return menuname;  
 	}
 	public void setMenuname(String menuname) {
 		this.menuname = menuname;

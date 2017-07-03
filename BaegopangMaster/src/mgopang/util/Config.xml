@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <typeAliases>
            VO의 별칭
         </typeAliases>
-        
+          
         1) <properties>
         2) <typeAliases>
         3) <transactionManager>

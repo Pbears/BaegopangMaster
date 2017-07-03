@@ -6,7 +6,7 @@ public class MasteraskadminBean {
 	private String masterid;
 	private String admininfo;
 	private String adminid;
-	private String regdate;
+	private String regdate;  
 	private int hit;
 	private String title;
 	public String getMasterinfo() {
