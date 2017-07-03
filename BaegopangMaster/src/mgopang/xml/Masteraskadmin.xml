@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gopang.xml.Masteraskadmin"> 
+	<insert id="insertAsk" parameterType="ask">
+	   <selectKey keyProperty="no" order="BEFORE"  resultType="java.lang.Integer">
+	    SELECT ASK_SEQ.NEXTVAL FROM DUAL
+	  </selectKey>
+		INSERT INTO masteraskadmin(no,masterinfo,title,masterid,regdate) 
+		VALUES (#{no},#{masterinfo},#{title},#{masterid},sysdate)
+	</insert>
+	<select id="selectAsk" parameterType="java.lang.String" resultType="ask">
+		SELECT no,title,masterinfo,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE
+		FROM masteraskadmin
+		WHERE masterid=#{masterid}
+		ORDER BY NO DESC
+	</select>
+</mapper>

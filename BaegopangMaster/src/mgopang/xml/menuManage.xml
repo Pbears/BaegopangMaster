@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mgopang.xml.menuManage"> 
+	<select id="selectMenu" parameterType="java.lang.String" resultType="menu">
+		SELECT m.picture,m.menuname,m.price,m.info FROM
+		( 
+		  SELECT SUBSTR(storename,1,INSTR(storename,'-')-1)BRANDN
+ 		  FROM MASTER
+		  WHERE ID=#{id})mt,MENU m
+	    WHERE BRANDN=SUBSTR(m.menuname,1,INSTR(menuname,'-')-1)
+	</select>
+	<select id="selectMenuOne" parameterType="java.lang.String" resultType="menu">
+		SELECT menuname,price,info
+		FROM menu
+		WHERE picture=#{picture}
+	</select>
+	
+	<insert id="insertMenu" parameterType="java.lang.String">
+		INSERT INTO MENUBYSTORE()
+	</insert>
+</mapper>

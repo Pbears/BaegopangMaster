@@ -22,6 +22,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     	 <typeAlias type="mgopang.bean.ZipcodeBean" alias="zipcode"/>
     	 <typeAlias type="mgopang.bean.MasterBean" alias="master"/> 
     	 <typeAlias type="mgopang.bean.StoreBean" alias="store"/> 
+   		 <typeAlias type="mgopang.bean.MenuBean" alias="menu"/>
+    	 <typeAlias type="mgopang.bean.MasteraskadminBean" alias="ask"/>
     </typeAliases>
     
     
@@ -65,6 +67,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
       <mapper resource="mgopang/xml/order.xml"/>
 	<mapper resource="mgopang/xml/member.xml"/>
 	<mapper resource="mgopang/xml/zipcode.xml"/>
+	 <mapper resource="mgopang/xml/menuManage.xml"/>
+      <mapper resource="mgopang/xml/Masteraskadmin.xml"/>
     </mappers>
 </configuration>
 

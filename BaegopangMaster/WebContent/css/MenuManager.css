@@ -169,11 +169,10 @@ p{
 
 .form-group{
 	margin-bottom: 20px;
-	
 }
 .form-group > input{
 	height: 30px;
-	font-size: 20px;	
+	font-size: 16px;	
 	width: 260px;
 }
 table{
@@ -241,7 +240,7 @@ table{
 textarea{
 	width: 260px;
 	font-size: 20px;
-
+	resize: none;
 }
 .form-control{
 		height: 50px;
@@ -254,4 +253,10 @@ textarea{
 	margin-top: 150px;
 	display: none;
 	opacity: 1.0;
+}
+#selMenu p{
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: bold;
+	margin-left: 40px;
 }

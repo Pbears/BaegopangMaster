@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="mgopang.dao.MasterAskDao"%>
+<%@page import="mgopang.bean.MasteraskadminBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,11 +13,18 @@
 <script type="text/javascript" src="js/modernizr.custom.29473.js"></script>
 </head>
 <body>
+	<%
+		String masterid="Clari ";
+		MasterAskDao dao = new MasterAskDao();
+		List<MasteraskadminBean> list = null;
+	%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="mid_src">
 		<div id="data_table">
 			<h1>1대1 문의</h1>
-			<h6>글 쓰기</h6>
+			<a href="#"
+				onclick="window.open('insertQuestion.jsp', '_blank', 'width=400 height=300')">글
+				쓰기 </a>
 			<form action="" method="post" name="listFrm">
 				<table class="bbsList" style="border-collapse: collapse;"
 					border="1px solid black">
@@ -28,25 +38,23 @@
 						<th scope="col" style="text-align: center;">글 번호</th>
 						<th scope="col" style="text-align: center;">글 제목</th>
 						<th scope="col" style="text-align: center;">문의 일자</th>
-						<th scope="col" style="text-align: center;">상 태</th>
 					</tr>
 					<tbody>
+						<%
+							list=dao.selectAsk(masterid);
+						 	for(int i=0; i<list.size(); i++){
+								MasteraskadminBean bean=list.get(i); 
+								
+						%>
 						<tr>
 							<div id="select">
-								<th>2</th>
-								<th>메뉴를 추가하고 싶어요~</th>
-								<th>2017.06.25</th>
-								<th>대기 중</th>
+								<th><%=bean.getNo() %></th>
+								<th><a href="#" onclick="window.open('selectQuestion.jsp', '_blank', 'width=400 height=300')">
+									<%=bean.getTitle() %></a></th>
+								<th><%=bean.getRegdate() %></th>
 							</div>
-						<tr>
-												<tr>
-							<div id="select">
-								<th>1</th>
-								<th>포인트는 뭔가요?</th>
-								<th>2017.06.20</th>
-								<th>완료</th>
-							</div>
-						<tr>
+						</tr>
+						<%} %> 
 					</tbody>
 				</table>
 			</form>

@@ -17,6 +17,10 @@
 	font-size: 13px;
 	font-family: 'Hanna', serif;
 }
+#data_table > a{
+	float: right;
+	margin-top: 40px;
+}
 th{
 	text-align: center !important;
 }
@@ -35,4 +39,7 @@ th{
 .bbsList{
 	border:1px solid #ccc; 
 	background:white;
+}
+#select > a{
+	text-decoration: none;
 }
