@@ -24,11 +24,24 @@ public class OrderDao {
 		System.out.println(map.get("D"));
 		return sqlSessionFactory.openSession().selectOne("getTotalRow",map);
      }
+	
+	public int getTotalRowCom(HashMap<String, Object>map) throws Exception{
+		System.out.println("c"+map.get("Q2"));
+		System.out.println("c"+map.get("D2"));
+		return sqlSessionFactory.openSession().selectOne("getTotalRowCom",map);
+     }
 	public List<OrderBean>selectOrder(HashMap<String, Object>map){
 		System.out.println(map.get("query"));
 		System.out.println(map.get("data"));
 		return sqlSessionFactory.openSession().selectList("selectOrder",map);
 	}
+	
+	public List<OrderBean>selectOrderCom(HashMap<String, Object>map){
+		System.out.println("c"+map.get("query2"));
+		System.out.println("c"+map.get("data2"));
+		return sqlSessionFactory.openSession().selectList("selectOrderCom",map);
+	}
+	
 	public void updateOrder(HashMap<String, Object>map){
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
