@@ -203,22 +203,19 @@ function sendCheck() {
 								class="btn btn-primary btn-danger"><span
 									class="glyphicon glyphicon-remove"></span> 거절</a></td>
 							<%
-								} else if (bean.getState().equals("조리중")) {
+								} else if (bean.getState().equals("승인완료")) {
 							%>
 							<td align="center"><a
 								href="/BaegopangMaster/jsp/update/orderUpdate.jsp?state=<%=bean.getState()%>&ordernumber=<%=bean.getOrdernumber()%>"
 								class="btn btn-block btn-primary"><span
 									class="glyphicon glyphicon-ok"></span> 발송</a> <%
- 	} else if (bean.getState().equals("배송중")) {
+ 	} else if (bean.getState().equals("배달완료")) {
  %>
-							<td>&nbsp;</td>
-							<%
-								} else if (bean.getState().equals("배달완료")) {
-							%>
 							<td>&nbsp;</td>
 							<%
 								}
 							%>
+							
 						</tr>
 
 						<tr>

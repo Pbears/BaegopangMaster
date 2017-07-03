@@ -19,10 +19,10 @@
     HashMap<String,Object>map=new HashMap<String,Object>();
     	map.put("ordernumber", ordernumber);
     if(bstate.equals("승인대기")){
-    	map.put("state", "조리중");
+    	map.put("state", "승인완료");
     	dao.updateOrder(map);
-    }else if(bstate.equals("조리중")){
-    	map.put("state", "배송중");
+    }else if(bstate.equals("승인완료")){
+    	map.put("state", "배달완료");
     	dao.updateOrder(map);   	
     }
      
