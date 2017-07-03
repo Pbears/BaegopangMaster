@@ -49,5 +49,44 @@ public class OrderDao {
 	public StoreBean selectStore(HashMap<String, Object>map){
 		return sqlSessionFactory.openSession().selectOne("selectStore",map);
 	}
+	
+	public void updateStore(StoreBean bean){
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.update("updateStore",bean);
+			session.commit();
+		} catch (Exception e) {
+			session.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+	
+	public void updateMaster(MasterBean bean){
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.update("updateMaster",bean);
+			session.commit();
+		} catch (Exception e) {
+			session.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

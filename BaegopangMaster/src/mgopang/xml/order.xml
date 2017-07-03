@@ -2,55 +2,75 @@
 <!DOCTYPE mapper 
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mgopang.xml.order"> 
-	<select id="getTotalRow" parameterType="java.util.HashMap" resultType="java.lang.Integer">
-	
-	SELECT COUNT(*) FROM FOODORDER
-	WHERE STORENAME=#{storename}
-	<if test="Q!=null">
-	AND   ${Q} LIKE '%'||#{D}||'%'
-	</if>
-	 ORDER BY ORDERTIME DESC
-	
-	</select>		
-	
+<mapper namespace="mgopang.xml.order">
+	<select id="getTotalRow" parameterType="java.util.HashMap"
+		resultType="java.lang.Integer">
+
+		SELECT COUNT(*) FROM FOODORDER
+		WHERE STORENAME=#{storename}
+		<if test="Q!=null">
+			AND ${Q} LIKE '%'||#{D}||'%'
+		</if>
+		ORDER BY ORDERTIME DESC
+
+	</select>
+
 	<select id="selectOrder" resultType="order" parameterType="java.util.HashMap">
-	
-  		SELECT ORDERNUMBER, MEMBERID, MEMBERNAME, MEMBERTEL, MEMBERADDRESS, PRICE, NVL(ORDERINFO,'없음') ORDERINFO, 
-  		MENUNAME, AMOUNT, STORENAME, STOREADDRESS, STORETEL, TO_DATE(ORDERTIME,'YYYYMMDD HH24:MI:SS')ORDERTIME, STATE
-		FROM FOODORDER		
-		 WHERE STORENAME=#{storename}
-		 <if test="query!=null">
-		 AND ${query} LIKE '%'||#{data}||'%'
-		 </if>
-		 
-		  ORDER BY ORDERTIME DESC
-		 
-		  
-		 
-		
-  	</select>
-  	
-  	<update id="updateOrder" parameterType="java.util.HashMap">
-  	     UPDATE FOODORDER SET STATE=#{state} WHERE ORDERNUMBER=#{ordernumber}
-  	
-  	
-  	</update>
-  	
-  	<select id="selectMaster" resultType="master" parameterType="java.util.HashMap">
-	
-  		SELECT ID, PW, NAME, ADDRESS, TEL, BIRTH, STORENAME FROM MASTER
-  		WHERE STORENAME=#{storename} 
-		 
-		
-  	</select>
-  	
-  	<select id="selectStore" resultType="store" parameterType="java.util.HashMap">
-	
-  		SELECT STORENAME, BRANDNO, LOCATION, GPA, HOURS, TEL, MINPRICE, INFO FROM STORE
-  		WHERE STORENAME=#{storename} 
-		 
-		
-  	</select>
-  	     
+
+		SELECT ORDERNUMBER, MEMBERID, MEMBERNAME, MEMBERTEL, MEMBERADDRESS,
+		PRICE, NVL(ORDERINFO,'없음') ORDERINFO,
+		MENUNAME, AMOUNT, STORENAME, STOREADDRESS, STORETEL,
+		TO_DATE(ORDERTIME,'YYYYMMDD HH24:MI:SS')ORDERTIME, STATE
+		FROM FOODORDER
+		WHERE STORENAME=#{storename}
+		<if test="query!=null">
+			AND ${query} LIKE '%'||#{data}||'%'
+		</if>
+
+		ORDER BY ORDERTIME DESC
+
+
+
+
+	</select>
+
+	<update id="updateOrder" parameterType="java.util.HashMap">
+		UPDATE FOODORDER SET STATE=#{state} WHERE ORDERNUMBER=#{ordernumber}
+
+
+	</update>
+
+	<select id="selectMaster" resultType="master" parameterType="java.util.HashMap">
+
+		SELECT ID, PW, NAME, ADDRESS, TEL, BIRTH, STORENAME FROM MASTER
+		WHERE STORENAME=#{storename}
+
+
+	</select>
+
+	<select id="selectStore" resultType="store" parameterType="java.util.HashMap">
+
+		SELECT STORENAME, BRANDNO, LOCATION, GPA, HOURS, TEL, MINPRICE, INFO
+		FROM STORE
+		WHERE STORENAME=#{storename}
+
+
+	</select>
+
+
+
+	<update id="updateStore" parameterType="store">
+
+		UPDATE STORE SET TEL=#{tel},HOURS=#{hours},INFO=#{info} WHERE
+		STORENAME='교촌치킨-압구정신사점'
+
+	</update>
+
+	<update id="updateMaster" parameterType="master">
+
+		UPDATE MASTER SET PW=#{pw},TEL=#{tel} ,ADDRESS=#{address} WHERE
+		STORENAME='교촌치킨-압구정신사점'
+
+	</update>
+
 </mapper>
