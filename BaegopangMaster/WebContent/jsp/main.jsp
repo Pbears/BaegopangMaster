@@ -28,6 +28,8 @@
 	String id = (String)session.getAttribute("id");
 	MemberDao dao = new MemberDao();
 	MasterBean bean = dao.selectMasterOne(id);
+	String storename = bean.getStorename();
+	session.setAttribute("storename", storename);
 %>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="mid_contents">

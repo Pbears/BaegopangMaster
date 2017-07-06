@@ -1,10 +1,13 @@
 package mgopang.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import mgopang.bean.MenuBean;
+import mgopang.bean.MenuByStoreBean;
 import mgopang.util.SqlSessionFactoryManager;
 
 public class MenuManageDao {
@@ -20,7 +23,20 @@ public class MenuManageDao {
 	public List<MenuBean>selectMenuOne(String picture){
 		return sqlSessionFactory.openSession().selectOne("selectMenuOne", picture);
 	}
-	public void insertMenu(String menuname){
-		sqlSessionFactory.openSession().insert("insertMenu", menuname);
+	public List<MenuBean>myStoreMenu(){
+		return sqlSessionFactory.openSession().selectList("myStoreMenu");
+	}
+	public void insertMenu(HashMap<String, String>map){
+		  SqlSession sqlSession=sqlSessionFactory.openSession();
+		  try {
+			  sqlSession.insert("insertMenu", map);
+			  sqlSession.commit();			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			sqlSession.rollback();
+		}finally{
+			sqlSession.close();
+		}
 	}
 }

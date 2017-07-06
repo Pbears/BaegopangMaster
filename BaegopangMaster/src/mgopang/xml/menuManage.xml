@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="EUC-KR"?>
 <!DOCTYPE mapper 
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -17,7 +17,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE picture=#{picture}
 	</select>  
 	
-	<insert id="insertMenu" parameterType="java.lang.String">
-		INSERT INTO MENUBYSTORE()
+	<select id="myStoreMenu" resultType="menu">
+		    select menuname,price,picture 
+  			from menu
+  			where 
+   			menuname in (SELECT MENUNAME FROM MENUBYSTORE)
+	</select>
+	
+	<insert id="insertMenu" parameterType="java.util.HashMap">
+		INSERT INTO MENUBYSTORE values(MBS_SEQ.NEXTVAL,#{menuname},#{storename})
 	</insert>
 </mapper>

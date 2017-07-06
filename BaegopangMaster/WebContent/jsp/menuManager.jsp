@@ -2,8 +2,8 @@
 <%@page import="mgopang.dao.MenuManageDao"%>
 <%@page import="mgopang.bean.MenuBean"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -29,7 +29,6 @@
 		List<MenuBean>list=null;
 		List<MenuBean>selList=null;
 		MenuManageDao dao= new MenuManageDao();
-		MenuByStoreBean mbsdao = new MenuByStoreBean();
 	%>
 
 	<jsp:include page="header.jsp"></jsp:include>
@@ -54,23 +53,28 @@
 			</div>
 		<div class="selMarket">
 			<div id="menupan">
-				<p>øÏ∏Æ∞°∞‘ ∏ﬁ¥∫∆«</p>
+				<p>Ïö∞Î¶¨Í∞ÄÍ≤å Î©îÎâ¥Ìåê</p>
 			</div>
 			<div id="s_contents">
-				<input type="button" value="ªÛºº" id="infobtn"> <img
-					src="../img/noimage.jpg" onmouseover="btnOver(this)"
-					onmouseout="btnOut(this)";> <img
-					src="../img/noimage.jpg" onmouseover="btnOver(this)"
-					onmouseout="btnOut(this)";> <img
-					src="../img/noimage.jpg" onmouseover="btnOver(this)"
+			<%
+				List<MenuBean>mbslist=null;
+				mbslist=dao.myStoreMenu();
+				for(int i=0; i<mbslist.size(); i++){
+					MenuBean mbsbean=mbslist.get(i);
+			%>
+				<div id="menu_one" style="display: inline-block; text-align: center;">
+				<img src="/BaegopangMaster<%=mbsbean.getPicture() %>" onmouseover="btnOver(this)"
 					onmouseout="btnOut(this)";>
+				 <p style="font-family: sans-serif; font-size: 15px; margin-bottom: 20px;"><%=mbsbean.getMenuname() %></p>
+				 </div>
+			<%} %>
 			</div>
 		</div>
 	</div>
 	<div id="insertMenu">
-		 <form action="test.jsp" method="post"> 
+		 <form action="insert/insertMenuProcess.jsp"> 
 			<div id="insertTop">
-				<p>∏ﬁ¥∫ √ﬂ∞°</p>
+				<p>Î©îÎâ¥ Ï∂îÍ∞Ä</p>
 			</div>
 
 			<table>
@@ -88,18 +92,18 @@
 						selList=dao.selectMenuOne(picture);
 					%>
 							<div class="form-group">
-								<label for="usr">¿Ã∏ß:</label> <input type="text"
+								<label for="usr">Ïù¥Î¶Ñ:</label> <input type="text"
 									class="form-control" id="insertname" name="receive_menu"
 									readonly="readonly">
-								<!-- <input type="hidden" name="menuname" id="menuname"> -->
+								<input type="hidden" name="menuname" id="menuname">
 							</div>
 							<div class="form-group">
-								<label for="pwd">∞°∞›:</label> <input type="text"
+								<label for="pwd">Í∞ÄÍ≤©:</label> <input type="text"
 									class="form-control" id="insertprice" name="receive_menu"
 									readonly="readonly">
 							</div>
 							<div class="form-group">
-								<label for="comment">º≥∏Ì:</label>
+								<label for="comment">ÏÑ§Î™Ö:</label>
 								<textarea class="form-control" rows="5" id="insertinfo"
 									name="receive_menu" readonly="readonly"></textarea>
 							</div>
@@ -108,7 +112,7 @@
 				</tr>
 			</table>
 			<div id="btn">
-				<input type="submit" class="insertBtn" value="√ﬂ∞°«œ±‚">
+				<input type="submit" class="insertBtn" value="Ï∂îÍ∞ÄÌïòÍ∏∞">
 			</div>
 		 </form> 
 	</div>

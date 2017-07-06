@@ -53,6 +53,9 @@ button#loginBtn.btn btn-default btn-lg {
 }
 </style>
 <header>
+	<%
+	String id = (String)session.getAttribute("id");
+	%>
 	<div id="headerContainer">
 		<div id="mainTitle" align="center">
 			<a href="main.jsp"> <img
@@ -103,9 +106,10 @@ button#loginBtn.btn btn-default btn-lg {
 								<a href="question.jsp">문의</a>
 							</div>
 						</div>
-
 					</td>
 				</tr>
+					<div id="tab_user" style="display: inline-block; float: right; margin-top: 30px; color: white; font-weight: bold;">
+					<%=id %> 님 환영합니다</div>
 			</table>
 		</div>
 	</div>
