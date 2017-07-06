@@ -25,6 +25,8 @@
 <body>
 	<%
 		String id = (String)session.getAttribute("id");
+		String storename = (String)session.getAttribute("storename");
+		System.out.print(storename);
 		String picture="../img/noimage.jpg";
 		List<MenuBean>list=null;
 		List<MenuBean>selList=null;
@@ -58,13 +60,12 @@
 			<div id="s_contents">
 			<%
 				List<MenuBean>mbslist=null;
-				mbslist=dao.myStoreMenu();
+				mbslist=dao.myStoreMenu(storename);
 				for(int i=0; i<mbslist.size(); i++){
 					MenuBean mbsbean=mbslist.get(i);
 			%>
 				<div id="menu_one" style="display: inline-block; text-align: center;">
-				<img src="/BaegopangMaster<%=mbsbean.getPicture() %>" onmouseover="btnOver(this)"
-					onmouseout="btnOut(this)";>
+				<img src="/BaegopangMaster<%=mbsbean.getPicture() %>">
 				 <p style="font-family: sans-serif; font-size: 15px; margin-bottom: 20px;"><%=mbsbean.getMenuname() %></p>
 				 </div>
 			<%} %>

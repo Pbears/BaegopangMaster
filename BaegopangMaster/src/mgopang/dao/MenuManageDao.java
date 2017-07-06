@@ -23,8 +23,8 @@ public class MenuManageDao {
 	public List<MenuBean>selectMenuOne(String picture){
 		return sqlSessionFactory.openSession().selectOne("selectMenuOne", picture);
 	}
-	public List<MenuBean>myStoreMenu(){
-		return sqlSessionFactory.openSession().selectList("myStoreMenu");
+	public List<MenuBean>myStoreMenu(String storename){
+		return sqlSessionFactory.openSession().selectList("myStoreMenu",storename);
 	}
 	public void insertMenu(HashMap<String, String>map){
 		  SqlSession sqlSession=sqlSessionFactory.openSession();
