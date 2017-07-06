@@ -31,8 +31,11 @@
 </script>
 </head>
 <body>
+	<%
+		System.out.print(request.getParameter("no"));
+	%>
 	<h1>1대1 문의</h1>
-	<div id="question_sel" >
+	<div id="question_sel"  style="padding: 30px;">
 	<form action="#" method="post" id="frm">
 		<div class="form-group">
   			 <label for="usr">제 목:</label>
@@ -43,9 +46,10 @@
   			<textarea class="form-control" rows="8" id="comment" name="contents"></textarea>
 		</div>
 		</form>
-	</div>
 	<div id="admin_reply">
+		<label for="comment">답변 : </label>
 		<textarea class="form-control" rows="3" id="comment" name="contents"></textarea>
+	</div>
 	</div>
 </body>
 </html>

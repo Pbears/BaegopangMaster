@@ -17,7 +17,7 @@
 		request.setCharacterEncoding("EUC-KR");
 		String title = request.getParameter("title");
 		String masterinfo = request.getParameter("contents");
-		String masterid ="Clari ";
+		String masterid = (String)session.getAttribute("id");
 		MasteraskadminBean bean = new MasteraskadminBean();
 		bean.setTitle(title);
 		bean.setMasterinfo(masterinfo);

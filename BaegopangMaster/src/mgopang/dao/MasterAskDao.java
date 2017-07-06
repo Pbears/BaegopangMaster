@@ -1,6 +1,7 @@
 package mgopang.dao;
 
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -28,7 +29,13 @@ public class MasterAskDao {
 			sqlSession.close();
 		}
 	}
-	public List<MasteraskadminBean>selectAsk(String masterid){
-		return sqlSessionFactory.openSession().selectList("selectAsk",masterid);
+	public int getTotalRows(String masterid) throws Exception{
+		return sqlSessionFactory.openSession().selectOne("getTotalRows",masterid);
+     }
+	
+	public List<MasteraskadminBean>selectAsk(HashMap<String, Object>map){
+		System.out.println(map.get("end"));
+		System.out.println(map.get("start"));
+		return sqlSessionFactory.openSession().selectList("selectAsk",map);
 	}
 }
