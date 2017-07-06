@@ -14,73 +14,89 @@
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 
 <style type="text/css">
-#menu_img, #insertimg{
-	width: 250px; 
-	margin-left:50px
+#menu_img, #insertimg {
+	width: 250px;
+	margin-left: 50px
 }
 </style>
-
 
 </head>
 <body>
 	<%
-		String id = (String)session.getAttribute("id");
-		String storename = (String)session.getAttribute("storename");
-		System.out.print(storename);
-		String picture="../img/noimage.jpg";
-		List<MenuBean>list=null;
-		List<MenuBean>selList=null;
-		MenuManageDao dao= new MenuManageDao();
+		String id = (String) session.getAttribute("id");
+		String storename = (String) session.getAttribute("storename");
+		String picture = "../img/noimage.jpg";
+		List<MenuBean> list = null;
+		List<MenuBean> selList = null;
+		MenuManageDao dao = new MenuManageDao();
 	%>
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="mid_MenuContents">
 		<div id="f_contents">
 			<%
-				list=dao.selectMenu(id);
-				for(int i=0; i<list.size(); i++){
-					MenuBean bean=list.get(i);
+				list = dao.selectMenu(id);
+				for (int i = 0; i < list.size(); i++) {
+					MenuBean bean = list.get(i);
 			%>
 			<div id="selMenu" style="display: inline-block;">
-				 <img src="/BaegopangMaster<%=bean.getPicture()%>" id="menu_img" name="insert_menu<%=i %>"
-				 onmouseover="imgOver(this)" onmouseout="imgOut(this)" onclick="imgCk(<%=i %>)" /> 
-				 <p><%=bean.getMenuname() %></p>
-				 <input type="hidden" value="<%=bean.getMenuname()%>" id="menu_name" name="insert_menu<%=i %>">
-				 <input type="hidden" value="<%=bean.getPrice()%>" id="menu_price" name="insert_menu<%=i %>">
-				 <input type="hidden" value="<%=bean.getInfo()%>" id="menu_info" name="insert_menu<%=i %>">
+				<img src="/BaegopangMaster<%=bean.getPicture()%>" id="menu_img"
+					name="insert_menu<%=i%>" onmouseover="imgOver(this)"
+					onmouseout="imgOut(this)" onclick="imgCk(<%=i%>)" />
+				<p><%=bean.getMenuname()%></p>
+				<input type="hidden" value="<%=bean.getMenuname()%>" id="menu_name"
+					name="insert_menu<%=i%>"> <input type="hidden"
+					value="<%=bean.getPrice()%>" id="menu_price"
+					name="insert_menu<%=i%>"> <input type="hidden"
+					value="<%=bean.getInfo()%>" id="menu_info"
+					name="insert_menu<%=i%>">
 			</div>
 			<%
 				}
 			%>
-			</div>
+		</div>
 		<div class="selMarket">
 			<div id="menupan">
 				<p>우리가게 메뉴판</p>
 			</div>
 			<div id="s_contents">
-			<%
-				List<MenuBean>mbslist=null;
-				mbslist=dao.myStoreMenu(storename);
-				for(int i=0; i<mbslist.size(); i++){
-					MenuBean mbsbean=mbslist.get(i);
-			%>
-				<div id="menu_one" style="display: inline-block; text-align: center;">
-				<img src="/BaegopangMaster<%=mbsbean.getPicture() %>">
-				 <p style="font-family: sans-serif; font-size: 15px; margin-bottom: 20px;"><%=mbsbean.getMenuname() %></p>
-				 </div>
-			<%} %>
+				<%
+					List<MenuBean> mbslist = null;
+					mbslist = dao.myStoreMenu(storename);
+					for (int i = 0; i < mbslist.size(); i++) {
+						MenuBean mbsbean = mbslist.get(i);
+				%>
+				<div id="menu_one"
+					style="display: inline-block; text-align: center;">
+					<img src="/BaegopangMaster<%=mbsbean.getPicture()%>">
+					<form action="delete/deleteProcess.jsp" id="frm">
+						<div>
+							<p style="font-family: sans-serif; font-size: 15px; display: inline-block; margin-bottom: 20px; margin-top: 10px;">
+								<%=mbsbean.getMenuname()%></p>
+							<input class="btn btn-default" type="button" value="메뉴 삭제"
+								onclick="deleteMenu()"
+								style="float: right; margin-right: 20px; background: #FF8C00; color: white; font-weight: bold;">
+							<input type="hidden" name="menuname" value="<%=mbsbean.getMenuname() %>"> 
+						</div>
+					</form>
+				</div>
+				<%
+					}
+				%>
 			</div>
 		</div>
 	</div>
 	<div id="insertMenu">
-		 <form action="insert/insertMenuProcess.jsp"> 
+		<form action="insert/insertMenuProcess.jsp">
 			<div id="insertTop">
 				<p>메뉴 추가</p>
 			</div>
 
 			<table>
-				<%	MenuBean istbean=(MenuBean)selList; %>
-  
+				<%
+					MenuBean istbean = (MenuBean) selList;
+				%>
+
 				<tr>
 					<td>
 						<div id="menu">
@@ -90,13 +106,13 @@
 					<td style="text-align: right;">
 						<div id="Menu2">
 							<%
-						selList=dao.selectMenuOne(picture);
-					%>
+								selList = dao.selectMenuOne(picture);
+							%>
 							<div class="form-group">
 								<label for="usr">이름:</label> <input type="text"
 									class="form-control" id="insertname" name="receive_menu"
-									readonly="readonly">
-								<input type="hidden" name="menuname" id="menuname">
+									readonly="readonly"> <input type="hidden"
+									name="menuname" id="menuname">
 							</div>
 							<div class="form-group">
 								<label for="pwd">가격:</label> <input type="text"
@@ -115,7 +131,7 @@
 			<div id="btn">
 				<input type="submit" class="insertBtn" value="추가하기">
 			</div>
-		 </form> 
+		</form>
 	</div>
 
 </body>
@@ -154,6 +170,10 @@
 
 	function closeSrc() {
 		insertMenu.style.display = "none";
+	}
+	function deleteMenu() {
+		var obj=document.getElementById("frm");
+		obj.submit();
 	}
 </script>
 </html>

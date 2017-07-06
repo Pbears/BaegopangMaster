@@ -16,7 +16,19 @@ public class MenuManageDao {
 	public MenuManageDao(){
 		sqlSessionFactory=SqlSessionFactoryManager.getSqlSessionFactory();
 	}  
-	
+	public void deleteMenu(String menuname){
+		  SqlSession sqlSession=sqlSessionFactory.openSession();
+		  try {
+			  sqlSession.insert("deleteMenu", menuname);
+			  sqlSession.commit();			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			sqlSession.rollback();
+		}finally{
+			sqlSession.close();
+		}
+	}
 	public List<MenuBean>selectMenu(String id){
 		return sqlSessionFactory.openSession().selectList("selectMenu", id);
 	}

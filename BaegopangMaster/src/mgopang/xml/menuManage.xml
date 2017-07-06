@@ -27,4 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertMenu" parameterType="java.util.HashMap">
 		INSERT INTO MENUBYSTORE values(MBS_SEQ.NEXTVAL,#{menuname},#{storename})
 	</insert>
+	<delete id="deleteMenu" parameterType="java.lang.String">
+		delete MENUBYSTORE where menuname=#{menuname}
+	</delete>
 </mapper>
