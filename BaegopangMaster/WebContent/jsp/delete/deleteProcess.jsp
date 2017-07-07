@@ -11,9 +11,9 @@
 	<%
 		String menuname= request.getParameter("menuname");
 		MenuManageDao dao=new MenuManageDao();
-		
-		dao.deleteMenu(menuname);
-		response.sendRedirect("../menuManager.jsp");
+	
+ 		dao.deleteMenu(menuname);
+		response.sendRedirect("../menuManager.jsp"); 
 	%>
 </body>
 </html>

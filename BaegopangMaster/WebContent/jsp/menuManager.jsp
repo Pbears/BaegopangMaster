@@ -60,6 +60,7 @@
 				<p>우리가게 메뉴판</p>
 			</div>
 			<div id="s_contents">
+					<form action="delete/deleteProcess.jsp" id="frm">
 				<%
 					List<MenuBean> mbslist = null;
 					mbslist = dao.myStoreMenu(storename);
@@ -69,20 +70,19 @@
 				<div id="menu_one"
 					style="display: inline-block; text-align: center;">
 					<img src="/BaegopangMaster<%=mbsbean.getPicture()%>">
-					<form action="delete/deleteProcess.jsp" id="frm">
 						<div>
 							<p style="font-family: sans-serif; font-size: 15px; display: inline-block; margin-bottom: 20px; margin-top: 10px;">
 								<%=mbsbean.getMenuname()%></p>
 							<input class="btn btn-default" type="button" value="메뉴 삭제"
-								onclick="deleteMenu()"
+								onclick="deleteMenu(<%=i %>)"
 								style="float: right; margin-right: 20px; background: #FF8C00; color: white; font-weight: bold;">
-							<input type="hidden" name="menuname" value="<%=mbsbean.getMenuname() %>"> 
+							<input type="hidden" id="menuname<%=i %>" name="menuname" value="<%=mbsbean.getMenuname() %>"> 
 						</div>
-					</form>
 				</div>
 				<%
 					}
 				%>
+					</form>
 			</div>
 		</div>
 	</div>
@@ -171,9 +171,10 @@
 	function closeSrc() {
 		insertMenu.style.display = "none";
 	}
-	function deleteMenu() {
-		var obj=document.getElementById("frm");
-		obj.submit();
+	function deleteMenu(i) {
+		var menuname=document.getElementById("menuname"+i).value;
+		
+		document.location="delete/deleteProcess.jsp?menuname="+menuname;
 	}
 </script>
 </html>
