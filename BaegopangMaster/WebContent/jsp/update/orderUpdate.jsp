@@ -14,15 +14,18 @@
 <body>
 <%
     OrderDao dao=new OrderDao();
-    String bstate=request.getParameter("state");
+    String flag=request.getParameter("flag");
     String ordernumber=request.getParameter("ordernumber");
     HashMap<String,Object>map=new HashMap<String,Object>();
     	map.put("ordernumber", ordernumber);
-    if(bstate.equals("승인대기")){
+    if(flag.equals("check")){
     	map.put("state", "승인완료");
     	dao.updateOrder(map);
-    }else if(bstate.equals("승인완료")){
+    }else if(flag.equals("del")){
     	map.put("state", "배달완료");
+    	dao.updateOrder(map);   	
+    }else if(flag.equals("refuse")){
+    	map.put("state", "거절");
     	dao.updateOrder(map);   	
     }
      

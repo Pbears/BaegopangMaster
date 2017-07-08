@@ -108,6 +108,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		UPDATE MASTER SET PW=#{pw},TEL=#{tel} ,ADDRESS=#{address} WHERE
 		STORENAME='교촌치킨-압구정신사점'
 
-	</update>
+	</update>	
+	
+
+
+	
+	
+	<insert id="dropMaster" parameterType="master">
+		INSERT INTO REQUESTDROP VALUES(#{id},#{pw},#{name},#{address},#{tel},TO_DATE(#{birth},'YYYY-MM-DD HH24:MI:SS'),#{storename})
+	</insert>
 
 </mapper>

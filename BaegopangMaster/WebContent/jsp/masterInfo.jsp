@@ -33,7 +33,15 @@
 <script>
 	function modifyInfo() {
 		var obj = document.getElementById("infofrm");
+		obj.action="/BaegopangMaster/jsp/update/masterUpdate.jsp";
 		obj.submit();
+	}
+	
+	function withdrawal() {		
+		var obj = document.getElementById("infofrm");
+		obj.action="/BaegopangMaster/jsp/delete/masterDeleteProcess.jsp";
+		obj.submit();
+		
 	}
 </script>
 
@@ -66,7 +74,7 @@
 			<!-- <div class="col-sm-1" ></div> -->
 			<!-- 첫칸 -->
 			<form class="form-horizontal" method="post"
-				action="/BaegopangMaster/jsp/update/masterUpdate.jsp" name="infoFrm" id="infofrm">
+				 name="infoFrm" id="infofrm">
 				<div class="col-sm-5"
 					style="background-color: white; border-radius: 30px; border: 1px solid #ccc">
 					<h1 align="center">배고팡 프로필</h1>
@@ -83,7 +91,7 @@
 								<label for="inputName" class="col-sm-2 control-label">Name</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="name" name="name"
-										placeholder="Name" disabled="disabled"
+										placeholder="Name" readonly="readonly"
 										value="<%=mbean.getName()%>">
 								</div>
 							</div>
@@ -92,7 +100,7 @@
 								<label for="inputId" class="col-sm-2 control-label">ID</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="id" name="id"
-										placeholder="ID" disabled="disabled"
+										placeholder="ID" readonly="readonly"
 										value="<%=mbean.getId()%>">
 								</div>
 							</div>
@@ -155,11 +163,11 @@
 								<label for="inputBirth" class="col-sm-2 control-label">Birth</label>
 								<div class="col-sm-10">
 									<input id="datepicker" class="form-control" name="birth"
-										disabled="disabled" value="<%=mbean.getBirth()%>">
+										readonly="readonly" value="<%=mbean.getBirth()%>">
 								</div>
 							</div>
 							<div class="form-group">
-								<a href="#" class="btn btn-lg btn-danger"><span
+								<a href="javascript:withdrawal()" class="btn btn-lg btn-danger"><span
 									class="glyphicon glyphicon-ban-circle"></span> 탈퇴</a>
 							</div>
 						</div>
@@ -197,7 +205,7 @@
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="storename"
 										name="storename" placeholder="storename"
-										value="<%=sbean.getStorename()%>" disabled="disabled">
+										value="<%=sbean.getStorename()%>" readonly="readonly">
 								</div>
 							</div>
 

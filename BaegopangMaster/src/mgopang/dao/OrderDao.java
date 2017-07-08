@@ -90,6 +90,20 @@ public class OrderDao {
 	}
 	
 	
+	public void dropMaster(MasterBean bean){
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.insert("dropMaster",bean);
+			session.commit();
+		} catch (Exception e) {
+			session.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+	
+	
 	
 	
 	
