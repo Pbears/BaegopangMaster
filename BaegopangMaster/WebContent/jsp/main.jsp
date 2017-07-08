@@ -27,8 +27,12 @@
 <%
 	String id = (String)session.getAttribute("id");
 	MemberDao dao = new MemberDao();
-	MasterBean bean = dao.selectMasterOne(id);
+	MasterBean bean = (MasterBean)session.getAttribute("master");
 	String storename = bean.getStorename();
+	/* session에 넣지말고 
+	 * (MasterBean)session.getAttribute("master") 안에 정보 다 넣어뒀으니까 
+	 * 여기서 뽑아서 쓰세용 ~ 확인하시면 이 주석 삭제부탁드립니다.
+	 */ 
 	session.setAttribute("storename", storename);
 %>
 	<jsp:include page="header.jsp"></jsp:include>

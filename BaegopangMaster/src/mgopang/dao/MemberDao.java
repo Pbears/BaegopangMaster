@@ -13,14 +13,8 @@ public class MemberDao {
 		sqlSessionFactory=SqlSessionFactoryManager.getSqlSessionFactory();
 	}
 	
-	public boolean idCheck(String id){
-		String userId = sqlSessionFactory.openSession().selectOne("idCheck", id);
-		return id.equals(userId)?true:false;
-	}
-	
-	public boolean memberCheck(String id, String pw){
-		String userPw = sqlSessionFactory.openSession().selectOne("memberCheck", id);
-		return pw.equals(userPw)?true:false;
+	public MasterBean memberCheck(String id){
+		return sqlSessionFactory.openSession().selectOne("memberCheck", id);
 	}
 	
 	public void masterInsert(MasterBean bean){

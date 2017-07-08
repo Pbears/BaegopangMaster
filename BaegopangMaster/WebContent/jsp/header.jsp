@@ -1,3 +1,4 @@
+<%@page import="mgopang.bean.MasterBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <link href="/BaegopangMaster/css/bootstrap.min.css" rel="stylesheet">
@@ -54,7 +55,7 @@ button#loginBtn.btn btn-default btn-lg {
 </style>
 <header>
 	<%
-	String id = (String)session.getAttribute("id");
+	MasterBean master = (MasterBean)session.getAttribute("master");
 	%>
 	<div id="headerContainer">
 		<div id="mainTitle" align="center">
@@ -109,7 +110,7 @@ button#loginBtn.btn btn-default btn-lg {
 					</td>
 				</tr>
 					<div id="tab_user" style="display: inline-block; float: right; margin-top: 30px; color: white; font-weight: bold;">
-					<%=id %> 님 환영합니다</div>
+					<%=master.getId() %> 님 환영합니다</div>
 			</table>
 		</div>
 	</div>

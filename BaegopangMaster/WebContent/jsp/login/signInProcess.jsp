@@ -1,3 +1,4 @@
+<%@page import="mgopang.bean.MasterBean"%>
 <%@page import="mgopang.dao.MemberDao"%>
 <%@page import="java.io.Console"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,8 +14,9 @@
 		String userId = request.getParameter("userId");
 		String userPw = request.getParameter("userPw");
 		MemberDao dao = new MemberDao();
-		if(dao.memberCheck(userId, userPw)==true){
-			session.setAttribute("id", userId);
+		MasterBean bean = dao.memberCheck(userId);
+		if(userPw.equals(bean.getPw())){
+			session.setAttribute("master", bean);
 			response.sendRedirect("/BaegopangMaster/jsp/main.jsp");
 		}
 		else{

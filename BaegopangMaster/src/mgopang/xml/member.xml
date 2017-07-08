@@ -4,13 +4,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mgopang.xml.member">
 	<select id="memberCheck" parameterType="java.lang.String"
-		resultType="java.lang.String">
-		SELECT PW FROM MASTER WHERE ID=#{id}
-	</select>
-
-	<select id="idCheck" parameterType="java.lang.String"
-		resultType="java.lang.String">
-		SELECT ID FROM MASTER WHERE ID=#{id}
+		resultType="master">
+		SELECT ID, PW, NAME, ADDRESS, TEL, BIRTH, STORENAME, POINT
+		FROM MASTER WHERE ID=#{id}
 	</select>
 
 	<insert id="masterInsert" parameterType="master">
