@@ -3,6 +3,7 @@
 <%@page import="java.util.List"%>
 <%@page import="mgopang.dao.MasterAskDao"%>
 <%@page import="mgopang.bean.MasteraskadminBean"%>
+<%@page import="mgopang.bean.MasterBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,13 +15,16 @@
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 <script type="text/javascript" src="js/modernizr.custom.29473.js"></script>
 <script type="text/javascript">
-	
+	function noticeCk(i){
+		var obj=document.getElementById("noticeSel"+i).value;
+		window.open("selectQuestion.jsp?title="+obj,"noticeCk","width=400, height=300")
+	}
 </script>
 </head>
 <body>
 	<%
-		String masterid = (String)session.getAttribute("id");
-		System.out.print(masterid);
+		MasterBean mbean= (MasterBean)session.getAttribute("master");
+		String masterid = mbean.getId();
 		MasterAskDao dao = new MasterAskDao();
 		
 		List<MasteraskadminBean> list = null;
@@ -82,7 +86,9 @@
 						%>
 						<tr tabindex="1" style="text-align: center;">
 							<td><%=bean.getNo()%></td>
-							<td><%=bean.getTitle()%></td>
+							<td id="noticel<%=i %>" onclick="noticeCk(<%=i%>)"><%=bean.getTitle()%>
+								<input type="hidden" id="noticeSel<%=i %>" value="<%=bean.getTitle()%>">
+							</td>
 							<td><%=bean.getRegdate()%></td>
 						</tr>
 						<%

@@ -5,17 +5,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="mgopang.xml.Masteraskadmin"> 
 	<insert id="insertAsk" parameterType="ask">
 	   <selectKey keyProperty="no" order="BEFORE"  resultType="java.lang.Integer">
-	    SELECT ASK_SEQ.NEXTVAL FROM DUAL
+	    	SELECT ASK_SEQ.NEXTVAL FROM DUAL
 	  </selectKey>
 		INSERT INTO masteraskadmin(no,masterinfo,title,masterid,regdate) 
 		VALUES (#{no},#{masterinfo},#{title},#{masterid},sysdate)
 	</insert>
-	<select id="selectAsk" parameterType="java.util.Map" resultType="ask">
+<!-- 	<select id="selectAsk" parameterType="java.util.Map" resultType="ask">
  
 		SELECT no,title,masterinfo,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE
 		FROM masteraskadmin
 		WHERE no between  #{start} and  #{end} and (masterid=#{masterid})
 		ORDER BY NO
+		
+	</select> -->
+	
+	<select id="selectAsk" parameterType="java.util.Map" resultType="ask">
+		SELECT RM,no,title,masterinfo,REGDATE
+		FROM(
+		SELECT ROW_NUMBER( ) OVER(ORDER BY NO
+		DESC)RM,no,title,masterid,masterinfo,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE
+		FROM masteraskadmin
+		)
+		WHERE RM between  #{start} and  #{end} and (masterid=#{masterid})
+		ORDER BY NO DESC
 		
 	</select>
 	
@@ -24,6 +36,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT COUNT(*) FROM MASTERASKADMIN
 		where masterid=#{masterid} 
 		
+	</select>
+	<select id="selQuestionOne" parameterType="java.lang.String" resultType="ask">
+		SELECT * FROM MASTERASKADMIN
+		WHERE TITLE = #{title}
 	</select>
 </mapper>
 

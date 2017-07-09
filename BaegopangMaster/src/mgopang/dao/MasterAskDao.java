@@ -38,4 +38,8 @@ public class MasterAskDao {
 		System.out.println(map.get("start"));
 		return sqlSessionFactory.openSession().selectList("selectAsk",map);
 	}
+	public MasteraskadminBean selQuestionOne(String title){
+		System.out.print(title);
+		return sqlSessionFactory.openSession().selectOne("selQuestionOne", title);
+	}
 }

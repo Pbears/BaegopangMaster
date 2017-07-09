@@ -1,7 +1,12 @@
+<%@page import="mgopang.bean.NoticeBean"%>
+<%@page import="java.util.List"%>
+<%@page import="mgopang.dao.NoticeDao"%>
 <%@page import="mgopang.bean.MasterBean"%>
 <%@page import="mgopang.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +26,11 @@
 	function mouseOt(obj) {
 		obj.style.background = "#44BFB7";
 	}
+	function noticeView(i){
+		var obj=document.getElementById("li"+i).value; 
+		//window.open("selectQuestion.jsp?title="+obj,"noticeCk","width=400, height=300")
+		alert(obj.value);
+	}
 </script>
 </head>
 <body>
@@ -29,6 +39,7 @@
 	MemberDao dao = new MemberDao();
 	MasterBean bean = (MasterBean)session.getAttribute("master");
 	String storename = bean.getStorename();
+	NoticeDao ndao = new NoticeDao();
 	/* session에 넣지말고 
 	 * (MasterBean)session.getAttribute("master") 안에 정보 다 넣어뒀으니까 
 	 * 여기서 뽑아서 쓰세용 ~ 확인하시면 이 주석 삭제부탁드립니다.
@@ -96,9 +107,19 @@
 			</a>
 			<div id="notice_list">
 				<ui>
-				<li>회원가입 시 주의사항</li>
-				<li>배고팡 임시휴무-6월21일(수)</li>
-				<li>사장님 전용사이트가 오픈했습니다!</li>
+				<%
+					List<NoticeBean>list=null;
+					list = ndao.noticeSel();
+					for(int i=0; i<list.size(); i++){
+						NoticeBean nbean = list.get(i);
+				%>
+				<a id="noticeAll" onclick="window.open('Notice.jsp?title=<%=nbean.getTitle() %>',target='_blank','width=300', 'height=200')" > 
+					<li id="li<%=i%>" onclick="noticeView(<%=i%>)" value="<%=nbean.getTitle()%>"><%=nbean.getTitle()%></li>
+					
+				</a>
+				<%
+					}
+				%>
 				</ui>
 			</div>
 		</div>

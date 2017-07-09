@@ -1,5 +1,6 @@
 <%@page import="mgopang.dao.MasterAskDao"%>
 <%@page import="mgopang.bean.MasteraskadminBean"%>
+<%@page import="mgopang.bean.MasterBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,9 +16,10 @@
 <body>
 	<%
 		request.setCharacterEncoding("EUC-KR");
+		MasterBean mbean= (MasterBean)session.getAttribute("master");
+		String masterid = mbean.getId();
 		String title = request.getParameter("title");
 		String masterinfo = request.getParameter("contents");
-		String masterid = (String)session.getAttribute("id");
 		MasteraskadminBean bean = new MasteraskadminBean();
 		bean.setTitle(title);
 		bean.setMasterinfo(masterinfo);
