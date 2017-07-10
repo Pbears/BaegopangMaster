@@ -11,4 +11,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM NOTICE
 		WHERE TITLE=#{title}
 	</select>
+	
+		<select id="getNTotalRows"  resultType="java.lang.Integer">
+			SELECT COUNT(*) FROM NOTICE
+	</select>
+	
+	<select id="selectPage" parameterType="java.util.Map" resultType="notice">
+		SELECT RM,NO,REGDATE,ADMINID,TITLE
+		FROM(
+		SELECT ROW_NUMBER( ) OVER(ORDER BY NO
+		DESC)RM,NO,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,ADMINID,TITLE FROM NOTICE)
+		WHERE RM BETWEEN #{start} AND #{end}
+	</select>
 </mapper>

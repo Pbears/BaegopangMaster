@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</select>
 	<select id="selQuestionOne" parameterType="java.lang.String" resultType="ask">
-		SELECT TITLE, MASTERINFO, MASTERID, TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE FROM MASTERASKADMIN
+		SELECT TITLE, MASTERINFO, MASTERID, TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,adminid,admininfo FROM MASTERASKADMIN
 		WHERE TITLE = #{title}
 	</select>
 </mapper>

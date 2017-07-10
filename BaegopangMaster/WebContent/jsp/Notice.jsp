@@ -12,13 +12,16 @@
 </head>
 <body>
 	<%
+		request.setCharacterEncoding("euc-kr");
 		String title = request.getParameter("title");
+		System.out.print(title);
 		NoticeDao dao = new NoticeDao();
 		NoticeBean bean;
 		bean = dao.selNoticeOne(title);
 	%>
 
 	<!-- UI Object -->
+	<h1>공지사항</h1>
 	<table cellspacing="0" border="1" summary="글 내용을 표시" class="tbl_type">
 		<caption>글 읽기</caption>
 		<colgroup>
@@ -38,19 +41,23 @@
 		<tbody>
 			<tr>
 				<th scope="row">작성자</th>
-				<td><%=bean.getAdminid()%></td>
+				<td>Admin</td>
 				<th scope="row">작성일</th>
 				<td><%=bean.getRegdate()%></td>
 				<th scope="row">조회</th>
 				<td>19</td>
 			</tr>
 			<tr>
-				<td colspan="6" class="cont"><span style="color: #FF6600;"><%=bean.getInfo() %>.</span>
+				<td colspan="6" rowspan="6" class="cont" style="padding-bottom: 300px;"><span style="font-size: 20px; line-height: 20px" ><%=bean.getInfo() %>.</span>
 				</td>
 			</tr>
 		</tbody>
 	</table>
-
+	<div>
+	<form action="NoticeList.jsp">
+		<input type="submit" value="목록보기">
+	</form>
+	</div>
 	<!-- //UI Object -->
 </body>
 </html>

@@ -29,7 +29,6 @@
 	function noticeView(i){
 		var obj=document.getElementById("li"+i).value; 
 		//window.open("selectQuestion.jsp?title="+obj,"noticeCk","width=400, height=300")
-		alert(obj.value);
 	}
 </script>
 </head>

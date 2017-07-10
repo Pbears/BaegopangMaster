@@ -54,7 +54,30 @@ public class NoticeDao {
 			closeSqlSession(sqlSession);
 		}
 	}
-	
-
+	public int getNTotalRows() throws Exception{
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("getNTotalRows");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
+		
+     }
+	public List<NoticeBean>selectPage(HashMap<String, Object>map){
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("selectPage",map);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
+	}
 
 }

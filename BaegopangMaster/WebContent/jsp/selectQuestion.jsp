@@ -45,6 +45,7 @@ legend{display:none}
 		MasterAskDao mdao=new MasterAskDao();
 		MasteraskadminBean mbean =null;
 		mbean = mdao.selQuestionOne(title);
+		System.out.print(mbean);
 	%>
 	<!-- UI Object -->
 <table cellspacing="0" border="1" summary="글 내용을 표시" class="tbl_type">
@@ -67,33 +68,25 @@ legend{display:none}
 <td><%=mbean.getRegdate() %></td>
 </tr>
 <tr>
-<td colspan="6" class="cont" style="padding-bottom: 100px;">
+<td colspan="6" class="cont" style="padding-bottom: 150px;">
 	<%=mbean.getMasterinfo() %>
 </td>
 </tr>
 </tbody>
 </table>
-
-<form name="" action="method">
-<fieldset>
-<legend>코멘트 영역</legend>
-	<table cellspacing="0" border="1" summary="글 내용에 대한 덧글 표시" class="tbl_type2">
-	<caption>글에 대한 코멘트</caption>
+	<table cellspacing="0" border="1" class="tbl_type">
 	<colgroup>
 	<col width="110">
 	<col>
 	</colgroup>
 	<tbody>
-	<tr class="input_txt">
-	<td><input type="text" title="이름" name="" value="" class="name"></td>
-	<td><textarea cols="65" rows="5" name="" class="comment"></textarea>
-		<input type="submit" title="입력" value="입력" class="submit">
-	</td>
+	<tr scope="row" class="input_txt">
+	<th><%=mbean.getAdminid() %></th>
+	<td><%=mbean.getAdmininfo() %></td>
 	</tr>
 	</tbody>
 	</table>
-</fieldset>
-</form>
+
 <!-- //UI Object -->
 </body>
 </html>
