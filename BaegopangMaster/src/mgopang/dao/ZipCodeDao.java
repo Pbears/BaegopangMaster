@@ -1,7 +1,9 @@
 package mgopang.dao;
 
+import java.io.Closeable;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import mgopang.bean.ZipcodeBean;
@@ -13,8 +15,24 @@ public class ZipCodeDao {
 	public ZipCodeDao(){
 		sqlSessionFactory=SqlSessionFactoryManager.getSqlSessionFactory();
 	}
-	
+	private void closeSqlSession(Closeable c) {
+		try {
+			if (c != null)
+				c.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public List<ZipcodeBean> searchAddress(String dong){
-		return sqlSessionFactory.openSession().selectList("searchAddress", dong);
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("searchAddress", dong);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			closeSqlSession(sqlSession);
+		}
 	}
 }

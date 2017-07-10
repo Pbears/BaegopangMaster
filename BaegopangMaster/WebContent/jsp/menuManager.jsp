@@ -1,3 +1,4 @@
+<%@page import="mgopang.bean.MasterBean"%>
 <%@page import="mgopang.bean.MenuByStoreBean"%>
 <%@page import="mgopang.dao.MenuManageDao"%>
 <%@page import="mgopang.bean.MenuBean"%>
@@ -23,8 +24,9 @@
 </head>
 <body>
 	<%
-		String id = (String) session.getAttribute("id");
-		String storename = (String) session.getAttribute("storename");
+		MasterBean mbean = (MasterBean)session.getAttribute("master");
+		String id = mbean.getId();
+		String storename = mbean.getStorename();
 		String picture = "../img/noimage.jpg";
 		List<MenuBean> list = null;
 		List<MenuBean> selList = null;
@@ -40,9 +42,8 @@
 					MenuBean bean = list.get(i);
 			%>
 			<div id="selMenu" style="display: inline-block;">
-				<img src="/BaegopangMaster<%=bean.getPicture()%>" id="menu_img"
-					name="insert_menu<%=i%>" onmouseover="imgOver(this)"
-					onmouseout="imgOut(this)" onclick="imgCk(<%=i%>)" />
+				<img src="/BaegopangMaster<%=bean.getPicture()%>" id="menu_img" name="insert_menu<%=i%>" 
+				onmouseover="imgOver(this)" onmouseout="imgOut(this)" onclick="imgCk(<%=i%>)"/>
 				<p><%=bean.getMenuname()%></p>
 				<input type="hidden" value="<%=bean.getMenuname()%>" id="menu_name"
 					name="insert_menu<%=i%>"> <input type="hidden"
@@ -72,7 +73,7 @@
 					<img src="/BaegopangMaster<%=mbsbean.getPicture()%>">
 						<div>
 							<p style="font-family: sans-serif; font-size: 15px; display: inline-block; margin-bottom: 20px; margin-top: 10px;">
-								<%=mbsbean.getMenuname()%></p>
+								<%=mbsbean.getMenuname() %></p>
 							<input class="btn btn-default" type="button" value="메뉴 삭제"
 								onclick="deleteMenu(<%=i %>)"
 								style="float: right; margin-right: 20px; background: #FF8C00; color: white; font-weight: bold;">

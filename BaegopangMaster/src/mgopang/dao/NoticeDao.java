@@ -1,5 +1,6 @@
 package mgopang.dao;
 
+import java.io.Closeable;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,11 +21,38 @@ public class NoticeDao {
 		sqlSessionFactory=SqlSessionFactoryManager.getSqlSessionFactory();
 		
 	}
+	private void closeSqlSession(Closeable c) {
+		try {
+			if (c != null)
+				c.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public List<NoticeBean>noticeSel(){
-		return sqlSessionFactory.openSession().selectList("noticeSel");
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("noticeSel");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
+
 	}
 	public NoticeBean selNoticeOne(String title){
-		return sqlSessionFactory.openSession().selectOne("selNoticeOne", title);
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("selNoticeOne", title);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
 	}
 	
 

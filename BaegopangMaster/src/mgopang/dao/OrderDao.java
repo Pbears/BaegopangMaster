@@ -1,5 +1,6 @@
 package mgopang.dao;
 
+import java.io.Closeable;
 import java.util.HashMap;
 import java.util.List;
 
@@ -19,27 +20,64 @@ public class OrderDao {
 		sqlSessionFactory=SqlSessionFactoryManager.getSqlSessionFactory();
 		
 	}
+	private void closeSqlSession(Closeable c) {
+		try {
+			if (c != null)
+				c.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public int getTotalRow(HashMap<String, Object>map) throws Exception{
-		System.out.println(map.get("Q"));
-		System.out.println(map.get("D"));
-		return sqlSessionFactory.openSession().selectOne("getTotalRow",map);
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("getTotalRow",map);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
      }
 	
 	public int getTotalRowCom(HashMap<String, Object>map) throws Exception{
-		System.out.println("c"+map.get("Q2"));
-		System.out.println("c"+map.get("D2"));
-		return sqlSessionFactory.openSession().selectOne("getTotalRowCom",map);
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("getTotalRowCom",map);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
      }
 	public List<OrderBean>selectOrder(HashMap<String, Object>map){
-		System.out.println(map.get("query"));
-		System.out.println(map.get("data"));
-		return sqlSessionFactory.openSession().selectList("selectOrder",map);
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("selectOrder",map);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
 	}
 	
 	public List<OrderBean>selectOrderCom(HashMap<String, Object>map){
-		System.out.println("c"+map.get("query2"));
-		System.out.println("c"+map.get("data2"));
-		return sqlSessionFactory.openSession().selectList("selectOrderCom",map);
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("selectOrderCom",map);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
 	}
 	
 	public void updateOrder(HashMap<String, Object>map){
@@ -56,11 +94,28 @@ public class OrderDao {
 	}
 	
 	public MasterBean selectMaster(HashMap<String, Object>map){
-	
-		return sqlSessionFactory.openSession().selectOne("selectMaster",map);
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("selectMaster",map);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
 	}
 	public StoreBean selectStore(HashMap<String, Object>map){
-		return sqlSessionFactory.openSession().selectOne("selectStore",map);
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("selectStore",map);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
 	}
 	
 	public void updateStore(StoreBean bean){
@@ -102,18 +157,4 @@ public class OrderDao {
 			session.close();
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

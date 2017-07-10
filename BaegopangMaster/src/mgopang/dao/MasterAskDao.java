@@ -1,6 +1,7 @@
 package mgopang.dao;
 
 
+import java.io.Closeable;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,6 +17,15 @@ public class MasterAskDao {
 	public MasterAskDao(){
 		sqlSessionFactory=SqlSessionFactoryManager.getSqlSessionFactory();
 	}
+	private void closeSqlSession(Closeable c) {
+		try {
+			if (c != null)
+				c.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void insertAsk(MasteraskadminBean bean){
 		  SqlSession sqlSession=sqlSessionFactory.openSession();
 		  try {
@@ -29,17 +39,44 @@ public class MasterAskDao {
 			sqlSession.close();
 		}
 	}
+	
 	public int getTotalRows(String masterid) throws Exception{
-		return sqlSessionFactory.openSession().selectOne("getTotalRows",masterid);
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("getTotalRows",masterid);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
+		
      }
 	
 	public List<MasteraskadminBean>selectAsk(HashMap<String, Object>map){
-		System.out.println(map.get("end"));
-		System.out.println(map.get("start"));
-		return sqlSessionFactory.openSession().selectList("selectAsk",map);
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("selectAsk",map);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
 	}
 	public MasteraskadminBean selQuestionOne(String title){
-		System.out.print(title);
-		return sqlSessionFactory.openSession().selectOne("selQuestionOne", title);
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("selQuestionOne", title);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
+		
 	}
 }
