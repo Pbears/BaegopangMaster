@@ -89,7 +89,9 @@ button#loginBtn.btn btn-default btn-lg {
 					<td>
 						<div class="dropdown3">
 							<button class="dropbtn3">포인트</button>
-							<div class="dropdown-content3"></div>
+							<div class="dropdown-content3">
+								<a href="Point.jsp">포인트</a>
+							</div>
 						</div>
 					</td>
 					<td>

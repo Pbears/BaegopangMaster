@@ -101,7 +101,7 @@
 		<div id="notice">
 			<p
 				style="display: inline-block; margin-bottom: 20px; margin-right: 140px">공지사항</p>
-			<a href="#" style="padding: 0px;" class="noti_title">
+			<a href="#" onclick="window.open('NoticeList.jsp','_blank','width=400', 'height=500')" style="padding: 0px;" class="noti_title">
 				<p style="display: inline-block; font-size: 15px; color: #646464;">더보기</p>
 			</a>
 			<div id="notice_list">
@@ -113,7 +113,8 @@
 						NoticeBean nbean = list.get(i);
 				%>
 				<a id="noticeAll" onclick="window.open('Notice.jsp?title=<%=nbean.getTitle() %>',target='_blank','width=300', 'height=200')" > 
-					<li id="li<%=i%>" onclick="noticeView(<%=i%>)" value="<%=nbean.getTitle()%>"><%=nbean.getTitle()%></li>
+					<li style="font-size: 15px; margin-bottom: 15px; color: black;"
+ 					 id="li<%=i%>" onclick="noticeView(<%=i%>)" value="<%=nbean.getTitle()%>"><%=nbean.getTitle()%></li>
 					
 				</a>
 				<%

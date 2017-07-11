@@ -48,6 +48,7 @@ legend{display:none}
 		System.out.print(mbean);
 	%>
 	<!-- UI Object -->
+	<h1>문의 하기</h1>
 <table cellspacing="0" border="1" summary="글 내용을 표시" class="tbl_type">
 <caption>글 읽기</caption>
 <colgroup>

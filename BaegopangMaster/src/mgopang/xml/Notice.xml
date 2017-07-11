@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="selNoticeOne" parameterType="java.lang.String" resultType="notice">
-		SELECT * FROM NOTICE
+		SELECT NO,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,ADMINID,TITLE, INFO FROM NOTICE
 		WHERE TITLE=#{title}
 	</select>
 	

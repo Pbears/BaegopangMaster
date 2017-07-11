@@ -48,14 +48,14 @@
 				<td>19</td>
 			</tr>
 			<tr>
-				<td colspan="6" rowspan="6" class="cont" style="padding-bottom: 300px;"><span style="font-size: 20px; line-height: 20px" ><%=bean.getInfo() %>.</span>
+				<td colspan="6" rowspan="6" class="cont" style="padding-bottom: 200px;"><span style="font-size: 20px; line-height: 30px" ><%=bean.getInfo() %>.</span>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 	<div>
 	<form action="NoticeList.jsp">
-		<input type="submit" value="목록보기">
+		<input type="submit" value="목록보기" style="float: right; margin-top:20px;">
 	</form>
 	</div>
 	<!-- //UI Object -->
