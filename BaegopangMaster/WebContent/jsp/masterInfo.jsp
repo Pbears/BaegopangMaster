@@ -68,10 +68,8 @@
 
 		MasterBean mbean = dao.selectMaster(map);
 		StoreBean sbean = dao.selectStore(map);
-		out.print(mbean);
-		out.print(sbean);
 	%>
-<%-- 
+
 	<jsp:include page="header.jsp"></jsp:include>
 
 
@@ -190,7 +188,7 @@
 				<div class="col-sm-5"
 					style="background-color: white; border-radius: 30px; border: 1px solid #ccc;">
 					<h1 align="center">점포 정보</h1>
-					<br> <br> <img src="/BaegopangMaster/<%=sbean.getPricture()%>"
+					<br> <br> <img src="/BaegopangMaster/<%=sbean.getPicture()%>"
 						class="img-rounded" alt="Cinque Terre" width="304" height="236">
 					<br> <br> <br>
 
@@ -287,7 +285,7 @@
 
 
 
-	<jsp:include page="footer.jsp"></jsp:include> --%>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script

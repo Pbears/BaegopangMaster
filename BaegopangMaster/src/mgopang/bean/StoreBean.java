@@ -65,21 +65,12 @@ public class StoreBean {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-	public StoreBean(String storename, int brandno, String location, int gpa, String hours, String tel, int minprice,
-			String info, String picture) {
-		super();
-		this.storename = storename;
-		this.brandno = brandno;
-		this.location = location;
-		this.gpa = gpa;
-		this.hours = hours;
-		this.tel = tel;
-		this.minprice = minprice;
-		this.info = info;
-		this.picture = picture;
+	@Override
+	public String toString() {
+		return "StoreBean [storename=" + storename + ", brandno=" + brandno + ", location=" + location + ", gpa=" + gpa
+				+ ", hours=" + hours + ", tel=" + tel + ", minprice=" + minprice + ", info=" + info + ", picture="
+				+ picture + "]";
 	}
-	
-
 	
 	
 	
