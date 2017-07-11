@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@page import="mgopang.dao.OrderDao"%>
 <%@page import="mgopang.bean.StoreBean"%>
 <%@page import="mgopang.bean.MasterBean"%>
@@ -15,6 +16,9 @@
 <body>
 
 <%
+MasterBean mbean=(MasterBean)request.getSession().getAttribute("master");
+String storename=mbean.getStorename();
+
 
 String pw=request.getParameter("pw");
 String maddress=request.getParameter("maddress1").concat(" "+request.getParameter("maddress2"));
@@ -24,25 +28,30 @@ String stel=request.getParameter("stel1").concat("-"+request.getParameter("stel2
 String hours=request.getParameter("hours");
 String info=request.getParameter("info");
 
-MasterBean mbean=new MasterBean();
+//master
+HashMap<String,Object> store=new HashMap<String,Object>(); 
 
-mbean.setPw(pw);
-mbean.setAddress(maddress);
-mbean.setTel(mtel);
+store.put("hours", hours);
+store.put("info", info);
+store.put("storename", storename);
+store.put("tel", stel);
 
-StoreBean sbean=new StoreBean();
 
-sbean.setTel(stel);
-sbean.setHours(hours);
-sbean.setInfo(info);
 
-out.println(mbean);
-out.println(sbean);
+//store
+
+HashMap<String,Object> master=new HashMap<String,Object>(); 
+
+master.put("pw", pw);
+master.put("address", maddress);
+master.put("tel", mtel);
+master.put("storename", storename);
+
 
 OrderDao dao=new OrderDao();
 
-dao.updateMaster(mbean);
-dao.updateStore(sbean);
+dao.updateMaster(master);
+dao.updateStore(store);
 
 response.sendRedirect("/BaegopangMaster/jsp/masterInfo.jsp");
 

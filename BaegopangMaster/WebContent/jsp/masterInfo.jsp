@@ -52,13 +52,19 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body style="background-color: white;">
 	<%
-		String storename = "교촌치킨-압구정신사점";
+	
+	
+	
+		MasterBean storename = (MasterBean)request.getSession().getAttribute("master");
 
-		OrderDao dao = new OrderDao();
+	
+	  
+	
+		 OrderDao dao = new OrderDao();
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 
-		map.put("storename", storename);
+		map.put("storename", storename.getStorename());
 
 		MasterBean mbean = dao.selectMaster(map);
 		StoreBean sbean = dao.selectStore(map);
@@ -91,8 +97,7 @@
 								<label for="inputName" class="col-sm-2 control-label">Name</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="name" name="name"
-										placeholder="Name" readonly="readonly"
-										value="<%=mbean.getName()%>">
+										placeholder="Name" readonly="readonly" value="<%=mbean.getName()%>">
 								</div>
 							</div>
 

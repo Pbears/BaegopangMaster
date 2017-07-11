@@ -1,3 +1,4 @@
+<%@page import="mgopang.bean.MasterBean"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="mgopang.bean.OrderBean"%>
 <%@page import="java.util.List"%>
@@ -41,8 +42,9 @@
 		String data = request.getParameter("data");
 		OrderDao dao = new OrderDao();
 		HashMap<String, Object> map = new HashMap<String, Object>();
+		MasterBean storename=(MasterBean)request.getSession().getAttribute("master");
 
-		map.put("storename", "교촌치킨-논현1호점");
+		map.put("storename", storename.getStorename());
 
 		int pageScale = 10;
 		map.put("Q", query);

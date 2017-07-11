@@ -99,14 +99,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateStore" parameterType="store">
 
 		UPDATE STORE SET TEL=#{tel},HOURS=#{hours},INFO=#{info} WHERE
-		STORENAME='교촌치킨-압구정신사점'
+		STORENAME=#{storename}
 
 	</update>
 
-	<update id="updateMaster" parameterType="master">
+	<update id="updateMaster" parameterType="java.util.HashMap">
 
 		UPDATE MASTER SET PW=#{pw},TEL=#{tel} ,ADDRESS=#{address} WHERE
-		STORENAME='교촌치킨-압구정신사점'
+		STORENAME=#{storename}
 
 	</update>	
 	
@@ -114,7 +114,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	
 	
-	<insert id="dropMaster" parameterType="master">
+	<insert id="dropMaster" parameterType="java.util.HashMap">
 		INSERT INTO REQUESTDROP VALUES(#{id},#{pw},#{name},#{address},#{tel},TO_DATE(#{birth},'YYYY-MM-DD HH24:MI:SS'),#{storename})
 	</insert>
 

@@ -98,6 +98,7 @@ public class OrderDao {
 		try {
 			sqlSession = sqlSessionFactory.openSession();
 			return sqlSession.selectOne("selectMaster",map);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -118,10 +119,10 @@ public class OrderDao {
 		}
 	}
 	
-	public void updateStore(StoreBean bean){
+	public void updateStore(HashMap<String, Object>map){
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			session.update("updateStore",bean);
+			session.update("updateStore",map);
 			session.commit();
 		} catch (Exception e) {
 			session.rollback();
@@ -131,10 +132,10 @@ public class OrderDao {
 		}
 	}
 	
-	public void updateMaster(MasterBean bean){
+	public void updateMaster(HashMap<String, Object>map){
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			session.update("updateMaster",bean);
+			session.update("updateMaster",map);
 			session.commit();
 		} catch (Exception e) {
 			session.rollback();

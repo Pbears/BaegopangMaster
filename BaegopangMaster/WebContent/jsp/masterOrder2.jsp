@@ -1,3 +1,4 @@
+<%@page import="mgopang.bean.MasterBean"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="mgopang.bean.OrderBean"%>
 <%@page import="java.util.List"%>
@@ -39,8 +40,10 @@
 		String data2 = request.getParameter("data2");
 		OrderDao dao = new OrderDao();
 		HashMap<String, Object> map2 = new HashMap<String, Object>();
+		
+		MasterBean storename1 = (MasterBean) request.getSession().getAttribute("master");
 
-		map2.put("storename", "교촌치킨-논현1호점");
+		map2.put("storename", storename1.getStorename());
 
 		int pageScale = 10;
 		map2.put("Q2", query2);
@@ -70,9 +73,9 @@
 		if (query2 != null && data2 != null) {
 			map2.put("query2", query2);
 			map2.put("data2", data2);
-			
+
 			list2 = dao.selectOrderCom(map2);
-			
+
 		} else {
 			list2 = dao.selectOrderCom(map2);
 		}
