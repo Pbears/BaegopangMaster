@@ -86,10 +86,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="selectStore" resultType="store" parameterType="java.util.HashMap">
-
-		SELECT STORENAME, BRANDNO, LOCATION, GPA, HOURS, TEL, MINPRICE, INFO
-		FROM STORE
-		WHERE STORENAME=#{storename}
+	SELECT STORENAME, LOCATION, GPA, HOURS, TEL, MINPRICE, INFO, PICTURE,BRANDNO
+    FROM STORE S, (SELECT PICTURE FROM BRAND WHERE BRANDNO=(SELECT BRANDNO FROM STORE WHERE STORENAME=#{storename})) B	
+    WHERE S.STORENAME=#{storename}
+		
 
 
 	</select>

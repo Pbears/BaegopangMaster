@@ -10,7 +10,7 @@ public class StoreBean {
 	private String tel;
 	private int minprice;
 	private String info;
-	
+	private String picture;
 	public String getStorename() {
 		return storename;
 	}
@@ -59,11 +59,32 @@ public class StoreBean {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	@Override
-	public String toString() {
-		return "StoreBean [storename=" + storename + ", brandno=" + brandno + ", location=" + location + ", gpa=" + gpa
-				+ ", hours=" + hours + ", tel=" + tel + ", minprice=" + minprice + ", info=" + info + "]";
+	public String getPicture() {
+		return picture;
 	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+	public StoreBean(String storename, int brandno, String location, int gpa, String hours, String tel, int minprice,
+			String info, String picture) {
+		super();
+		this.storename = storename;
+		this.brandno = brandno;
+		this.location = location;
+		this.gpa = gpa;
+		this.hours = hours;
+		this.tel = tel;
+		this.minprice = minprice;
+		this.info = info;
+		this.picture = picture;
+	}
+	
+
+	
+	
+	
+	
+	
 	
 	
 	
