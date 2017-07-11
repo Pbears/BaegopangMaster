@@ -45,7 +45,6 @@
 	 */ 
 	session.setAttribute("storename", storename);
 %>
-${master}
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="mid_contents">
 		<div class="container">
