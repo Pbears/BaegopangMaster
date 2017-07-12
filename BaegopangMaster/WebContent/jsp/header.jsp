@@ -71,7 +71,7 @@ button#loginBtn.btn btn-default btn-lg {
 							<button class="dropbtn1">내 음식점</button>
 							<div class="dropdown-content1">
 								<a href="menuManager.jsp">메뉴 관리</a><a href="masterOrder.jsp">주
-									문</a>
+									문</a><a href="ReplyManager.jsp">댓글 관리</a>
 							</div>
 						</div>
 
