@@ -1,7 +1,7 @@
 package mgopang.bean;
 
 public class OrderDataBean {
-
+ 
 	private String storename;//
 	private String menuname;//
 	private int brandno;
