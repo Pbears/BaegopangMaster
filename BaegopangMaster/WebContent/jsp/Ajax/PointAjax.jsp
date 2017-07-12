@@ -1,3 +1,7 @@
+<%@page import="mgopang.dao.PointDao"%>
+<%@page import="mgopang.bean.PointBean"%>
+<%@page import="mgopang.bean.MasterBean"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -100,12 +104,23 @@
 <body>
 	<%
 		int flag = Integer.parseInt(request.getParameter("flag"));
+		MasterBean mbean = (MasterBean)session.getAttribute("master");
+		String storename = mbean.getStorename();
+		List<PointBean>list = null;
+		PointDao pdao = new PointDao();
 	%>
 
 	<div id="rankdiv">
 		<%
 			if (flag != 3) {
-				for (int i = 0; i < 3; i++) {
+				if(flag==1){
+					list = pdao.brandPoint(storename);
+				}else{
+					list = pdao.guPoint(storename);
+				}
+				for (int i = 0; i < list.size(); i++) {
+					PointBean bean = list.get(i);
+					if(i<3){
 		%>
 		<div id="rank">
 			<%-- <h4 style="color: #FF8C00; margin-left: 10px; font-weight: bold;"><%=i+1 %>µî</h4> --%>
@@ -113,47 +128,46 @@
 		<div id="rank_con">
 			<img src="/BaegopangMaster/img/noimg.jpg" width="100px" height="100px">
 			<div >
-			<h4 style="font-weight: bold; margin-top: 10px;">±Á³× Ä¡Å²</h4>
-			<h4 style="font-weight: bold; font-style: italic; color: red; font-size: 15px;">200ÆÎ</h4>
+			<h4 style="font-weight: bold; margin-top: 10px;"><%=bean.getStorename() %></h4>
+			<h4 style="font-weight: bold; font-style: italic; color: red; font-size: 15px;"><%=bean.getPoint()%>ÆÎ</h4>
 			</div>
 		</div>
 		</div>
 		<%
 			}
+		else{ 
 		%>
-		<div id="srank"><h4>4µî</h4>
+		<div id="srank"><h4><%=i %></h4>
 		<div id="rank_subcon">
 			<img src="/BaegopangMaster/img/noimg.jpg">
-			<h3 id="rank_subcon_title_4">±Á³× Ä¡Å²</h3>
-			<h3 id="rank_subcon_point_4">200ÆÎ</h3>
+			<h3 id="rank_subcon_title_4"><%=bean.getStorename()%></h3>
+			<h3 id="rank_subcon_point_4"><%=bean.getPoint()%>ÆÎ</h3>
 		</div>
-		</div>
-		<div id="srank"><h4>5µî</h4>
-		<div id="rank_subcon">
-			<img src="/BaegopangMaster/img/noimg.jpg">
-			<h3 id="rank_subcon_title_5">±Á³× Ä¡Å²</h3>
-			<h3 id="rank_subcon_point_5">200ÆÎ</h3>
-		</div>
-		</div>		
-		<%
+		</div>	
+		<%		}
+			}
 		}
 		%>
 	</div>
 		<%
 			if (flag == 3) {
+				PointBean bbean = pdao.mybrandPoint(storename);
+				PointBean gbean = pdao.myguPoint(storename);
 		%>
 		<div id="myrank">
 			<div id="myBrank">
 				<h4>ºê·£µåº° ¼øÀ§</h4>
 				<img src="/BaegopangMaster/img/noimg.jpg" width="100px" height="100px" style="border-radius: 50px; ">
-				<h4 style="font-weight: bold; margin-top: 10px;">±Á³× Ä¡Å²</h4>
-				<h4 style="font-weight: bold; font-style: italic; color: red; font-size: 15px;">200ÆÎ</h4>
+				<h4 style="font-weight: bold; margin-top: 10px;"><%=bbean.getStorename() %></h4>
+				<h4 style="font-weight: bold; font-style: italic; color: red; font-size: 15px;"><%=bbean.getPoint() %>ÆÎ</h4>
+				<h4 style="font-weight: bold; font-style: italic; color: red; font-size: 15px;"><%=bbean.getRank() %></h4>
 			</div>
 			<div id="myGrank">
 				<h4>±¸ º° ¼øÀ§</h4>
 				<img src="/BaegopangMaster/img/noimg.jpg" width="100px" height="100px" style="border-radius: 50px; ">
-				<h4 style="font-weight: bold; margin-top: 10px;">±Á³× Ä¡Å²</h4>
-				<h4 style="font-weight: bold; font-style: italic; color: red; font-size: 15px;">200ÆÎ</h4>
+				<h4 style="font-weight: bold; margin-top: 10px;"><%=gbean.getStorename() %></h4>
+				<h4 style="font-weight: bold; font-style: italic; color: red; font-size: 15px;"><%=gbean.getPoint() %>ÆÎ</h4>
+					<h4 style="font-weight: bold; font-style: italic; color: red; font-size: 15px;"><%=gbean.getRank() %></h4>
 			</div>
 		</div>
 		<%		
