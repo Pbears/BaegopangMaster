@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         2) <typeAliases>
         3) <transactionManager>
         4) <mappers>
-    --> 
+    -->  
     <!-- <typeAliases>vo객체의 별칭을 모아서 관리
       <typeAlias type="my.dao.GuestBookVO" alias="GuestBook"/>
     </typeAliases> -->

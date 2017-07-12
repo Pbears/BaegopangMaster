@@ -14,7 +14,7 @@
 %>
 </head>
 <body>
- 
+  
 <%
 MasterBean mbean=(MasterBean)request.getSession().getAttribute("master");
 String storename=mbean.getStorename();

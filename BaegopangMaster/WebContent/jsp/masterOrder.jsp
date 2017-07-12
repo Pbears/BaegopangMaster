@@ -18,7 +18,7 @@
 	font-size: 13px;
 	padding: initial;
 }
-</style> 
+</style>  
 <script>
 	function sendCheck() {
 		var obj = document.ast; //form까지의 주소

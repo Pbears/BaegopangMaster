@@ -12,7 +12,7 @@
 	
 <title>Insert title here</title>
 											
-</head> 
+</head>  
 
 <body style="background-color: white;">
 	<%-- <jsp:include page="header.jsp"></jsp:include> --%>

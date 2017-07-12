@@ -12,7 +12,7 @@
 <%
 	PlayerDao dao = new PlayerDao();
 	String playerno = "27";
- 
+  
 	PlayerBean bean = dao.selectOnePlayer(playerno);
 
 	String json = 

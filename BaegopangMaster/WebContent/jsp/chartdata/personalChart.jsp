@@ -32,7 +32,7 @@ var chart = AmCharts.makeChart( "chartdiv", {
 	"valueAxes": [ {
 		// 그래프와 value 의 거리		
 		"axisTitleOffset": 20,
-		// 값의 최소값 
+		// 값의 최소값  
 		"minimum": 0,
 		// 중앙점에서 value를 연결한 선 굵기
 		"axisAlpha": 0.15

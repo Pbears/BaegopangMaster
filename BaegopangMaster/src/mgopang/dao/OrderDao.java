@@ -27,7 +27,7 @@ public class OrderDao {
 				c.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}  
 	}
 
 	public int getTotalRow(HashMap<String, Object>map) throws Exception{

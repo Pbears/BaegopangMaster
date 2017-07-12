@@ -14,7 +14,7 @@
 %>
 </head>
 <body>
-<% 
+<%  
     OrderDao dao=new OrderDao();
     String flag=request.getParameter("flag");
     String ordernumber=request.getParameter("ordernumber");
