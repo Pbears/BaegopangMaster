@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType="java.lang.Integer">
 
 		SELECT COUNT(*) FROM FOODORDER
-		WHERE STORENAME=#{storename}  
+		WHERE STORENAME=#{storename}
 		<if test="Q!=null">
 			AND ${Q} LIKE '%'||#{D}||'%'
 		</if>
@@ -15,12 +15,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY ORDERTIME DESC
 
 	</select>
-	
+
 	<select id="getTotalRowCom" parameterType="java.util.HashMap"
 		resultType="java.lang.Integer">
 
 		SELECT COUNT(*) FROM FOODORDER
-		WHERE STORENAME=#{storename}  
+		WHERE STORENAME=#{storename}
 		<if test="Q2!=null">
 			AND ${Q2} LIKE '%'||#{D2}||'%'
 		</if>
@@ -28,19 +28,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY ORDERTIME DESC
 
 	</select>
-	
+
 	<select id="selectOrderCom" resultType="order" parameterType="java.util.HashMap">
 
 		SELECT ORDERNUMBER, MEMBERID, MEMBERNAME, MEMBERTEL, MEMBERADDRESS,
 		PRICE, NVL(ORDERINFO,'없음') ORDERINFO,
-		MENUNAME, AMOUNT, STORENAME, STOREADDRESS, STORETEL,
-		TO_DATE(ORDERTIME,'YYYYMMDD HH24:MI:SS')ORDERTIME, STATE
+		MENUNAME, AMOUNT, STORENAME,
+		STOREADDRESS, STORETEL,
+		TO_DATE(ORDERTIME,'YYYYMMDD
+		HH24:MI:SS')ORDERTIME, STATE
 		FROM FOODORDER
 		WHERE STORENAME=#{storename}
 		<if test="query2!=null">
 			AND ${query2} LIKE '%'||#{data2}||'%'
 		</if>
-		 AND STATE='배달완료'
+		AND STATE='배달완료'
 
 		ORDER BY ORDERTIME DESC
 
@@ -48,21 +50,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	</select>
-	
-	
+
+
 
 	<select id="selectOrder" resultType="order" parameterType="java.util.HashMap">
 
 		SELECT ORDERNUMBER, MEMBERID, MEMBERNAME, MEMBERTEL, MEMBERADDRESS,
 		PRICE, NVL(ORDERINFO,'없음') ORDERINFO,
-		MENUNAME, AMOUNT, STORENAME, STOREADDRESS, STORETEL,
-		TO_DATE(ORDERTIME,'YYYYMMDD HH24:MI:SS')ORDERTIME, STATE
+		MENUNAME, AMOUNT, STORENAME,
+		STOREADDRESS, STORETEL,
+		TO_DATE(ORDERTIME,'YYYYMMDD
+		HH24:MI:SS')ORDERTIME, STATE
 		FROM FOODORDER
 		WHERE STORENAME=#{storename}
 		<if test="query!=null">
 			AND ${query} LIKE '%'||#{data}||'%'
 		</if>
-		 AND STATE='승인대기' OR STATE='승인완료'
+		AND STATE='승인대기' OR STATE='승인완료'
 
 		ORDER BY ORDERTIME DESC
 
@@ -72,7 +76,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<update id="updateOrder" parameterType="java.util.HashMap">
-		UPDATE FOODORDER SET STATE=#{state} WHERE ORDERNUMBER=#{ordernumber}
+		UPDATE FOODORDER SET
+		STATE=#{state} WHERE ORDERNUMBER=#{ordernumber}
 
 
 	</update>
@@ -80,16 +85,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectMaster" resultType="master" parameterType="java.util.HashMap">
 
 		SELECT ID, PW, NAME, ADDRESS, TEL, BIRTH, STORENAME FROM MASTER
-		WHERE STORENAME=#{storename}
+		WHERE
+		STORENAME=#{storename}
 
 
 	</select>
 
 	<select id="selectStore" resultType="store" parameterType="java.util.HashMap">
-	SELECT STORENAME, LOCATION, GPA, HOURS, TEL, MINPRICE, INFO, PICTURE,BRANDNO
-    FROM STORE S, (SELECT PICTURE FROM BRAND WHERE BRANDNO=(SELECT BRANDNO FROM STORE WHERE STORENAME=#{storename})) B	
-    WHERE S.STORENAME=#{storename}
-		
+		SELECT STORENAME, LOCATION, GPA, HOURS, TEL, MINPRICE, INFO,
+		PICTURE,BRANDNO
+		FROM STORE S, (SELECT PICTURE FROM BRAND WHERE
+		BRANDNO=(SELECT BRANDNO
+		FROM STORE WHERE STORENAME=#{storename})) B
+		WHERE S.STORENAME=#{storename}
+
 
 
 	</select>
@@ -98,46 +107,56 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="updateStore" parameterType="store">
 
-		UPDATE STORE SET TEL=#{tel},HOURS=#{hours},INFO=#{info} WHERE
+		UPDATE STORE SET
+		TEL=#{tel},HOURS=#{hours},INFO=#{info} WHERE
 		STORENAME=#{storename}
 
 	</update>
 
 	<update id="updateMaster" parameterType="java.util.HashMap">
 
-		UPDATE MASTER SET PW=#{pw},TEL=#{tel} ,ADDRESS=#{address} WHERE
+		UPDATE MASTER SET
+		PW=#{pw},TEL=#{tel} ,ADDRESS=#{address} WHERE
 		STORENAME=#{storename}
 
-	</update>	
-	
+	</update>
 
 
-	
-	
+
+
+
 	<insert id="dropMaster" parameterType="java.util.HashMap">
-		INSERT INTO REQUESTDROP VALUES(#{id},#{pw},#{name},#{address},#{tel},TO_DATE(#{birth},'YYYY-MM-DD HH24:MI:SS'),#{storename})
+		INSERT INTO REQUESTDROP
+		VALUES(#{id},#{pw},#{name},#{address},#{tel},TO_DATE(#{birth},'YYYY-MM-DD
+		HH24:MI:SS'),#{storename})
 	</insert>
-	
-	
-	
-	<insert id="insertOrderData" parameterType="orderdata">
-		INSERT INTO REQUESTDROP VALUES(#{id},#{pw},#{name},#{address},#{tel},TO_DATE(#{birth},'YYYY-MM-DD HH24:MI:SS'),#{storename})
-	</insert>	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+	<insert id="insertOrderData" parameterType="java.util.HashMap">
+		INSERT INTO ORDERDATA
+		VALUES(#{storename},#{menuname},(SELECT BRANDNO FROM STORE WHERE
+		STORENAME=#{storename}),#{weekday},#{orderday},#{ordermonth},(SELECT
+		GENDER FROM MEMBER WHERE
+		ID=#{memberid}),#{price},#{amount},#{memberid},(SELECT
+		DECODE(TRUNC((TO_CHAR(SYSDATE,'YYYY')-TO_CHAR(M.birth,'YYYY')+1)/10),0,10,1,10,2,20,3,30,4,40,50)AGE
+		FROM(SELECT birth FROM MEMBER WHERE ID=#{memberid}) M))
+	</insert>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </mapper>

@@ -161,10 +161,10 @@ public class OrderDao {
 	}
 	
 	
-	public void insertOrderData(OrderDataBean bean){
+	public void insertOrderData(HashMap<String, Object>map){
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			session.insert("insertOrderData",bean);
+			session.insert("insertOrderData",map);
 			session.commit();
 		} catch (Exception e) {
 			session.rollback();

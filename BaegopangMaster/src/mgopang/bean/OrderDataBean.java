@@ -2,14 +2,17 @@ package mgopang.bean;
 
 public class OrderDataBean {
 
-	private String storename;
-	private String menuname;
+	private String storename;//
+	private String menuname;//
 	private int brandno;
-	private String weekday;
-	private int month;
+	private String weekday;//
+	private String orderday;//
+	private String ordermonth;//
 	private String gender;
-	private int price;
-	private int amount;
+	private int price;//
+	private int amount;//
+	private String memberid;//
+	private int age;
 
 	public String getStorename() {
 		return storename;
@@ -43,12 +46,20 @@ public class OrderDataBean {
 		this.weekday = weekday;
 	}
 
-	public int getMonth() {
-		return month;
+	public String getOrderday() {
+		return orderday;
 	}
 
-	public void setMonth(int month) {
-		this.month = month;
+	public void setOrderday(String orderday) {
+		this.orderday = orderday;
+	}
+
+	public String getOrdermonth() {
+		return ordermonth;
+	}
+
+	public void setOrdermonth(String ordermonth) {
+		this.ordermonth = ordermonth;
 	}
 
 	public String getGender() {
@@ -75,10 +86,27 @@ public class OrderDataBean {
 		this.amount = amount;
 	}
 
+	public String getMemberid() {
+		return memberid;
+	}
+
+	public void setMemberid(String memberid) {
+		this.memberid = memberid;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
 	@Override
 	public String toString() {
-		return "OrderDate [storename=" + storename + ", menuname=" + menuname + ", brandno=" + brandno + ", weekday="
-				+ weekday + ", month=" + month + ", gender=" + gender + ", price=" + price + ", amount=" + amount + "]";
+		return "OrderDataBean [storename=" + storename + ", menuname=" + menuname + ", brandno=" + brandno
+				+ ", weekday=" + weekday + ", orderday=" + orderday + ", ordermonth=" + ordermonth + ", gender="
+				+ gender + ", price=" + price + ", amount=" + amount + ", memberid=" + memberid + ", age=" + age + "]";
 	}
 
 }
