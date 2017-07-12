@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import mgopang.bean.MasterBean;
 import mgopang.bean.OrderBean;
+import mgopang.bean.OrderDataBean;
 import mgopang.bean.StoreBean;
 import mgopang.util.SqlSessionFactoryManager;
 
@@ -158,4 +159,20 @@ public class OrderDao {
 			session.close();
 		}
 	}
+	
+	
+	public void insertOrderData(OrderDataBean bean){
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.insert("insertOrderData",bean);
+			session.commit();
+		} catch (Exception e) {
+			session.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+	
+	
 }

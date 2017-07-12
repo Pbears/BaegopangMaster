@@ -1,3 +1,4 @@
+<%@page import="mgopang.bean.OrderBean"%>
 <%@page import="mgopang.dao.OrderDao"%>
 <%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -16,6 +17,7 @@
     OrderDao dao=new OrderDao();
     String flag=request.getParameter("flag");
     String ordernumber=request.getParameter("ordernumber");
+    OrderBean bean=(OrderBean)request.getAttribute("bean");
     HashMap<String,Object>map=new HashMap<String,Object>();
     	map.put("ordernumber", ordernumber);
     if(flag.equals("check")){
@@ -23,13 +25,37 @@
     	dao.updateOrder(map);
     }else if(flag.equals("del")){
     	map.put("state", "배달완료");
-    	dao.updateOrder(map);   	
+    	//dao.updateOrder(map);
+    	out.print(bean);
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
     }else if(flag.equals("refuse")){
     	map.put("state", "거절");
     	dao.updateOrder(map);   	
     }
      
-    response.sendRedirect("/BaegopangMaster/jsp/masterOrder.jsp");
+    //response.sendRedirect("/BaegopangMaster/jsp/masterOrder.jsp");
     
     
     
