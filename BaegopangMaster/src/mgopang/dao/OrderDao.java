@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import mgopang.bean.MasterBean;
 import mgopang.bean.OrderBean;
+import mgopang.bean.OrderDataBean;
 import mgopang.bean.StoreBean;
 import mgopang.util.SqlSessionFactoryManager;
 
@@ -26,7 +27,7 @@ public class OrderDao {
 				c.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}  
 	}
 
 	public int getTotalRow(HashMap<String, Object>map) throws Exception{
@@ -158,4 +159,20 @@ public class OrderDao {
 			session.close();
 		}
 	}
+	
+	
+	public void insertOrderData(HashMap<String, Object>map){
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.insert("insertOrderData",map);
+			session.commit();
+		} catch (Exception e) {
+			session.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+	
+	
 }

@@ -89,5 +89,4 @@ public class MasterReplyBean {
 				+ ", contents=" + contents + ", regDate=" + regDate + ", ref=" + ref + ", pnum=" + pnum + ", reply="
 				+ reply + "]";
 	}
-
 }

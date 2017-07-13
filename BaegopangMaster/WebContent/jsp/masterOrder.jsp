@@ -18,7 +18,7 @@
 	font-size: 13px;
 	padding: initial;
 }
-</style>
+</style>  
 <script>
 	function sendCheck() {
 		var obj = document.ast; //form까지의 주소
@@ -32,6 +32,15 @@
 			obj.submit();
 		}
 	}
+	
+	function update(index) {
+		 var obj=document.getElementById("orderfrm"+index);
+		 
+		obj.submit();
+		
+	}
+	
+	
 </script>
 </head>
 <body style="background-color: white;">
@@ -162,6 +171,8 @@
 							for (int i = 0; i < list.size(); i++) {
 								OrderBean bean = list.get(i);
 						%>
+						
+					
 
 						<tr>
 
@@ -200,7 +211,7 @@
 								} else if (bean.getState().equals("승인완료")) {
 							%>
 							<td align="center"><a
-								href="/BaegopangMaster/jsp/update/orderUpdate.jsp?flag=del&ordernumber=<%=bean.getOrdernumber()%>"
+								href="javascript:update(<%=i %>)"
 								class="btn btn-block btn-primary"><span
 									class="glyphicon glyphicon-ok"></span> 발송</a> <%
  	} else if (bean.getState().equals("배달완료")) {
@@ -222,8 +233,16 @@
 									</ul>
 								</div>
 							</td>
-							<td></td>
-						</tr>
+							<td>
+							<form action="/BaegopangMaster/jsp/update/orderUpdate.jsp?flag=del&ordernumber=<%=bean.getOrdernumber()%>" method="post" id="orderfrm<%=i%>" name="orderfrm<%=i%>">
+							<input type="hidden" name="amount" value="<%=bean.getAmount()%>">
+							<input type="hidden" name="price" value="<%=bean.getPrice()%>">
+							<input type="hidden" name="menuname" value="<%=bean.getMenuname()%>">
+							<input type="hidden" name="storename" value="<%=bean.getStorename()%>">
+							<input type="hidden" name="ordertime" value="<%=bean.getOrdertime()%>">							
+							<input type="hidden" name="memberid" value="<%=bean.getMemberid()%>">							
+							</form></td>
+						</tr>										
 
 						<%
 							}

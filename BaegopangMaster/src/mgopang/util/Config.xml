@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         2) <typeAliases>
         3) <transactionManager>
         4) <mappers>
-    -->
+    -->  
     <!-- <typeAliases>vo객체의 별칭을 모아서 관리
       <typeAlias type="my.dao.GuestBookVO" alias="GuestBook"/>
     </typeAliases> -->
@@ -27,7 +27,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     	 <typeAlias type="mgopang.bean.MenuByStoreBean" alias="mbs"/>
     	  <typeAlias type="mgopang.bean.NoticeBean" alias="notice"/>
     	  <typeAlias type="mgopang.bean.MasterReplyBean" alias="reply"/>
-    	  
+    	  <typeAlias type="mgopang.bean.OrderDataBean" alias="orderdata"/>
+    	    <typeAlias type="mgopang.bean.MasterReplyBean" alias="reply"/>
+			<typeAlias type="mgopang.bean.PointBean" alias="point"/>
     </typeAliases>
     
     
@@ -75,6 +77,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
       <mapper resource="mgopang/xml/Masteraskadmin.xml"/>
       <mapper resource="mgopang/xml/Notice.xml"/>
       <mapper resource="mgopang/xml/MasterReply.xml"/>
+       <mapper resource="mgopang/xml/Point.xml"/>
     </mappers>
 </configuration>
 

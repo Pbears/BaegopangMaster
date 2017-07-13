@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mgopang.xml.Point">
+	<select id="brandPoint" parameterType="java.lang.String"
+		resultType="point">
+		select r.num,address,point,storename from(
+		select row_number() over(order by m.point desc)num,
+		m.address,m.point,m.storename
+		from(
+		select SUBSTR(storename,1,INSTR(storename,'-')-1)store, point
+		from master
+		where storename=#{storename}
+		)sear, master m
+		where SUBSTR(storename,1,INSTR(storename,'-')-1)=store)r
+		where num BETWEEN 1 and 5
+	</select>
+
+	<select id="guPoint" parameterType="java.lang.String"
+		resultType="point">
+		select r.num,address,point,storename from(
+		select row_number() over(order by m.point desc)num,
+		m.address,m.point,m.storename
+		from(
+		select SUBSTR(address,INSTR(address,' '),INSTR(address,' ',1,1)-2)addr, point
+		from master
+		where storename=#{storename})s, master m
+		where SUBSTR(address,INSTR(address,' '),INSTR(address,' ',1,1)-2)=s.addr)r
+		where num BETWEEN 1 and 5
+	</select>
+		<select id="mybrandPoint" parameterType="java.lang.String"
+		resultType="point">
+		select r.num,address,point,storename from(
+		select row_number() over(order by m.point desc)num,
+		m.address,m.point,m.storename
+		from(
+		select SUBSTR(storename,1,INSTR(storename,'-')-1)store, point
+		from master
+		where storename=#{storename}
+		)sear, master m
+		where SUBSTR(storename,1,INSTR(storename,'-')-1)=store)r
+		where storename=#{storename}
+	</select>
+
+	<select id="myguPoint" parameterType="java.lang.String"
+		resultType="point">
+		select r.num,address,point,storename from(
+		select row_number() over(order by m.point desc)num,
+		m.address,m.point,m.storename
+		from(
+		select SUBSTR(address,INSTR(address,' '),INSTR(address,' ',1,1)-2)addr,
+		point
+		from master
+		where storename=#{storename})s, master m
+		where SUBSTR(address,INSTR(address,' '),INSTR(address,' ',1,1)-2)=s.addr)r
+		where storename=#{storename}
+	</select>
+</mapper>
