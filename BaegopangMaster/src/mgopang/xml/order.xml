@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="Q!=null">
 			AND ${Q} LIKE '%'||#{D}||'%'
 		</if>
-		AND STATE='승인대기' OR STATE='승인완료'
+		AND (STATE='승인대기' OR STATE='승인완료')
 		ORDER BY ORDERTIME DESC
   
 	</select>
@@ -134,21 +134,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </mapper>

@@ -52,6 +52,7 @@
 		OrderDao dao = new OrderDao();
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		MasterBean storename=(MasterBean)request.getSession().getAttribute("master");
+		
 
 		map.put("storename", storename.getStorename());
 
@@ -170,6 +171,7 @@
 						<%
 							for (int i = 0; i < list.size(); i++) {
 								OrderBean bean = list.get(i);
+								//out.println(bean);
 						%>
 						
 					
