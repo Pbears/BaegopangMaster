@@ -3,10 +3,19 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mgopang.xml.MasterReply"> 
-	<select id="selectReply" parameterType="java.lang.String" resultType="reply">
-		SELECT STORENAME,ID,CONTENTS,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE
-		FROM REPLY
-		WHERE STORENAME=#{storename}
+  	<select id="selectReply" parameterType="java.util.Map" resultType="reply">
+  		SELECT RM,NO,STORENAME,ORDERNUMBER,ID,
+  		CONTENTS,REGDATE,REF,PNUM,REPLY
+		FROM(
+		SELECT ROW_NUMBER( )OVER(ORDER BY NO
+		DESC)RM,NO,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,ORDERNUMBER,ID,CONTENTS,REF,PNUM, REPLY,STORENAME FROM REPLY)
+		WHERE RM BETWEEN #{start} AND #{end} AND (STORENAME = #{storename})
+  	</select>
+  	
+	<select id="getRTotalRows"  resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM reply
 	</select>
+		
+		
 </mapper>
 

@@ -48,6 +48,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import mgopang.bean.MasterReplyBean;
 import mgopang.bean.MasteraskadminBean;
+import mgopang.bean.NoticeBean;
 import mgopang.util.SqlSessionFactoryManager;
 
 public class MasterReplyDao {
@@ -64,11 +65,14 @@ public class MasterReplyDao {
 			e.printStackTrace();
 		}
 	}
-	public List<MasterReplyBean>selectReply(String storename){
+	public List<MasterReplyBean>selectReply(HashMap<String, Object>map){
 		SqlSession sqlSession = null;
 		try {
+			System.out.println(map.get("start"));
+			System.out.println(map.get("end"));
+			System.out.println(map.get("storename"));
 			sqlSession = sqlSessionFactory.openSession();
-			return sqlSession.selectList("selectReply",storename);
+			return sqlSession.selectList("selectReply",map);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -76,4 +80,17 @@ public class MasterReplyDao {
 			closeSqlSession(sqlSession);
 		}
 	}
+	public int getRTotalRows() throws Exception{
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("getRTotalRows");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
+		
+     }
 }

@@ -137,7 +137,7 @@
 			}
 		else{ 
 		%>
-		<div id="srank"><h4><%=i %></h4>
+		<div id="srank"><h4><%=i+1 %>µî</h4>
 		<div id="rank_subcon">
 			<img src="/BaegopangMaster/img/noimg.jpg">
 			<h3 id="rank_subcon_title_4"><%=bean.getStorename()%></h3>

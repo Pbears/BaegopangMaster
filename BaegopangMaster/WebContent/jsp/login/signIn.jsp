@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/Baegopang/css/bootstrap.css" />
+<link rel="stylesheet" href="/BaegopangMaster/css/bootstrap.css" />
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
@@ -15,6 +15,7 @@
 	position: absolute;
 	top: 0;
 	right: 0;
+	
 	bottom: 0;
 	left: 0;
 	display: flex;

@@ -61,7 +61,7 @@
 				<p>우리가게 메뉴판</p>
 			</div>
 			<div id="s_contents">
-					<form action="delete/deleteProcess.jsp" id="frm">
+					<form action="/BaegopangMaster/jsp/delete/deleteProcess.jsp" id="frm">
 				<%
 					List<MenuBean> mbslist = null;
 					mbslist = dao.myStoreMenu(storename);
@@ -88,7 +88,7 @@
 		</div>
 	</div>
 	<div id="insertMenu">
-		<form action="insert/insertMenuProcess.jsp">
+		<form action="/BaegopangMaster/jsp/insert/insertMenuProcess.jsp">
 			<div id="insertTop">
 				<p>메뉴 추가</p>
 			</div>
@@ -175,7 +175,7 @@
 	function deleteMenu(i) {
 		var menuname=document.getElementById("menuname"+i).value;
 		
-		document.location="delete/deleteProcess.jsp?menuname="+menuname;
+		document.location="/BaegopangMaster/jsp/delete/deleteProcess.jsp?menuname="+menuname;
 	}
 </script>
 </html>
