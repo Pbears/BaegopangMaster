@@ -72,6 +72,9 @@ button#loginBtn.btn btn-default btn-lg {
 							<div class="dropdown-content1">
 								<a href="menuManager.jsp">메뉴 관리</a><a href="masterOrder.jsp">주
 									문</a><a href="ReplyManage.jsp">댓글 관리</a>
+
+	
+
 							</div>
 						</div>
 

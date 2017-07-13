@@ -4,26 +4,20 @@ public class PointBean {
 	private String storename;
 	private String picture;
 	private int point;
-	private int rank;
+	private int num;
 	
-	public int getRank() {
-		return rank;
+	public int getNum() {
+		return num;
 	}
-	public void setRank(int rank) {
-		this.rank = rank;
+	public void setNum(int num) {
+		this.num = num;
 	}
-	public PointBean(String storename, String picture, int point, int rank) {
+	public PointBean(String storename, String picture, int point, int num) {
 		super();
 		this.storename = storename;
 		this.picture = picture;
 		this.point = point;
-		this.rank = rank;
-	}
-	public PointBean(String storename, String picture, int point) {
-		super();
-		this.storename = storename;
-		this.picture = picture;
-		this.point = point;
+		this.num = num;
 	}
 	public PointBean() {
 		super();
@@ -49,7 +43,7 @@ public class PointBean {
 	}
 	@Override
 	public String toString() {
-		return "PointBean [storename=" + storename + ", picture=" + picture + ", point=" + point + ", rank=" + rank
+		return "PointBean [storename=" + storename + ", picture=" + picture + ", point=" + point + ", rank=" + num
 				+ "]";
 	}
 	

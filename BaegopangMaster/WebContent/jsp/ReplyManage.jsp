@@ -69,7 +69,7 @@
 						</td>
 						<td>
 							<div id="userDate">
-								<h4><%=bean.getRegdate() %></h4>
+								<h4><%=bean.getRegDate() %></h4>
 							</div>
 						</td>
 					</tr>

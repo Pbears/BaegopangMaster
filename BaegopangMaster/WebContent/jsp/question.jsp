@@ -17,7 +17,7 @@
 <script type="text/javascript">
 	function noticeCk(i){
 		var obj=document.getElementById("noticeSel"+i).value;
-		window.open("selectQuestion.jsp?title="+obj,"noticeCk","width=550, height=300")
+		window.open("selectQuestion.jsp?title="+obj,"noticeCk","width=700, height=450")
 	}
 </script>
 <style type="text/css">

@@ -2,33 +2,14 @@ package mgopang.bean;
 
 public class MasterReplyBean {
 	private int no;
-	private String storename;
-	private String ordername;
+	private String storeName;
+	private String orderNumber;
 	private String id;
 	private String contents;
-	private String regdate;
+	private String regDate;
 	private int ref;
 	private int pnum;
 	private int reply;
-	
-	public MasterReplyBean(int no, String storename, String ordername, String id, String contents, String regdate,
-			int ref, int pnum, int reply) {
-		super();
-		this.no = no;
-		this.storename = storename;
-		this.ordername = ordername;
-		this.id = id;
-		this.contents = contents;
-		this.regdate = regdate;
-		this.ref = ref;
-		this.pnum = pnum;
-		this.reply = reply;
-	}
-
-	public MasterReplyBean() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	public int getNo() {
 		return no;
@@ -38,20 +19,20 @@ public class MasterReplyBean {
 		this.no = no;
 	}
 
-	public String getStorename() {
-		return storename;
+	public String getStoreName() {
+		return storeName;
 	}
 
-	public void setStorename(String storename) {
-		this.storename = storename;
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
 	}
 
-	public String getOrdername() {
-		return ordername;
+	public String getOrderNumber() {
+		return orderNumber;
 	}
 
-	public void setOrdername(String ordername) {
-		this.ordername = ordername;
+	public void setOrderNumber(String orderNumber) {
+		this.orderNumber = orderNumber;
 	}
 
 	public String getId() {
@@ -70,12 +51,12 @@ public class MasterReplyBean {
 		this.contents = contents;
 	}
 
-	public String getRegdate() {
-		return regdate;
+	public String getRegDate() {
+		return regDate;
 	}
 
-	public void setRegdate(String regdate) {
-		this.regdate = regdate;
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
 	}
 
 	public int getRef() {
@@ -104,10 +85,8 @@ public class MasterReplyBean {
 
 	@Override
 	public String toString() {
-		return "MasterReplyBean [no=" + no + ", storename=" + storename + ", ordername=" + ordername + ", id=" + id
-				+ ", contents=" + contents + ", regdate=" + regdate + ", ref=" + ref + ", pnum=" + pnum + ", reply="
+		return "ReplyBean [no=" + no + ", storeName=" + storeName + ", orderNumber=" + orderNumber + ", id=" + id
+				+ ", contents=" + contents + ", regDate=" + regDate + ", ref=" + ref + ", pnum=" + pnum + ", reply="
 				+ reply + "]";
 	}
-	
-	
 }

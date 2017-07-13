@@ -46,7 +46,7 @@
 #myBrank, #myGrank{
 	display: inline-block;
 	width: 45%;
-	height: 250px;
+	height: 280px;
 	border: 2px solid rgba(255, 140, 0, 0.34);
 	margin-right: 20px;
 	background: white;
@@ -158,16 +158,16 @@
 			<div id="myBrank">
 				<h4>브랜드별 순위</h4>
 				<img src="/BaegopangMaster/img/noimg.jpg" width="100px" height="100px" style="border-radius: 50px; ">
+				<h4 style="font-weight: bold; font-style: italic; color:#FF8C00;  font-size: 20px;"><%=bbean.getNum() %>등</h4>
 				<h4 style="font-weight: bold; margin-top: 10px;"><%=bbean.getStorename() %></h4>
 				<h4 style="font-weight: bold; font-style: italic; color: red; font-size: 15px;"><%=bbean.getPoint() %>팡</h4>
-				<h4 style="font-weight: bold; font-style: italic; color: red; font-size: 15px;"><%=bbean.getRank() %></h4>
 			</div>
 			<div id="myGrank">
 				<h4>구 별 순위</h4>
 				<img src="/BaegopangMaster/img/noimg.jpg" width="100px" height="100px" style="border-radius: 50px; ">
+				<h4 style="font-weight: bold; font-style: italic; color:#FF8C00;  font-size: 20px;"><%=gbean.getNum() %>등</h4>
 				<h4 style="font-weight: bold; margin-top: 10px;"><%=gbean.getStorename() %></h4>
 				<h4 style="font-weight: bold; font-style: italic; color: red; font-size: 15px;"><%=gbean.getPoint() %>팡</h4>
-					<h4 style="font-weight: bold; font-style: italic; color: red; font-size: 15px;"><%=gbean.getRank() %></h4>
 			</div>
 		</div>
 		<%		

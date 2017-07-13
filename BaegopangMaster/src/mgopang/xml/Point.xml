@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="mgopang.xml.Point">
 	<select id="brandPoint" parameterType="java.lang.String"
 		resultType="point">
-		select r.rank,address,point,storename from(
-		select dense_rank() over(order by m.point desc)rank,
+		select r.num,address,point,storename from(
+		select row_number() over(order by m.point desc)num,
 		m.address,m.point,m.storename
 		from(
 		select SUBSTR(storename,1,INSTR(storename,'-')-1)store, point
@@ -14,26 +14,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where storename=#{storename}
 		)sear, master m
 		where SUBSTR(storename,1,INSTR(storename,'-')-1)=store)r
-		where rank BETWEEN 1 and 5
+		where num BETWEEN 1 and 5
 	</select>
 
 	<select id="guPoint" parameterType="java.lang.String"
 		resultType="point">
-		select r.rank,address,point,storename from(
-		select dense_rank() over(order by m.point desc)rank,
+		select r.num,address,point,storename from(
+		select row_number() over(order by m.point desc)num,
 		m.address,m.point,m.storename
 		from(
-		select SUBSTR(address,INSTR(address,' '),INSTR(address,' ',1,1)-2)addr,
-		point
+		select SUBSTR(address,INSTR(address,' '),INSTR(address,' ',1,1)-2)addr, point
 		from master
 		where storename=#{storename})s, master m
 		where SUBSTR(address,INSTR(address,' '),INSTR(address,' ',1,1)-2)=s.addr)r
-		where rank BETWEEN 1 and 5
+		where num BETWEEN 1 and 5
 	</select>
 		<select id="mybrandPoint" parameterType="java.lang.String"
 		resultType="point">
-		select r.rank,address,point,storename from(
-		select dense_rank() over(order by m.point desc)rank,
+		select r.num,address,point,storename from(
+		select row_number() over(order by m.point desc)num,
 		m.address,m.point,m.storename
 		from(
 		select SUBSTR(storename,1,INSTR(storename,'-')-1)store, point
@@ -46,8 +45,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="myguPoint" parameterType="java.lang.String"
 		resultType="point">
-		select r.rank,address,point,storename from(
-		select dense_rank() over(order by m.point desc)rank,
+		select r.num,address,point,storename from(
+		select row_number() over(order by m.point desc)num,
 		m.address,m.point,m.storename
 		from(
 		select SUBSTR(address,INSTR(address,' '),INSTR(address,' ',1,1)-2)addr,
