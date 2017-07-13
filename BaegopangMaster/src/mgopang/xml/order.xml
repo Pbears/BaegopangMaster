@@ -133,15 +133,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
-	<insert id="insertOrderData" parameterType="java.util.HashMap">
-		INSERT INTO ORDERDATA
-		VALUES(#{storename},#{menuname},(SELECT BRANDNO FROM STORE WHERE
-		STORENAME=#{storename}),#{weekday},#{orderday},#{ordermonth},(SELECT
-		GENDER FROM MEMBER WHERE
-		ID=#{memberid}),#{price},#{amount},#{memberid},(SELECT
-		DECODE(TRUNC((TO_CHAR(SYSDATE,'YYYY')-TO_CHAR(M.birth,'YYYY')+1)/10),0,10,1,10,2,20,3,30,4,40,50)AGE
-		FROM(SELECT birth FROM MEMBER WHERE ID=#{memberid}) M))
-	</insert>
+	
 
 
 

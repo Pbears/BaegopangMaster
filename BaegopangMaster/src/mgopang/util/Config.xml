@@ -29,6 +29,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     	  <typeAlias type="mgopang.bean.OrderDataBean" alias="orderdata"/>
     	    <typeAlias type="mgopang.bean.MasterReplyBean" alias="reply"/>
 			<typeAlias type="mgopang.bean.PointBean" alias="point"/>
+			<typeAlias type="mgopang.bean.GenderDataBean" alias="genderdata"/>
     </typeAliases>
     
     
@@ -77,6 +78,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
       <mapper resource="mgopang/xml/Notice.xml"/>
       <mapper resource="mgopang/xml/MasterReply.xml"/>
        <mapper resource="mgopang/xml/Point.xml"/>
+       <mapper resource="mgopang/xml/data.xml"/>
     </mappers>
 </configuration>
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mgopang.xml.data">
+
+
+
+	<insert id="insertOrderData" parameterType="java.util.HashMap">
+		INSERT INTO ORDERDATA
+		VALUES(#{storename},#{menuname},(SELECT BRANDNO FROM STORE WHERE
+		STORENAME=#{storename}),#{weekday},#{orderday},#{ordermonth},(SELECT
+		GENDER FROM MEMBER WHERE
+		ID=#{memberid}),#{price},#{amount},#{memberid},(SELECT
+		DECODE(TRUNC((TO_CHAR(SYSDATE,'YYYY')-TO_CHAR(M.birth,'YYYY')+1)/10),0,10,1,10,2,20,3,30,4,40,50)AGE
+		FROM(SELECT birth FROM MEMBER WHERE ID=#{memberid}) M))
+	</insert>
+
+	<select id="selectGenderData" parameterType="java.util.HashMap"
+		resultType="genderdata">
+
+		SELECT MENUNAME,GENDER,ROUND(TOTALOFMOFG/SUM(TOTALOFMOFG)
+		OVER()*100)RATIOMENU,ROUND(SUM(TOTALOFMOFG) OVER(PARTITION BY
+		GENDER)/SUM(TOTALOFMOFG) OVER()*100)RATIOGENDER,SUM(TOTALOFMOFG)
+		OVER() TOTAL,RANK() OVER(PARTITION BY GENDER ORDER BY TOTALOFMOFG)
+		RANK
+		FROM(SELECT MENUNAME,GENDER,SUM(AMOUNT) TOTALOFMOFG FROM ORDERDATA WHERE
+		STORENAME=#{storename}
+		GROUP BY GENDER,MENUNAME)
+		
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

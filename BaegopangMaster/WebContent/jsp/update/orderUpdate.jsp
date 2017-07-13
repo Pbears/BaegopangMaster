@@ -1,3 +1,4 @@
+<%@page import="mgopang.dao.DataDao"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="mgopang.bean.OrderBean"%>
 <%@page import="mgopang.dao.OrderDao"%>
@@ -16,6 +17,7 @@
 <body>
 <%  
     OrderDao dao=new OrderDao();
+    DataDao dao2=new DataDao();
     String flag=request.getParameter("flag");
     String ordernumber=request.getParameter("ordernumber");
     int amount=Integer.parseInt(request.getParameter("amount"));
@@ -55,8 +57,8 @@
     	map.put("weekday", weekday);    	
     	out.print(memberid);
     	
-    	//dao.updateOrder(map); 
-    	dao.insertOrderData(map);   	
+    	dao.updateOrder(map); 
+    	dao2.insertOrderData(map);   	
     	
     }else if(flag.equals("refuse")){
     	map.put("state", "°ÅÀý");
