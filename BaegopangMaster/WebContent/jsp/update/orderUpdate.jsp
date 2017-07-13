@@ -20,8 +20,6 @@
     DataDao dao2=new DataDao();
     String flag=request.getParameter("flag");
     String ordernumber=request.getParameter("ordernumber");
-    int amount=Integer.parseInt(request.getParameter("amount"));
-    int price=Integer.parseInt(request.getParameter("price"));
     String menuname=request.getParameter("menuname");
     String storename=request.getParameter("storename");
     String ordertime=request.getParameter("ordertime");
@@ -33,6 +31,8 @@
     	map.put("state", "승인완료");
     	dao.updateOrder(map);
     }else if(flag.equals("del")){
+    int amount=Integer.parseInt(request.getParameter("amount"));
+    int price=Integer.parseInt(request.getParameter("price"));
     	map.put("state", "배달완료");
     	String orderday=ordertime.substring(0, 10);
     	String ordermonth=ordertime.substring(0, 7);

@@ -17,28 +17,21 @@
 	List<GenderDataBean> list = dao.selectGenderData(map);
 	String man = null;
 	String woman = null;
+	
+	String json = "[";
 
 	for (int i = 0; i < list.size(); i++) {
 
 		if (man == null) {
 			if (((GenderDataBean) list.get(i)).getGender().equals("남")) {
 				man = String.valueOf(((GenderDataBean) list.get(i)).getRatiogender());
-				out.print(man);
+	        json +="{" + "\"type\" : \"남자\"," + "\"percent\" : \"" + man + "\","
+			+ "\"color\" : \"#ff9e01\"," + "\"subs\" : " + "[";
 			}
 
 		}
-		if (woman == null) {
-			if (((GenderDataBean) list.get(i)).getGender().equals("여")) {
-				woman = String.valueOf(((GenderDataBean) list.get(i)).getRatiogender());
-				out.print(woman);
-			}
-
-		}
-
 	}
 	
-	String json = "[" + "{" + "\"type\" : \"남자\"," + "\"percent\" : \"" + man + "\","
-			+ "\"color\" : \"#ff9e01\"," + "\"subs\" : " + "[";
 			
 	int metc=0;
 
@@ -57,10 +50,29 @@
 		json+="{" + "\"type\" : \"기타\"," + "\"percent\" : \""+metc+"\"" + "},";
 	}
 	
-	json=(new String(json)).substring(0, json.lastIndexOf(","));
 	
-	json+="]" + "},"+"{" + "\"type\" : \"여자\"," + "\"percent\" : \""+woman+"\"," + "\"color\" : \"#b0de09\","
-			+ "\"subs\" : " + "[";
+	if(man!=null){
+	json=(new String(json)).substring(0, json.lastIndexOf(","));
+	json+="]" + "},";
+	}
+	
+	
+	for (int i = 0; i < list.size(); i++) {
+
+		if (woman == null) {
+			if (((GenderDataBean) list.get(i)).getGender().equals("여")) {
+				woman = String.valueOf(((GenderDataBean) list.get(i)).getRatiogender());
+				json +="{" + "\"type\" : \"여자\"," + "\"percent\" : \""+woman+"\"," + "\"color\" : \"#b0de09\","
+						+ "\"subs\" : " + "[";
+			}
+
+		}
+
+	}
+	
+	
+	
+	
 			
 	int wetc=0;
 
@@ -81,7 +93,14 @@
 	
 	json=(new String(json)).substring(0, json.lastIndexOf(","));
 	
-	json+= "]" + "}" + "]";
+	if(man!=null && woman!=null){
+		
+		json+="]" + "}";
+		}
+	
+	
+	
+	json+= "]";
 	
 	
 
