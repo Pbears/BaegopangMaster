@@ -45,12 +45,9 @@
 				<img src="/BaegopangMaster<%=bean.getPicture()%>" id="menu_img" name="insert_menu<%=i%>" 
 				onmouseover="imgOver(this)" onmouseout="imgOut(this)" onclick="imgCk(<%=i%>)"/>
 				<p><%=bean.getMenuname()%></p>
-				<input type="hidden" value="<%=bean.getMenuname()%>" id="menu_name"
-					name="insert_menu<%=i%>"> <input type="hidden"
-					value="<%=bean.getPrice()%>" id="menu_price"
-					name="insert_menu<%=i%>"> <input type="hidden"
-					value="<%=bean.getInfo()%>" id="menu_info"
-					name="insert_menu<%=i%>">
+				<input type="hidden" value="<%=bean.getMenuname()%>" id="menu_name" name="insert_menu<%=i%>"> 
+				<input type="hidden" value="<%=bean.getPrice()%>" id="menu_price" name="insert_menu<%=i%>"> 
+				<input type="hidden" value="<%=bean.getInfo()%>" id="menu_info" name="insert_menu<%=i%>">
 			</div>
 			<%
 				}

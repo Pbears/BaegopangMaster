@@ -19,8 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="myStoreMenu" parameterType="java.lang.String" resultType="menu">
 		    select menuname,price,picture 
   			from menu
-  			where 
-   			menuname in (SELECT MENUNAME FROM MENUBYSTORE WHERE storename=#{storename})
+  			where menuname in (SELECT MENUNAME FROM MENUBYSTORE WHERE storename=#{storename})
 	</select>
 	
 	<insert id="insertMenu" parameterType="java.util.HashMap">

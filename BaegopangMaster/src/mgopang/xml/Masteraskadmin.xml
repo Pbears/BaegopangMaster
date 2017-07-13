@@ -23,9 +23,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT RM,no,title,masterinfo,REGDATE
 		FROM(
 		SELECT ROW_NUMBER( ) OVER(ORDER BY NO DESC)RM,no,title,masterid,masterinfo,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE
-		FROM masteraskadmin
+		FROM masteraskadmin where masterid=#{masterid}
 		)
-		WHERE RM between  #{start} and  #{end} and (masterid=#{masterid})
+		WHERE RM between  #{start} and  #{end}
 		ORDER BY NO DESC
 		
 	</select>
