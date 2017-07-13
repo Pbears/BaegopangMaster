@@ -120,6 +120,7 @@
 				}
 				for (int i = 0; i < list.size(); i++) {
 					PointBean bean = list.get(i);
+					System.out.print(bean.getPoint());
 					if(i<3){
 		%>
 		<div id="rank">
