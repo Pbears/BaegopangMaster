@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<insert id="insertOrderData" parameterType="java.util.HashMap">
-		INSERT INTO ORDERDATA
+		INSERT INTO ORDERDATA(STORENAME,MENUNAME,BRANDNO,WEEKDAY,ORDERDAY,ORDERMONTH,GENDER,PRICE,AMOUNT,MEMBERID,AGE)
 		VALUES(#{storename},#{menuname},(SELECT BRANDNO FROM STORE WHERE
 		STORENAME=#{storename}),#{weekday},#{orderday},#{ordermonth},(SELECT
 		GENDER FROM MEMBER WHERE

@@ -126,7 +126,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<insert id="dropMaster" parameterType="java.util.HashMap">
-		INSERT INTO REQUESTDROP
+		INSERT INTO REQUESTDROP(ID,PW,NAME,ADDRESS,TEL,BIRTH,STORENAME)
 		VALUES(#{id},#{pw},#{name},#{address},#{tel},TO_DATE(#{birth},'YYYY-MM-DD
 		HH24:MI:SS'),#{storename})
 	</insert>

@@ -36,7 +36,7 @@
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("masterid", masterid);
-		int pageScale = 5;
+		int pageScale = 7;
 
 		int currentPage = 0;
 		int totalRow = dao.getTotalRows(masterid);

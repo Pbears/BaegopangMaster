@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="masterInsert" parameterType="master">
 		INSERT INTO
-		REQUESTSIGNUP
+		REQUESTSIGNUP(ID,PW,NAME,ADDRESS,TEL,BIRTH,STORENAME)
 		VALUES(#{id},#{pw},#{name},#{address},#{tel},#{birth},'')
 	</insert>
 
