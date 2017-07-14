@@ -7,10 +7,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	   <selectKey keyProperty="no" order="BEFORE"  resultType="java.lang.Integer">
 	    	SELECT ASK_SEQ.NEXTVAL FROM DUAL
 	  </selectKey>
-		INSERT INTO masteraskadmin(no,masterinfo,title,masterid,regdate,hit) 
-		VALUES (#{no},#{masterinfo},#{title},#{masterid},sysdate,0)
+		INSERT INTO masteraskadmin(no,masterinfo,title,masterid,regdate,adminid,hit) 
+		VALUES (#{no},#{masterinfo},#{title},#{masterid},sysdate,'admin',0)
 	</insert>
-<!-- 	<select id="selectAsk" parameterType="java.util.Map" resultType="ask">
+	<!-- 	<select id="selectAsk" parameterType="java.util.Map" resultType="ask">
  
 		SELECT no,title,masterinfo,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE
 		FROM masteraskadmin
@@ -37,7 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</select>
 	<select id="selQuestionOne" parameterType="java.lang.String" resultType="ask">
-		SELECT TITLE, MASTERINFO, MASTERID, TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,adminid,admininfo FROM MASTERASKADMIN
+		SELECT TITLE, MASTERINFO, MASTERID, TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,adminid,NVL(admininfo,'-')admininfo FROM MASTERASKADMIN
 		WHERE TITLE = #{title}
 	</select>
 </mapper>
