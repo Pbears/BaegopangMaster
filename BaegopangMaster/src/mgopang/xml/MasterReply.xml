@@ -9,13 +9,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM(
 		SELECT ROW_NUMBER( )OVER(ORDER BY NO
 		DESC)RM,NO,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,ORDERNUMBER,ID,CONTENTS,REF,PNUM, REPLY,STORENAME FROM REPLY)
-		WHERE RM BETWEEN #{start} AND #{end} AND (STORENAME = #{storename})
+		WHERE RM BETWEEN #{start} AND #{end} AND (STORENAME = #{storename} AND REPLY=0)
   	</select>
   	
-	<select id="getRTotalRows"  resultType="java.lang.Integer">
+	<select id="getRTotalRows" parameterType="java.lang.String" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM reply
+		WHERE STORENAME = #{storename} AND REPLY=0
 	</select>
-		
+	
+		<select id="checkReply" parameterType="java.util.Map" resultType="java.lang.Integer">
+		SELECT R.REPLY 
+		FROM (SELECT STORENAME,REF,PNUM,CONTENTS,REPLY FROM REPLY WHERE STORENAME=#{storename} AND PNUM=#{pnum})R
+		WHERE R.REPLY=1;
+	</select>	
 		
 </mapper>
 

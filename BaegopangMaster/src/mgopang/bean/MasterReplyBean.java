@@ -10,6 +10,25 @@ public class MasterReplyBean {
 	private int ref;
 	private int pnum;
 	private int reply;
+	private int RM;
+	private String state;
+
+	
+	public int getRM() {
+		return RM;
+	}
+
+	public void setRM(int rM) {
+		RM = rM;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
 
 	public int getNo() {
 		return no;
@@ -85,8 +104,8 @@ public class MasterReplyBean {
 
 	@Override
 	public String toString() {
-		return "ReplyBean [no=" + no + ", storeName=" + storeName + ", orderNumber=" + orderNumber + ", id=" + id
+		return "MasterReplyBean [no=" + no + ", storeName=" + storeName + ", orderNumber=" + orderNumber + ", id=" + id
 				+ ", contents=" + contents + ", regDate=" + regDate + ", ref=" + ref + ", pnum=" + pnum + ", reply="
-				+ reply + "]";
+				+ reply + ", RM=" + RM + ", state=" + state + "]";
 	}
 }

@@ -1,112 +1,263 @@
-<%@page import="java.util.HashMap"%>
-<%@page import="mgopang.dao.MasterReplyDao"%>
 <%@page import="mgopang.bean.MasterReplyBean"%>
-<%@page import="java.util.List"%>
+<%@page import="mgopang.dao.MasterReplyDao"%>
 <%@page import="mgopang.bean.MasterBean"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@page import="java.net.URLEncoder"%>
+<%@page import="mgopang.bean.OrderBean"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="mgopang.dao.OrderDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/BaegopangMaster/css/bootstrap.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 <title>Insert title here</title>
+<style>
+tr {
+	height: 50px;
+}
+
+td {
+	text-align: center;
+	vertical-align: middle;
+}
+
+td.headTd {
+	font-weight: bold;
+	font-size: medium;
+}
+
+table {
+	font-size: small;
+}
+
+div.storeInsertDiv {
+	width: 90%;
+	text-align: right;
+}
+
+div.answerDiv {
+	width: 90%;
+}
+
+button.answerInsertBtn {
+	width: 90px;
+	height: 70px;
+}
+
+button.questionDeleteBtn {
+	width: 100px;
+}
+.btn btn-sm btn-primary{
+	margin-top: 15px !important;
+}
+textarea {
+	resize: none;
+	width: 90%;
+}
+</style>
+<script>
+	$(function() {
+		$("tr.answerTr, .completeTr, .alreadyTr").hide();
+		$("button.answerInsertBtn").click(function() {
+			$("form[id='" + $(this).attr("id") + "']").submit();
+		});
+		$("tr.QeustionTr, .completeTr").click(function() {
+			$(this).next().toggle(500);
+		});
+	});
+</script>
 </head>
 <body>
+	<%
+		MasterBean mbean = (MasterBean) session.getAttribute("master");
+		String masterid = mbean.getId();
+		String storename = mbean.getStorename();
+		MasterReplyDao dao = new MasterReplyDao();
 
-<div class="col-sm-12">
-            <ul class="nav nav-pills nav-justified"
-               style="border: 1px solid #ccc; margin-bottom: 200px">
-               <li style="border: 1px solid #ccc;"><a href="#"
-                  style="color: black;">ªÛ«∞¡§∫∏</a></li>
-               <li style="border: 1px solid #ccc;"><a href="#"
-                  style="color: black;">¿ÃøÎ∞°¿ÃµÂ</a></li>
-               <li style="border: 1px solid #ccc;"><a href="#"
-                  style="color: black;">∞Ì∞¥»ƒ±‚</a></li>
-               <li style="border: 1px solid #ccc; background-color: #f2f2f2;"><a
-                  href="#" style="color: black;">ªÛ«∞πÆ¿«</a></li>
-            </ul>
+		List<MasterReplyBean> list = null;
 
-            <!-- ªÛ«∞πÆ¿« -->
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		HashMap<String, Object> ckmap = new HashMap<String, Object>();
+		map.put("storename", storename);
+		int pageScale = 7;
 
-            <div class="col-sm-12" style="margin-bottom: 100px">
+		int currentPage = 0;
+		int totalRow = dao.getRTotalRows(storename);
+		try {
+			currentPage = Integer.parseInt(request.getParameter("page"));
+		} catch (Exception e) {
+			currentPage = 1;
+		}
+		int totalPage = totalRow % pageScale == 0 ? totalRow / pageScale : totalRow / pageScale + 1;
+		if (totalRow == 0)
+			totalPage = 1;
+		int start = 1 + (currentPage - 1) * pageScale;
+		int end = pageScale + (currentPage - 1) * pageScale;
+		//out.print(query+"   "+data ); //Ï∂úÎ†•ÌôïÏù∏
+		int currentBlock = currentPage % pageScale == 0 ? (currentPage / pageScale) : (currentPage / pageScale + 1);
+		int startPage = 1 + (currentBlock - 1) * pageScale;
+		int endPage = pageScale + (currentBlock - 1) * pageScale;
+		//   out.println(startPage+" "+endPage+ " "+currentBlock+" "+totalPage);
+		if (totalPage <= endPage)
+			endPage = totalPage;
+		map.put("start", start);
+		map.put("end", end);
+	%>
+	<jsp:include page="header.jsp"></jsp:include>
+	<div id="wrapper">
+		<div id="page-wrapper">
 
-               <h2 align="center">Q & A</h2>
-               <p align="center" style="margin-bottom: 100px">ªÛ«∞ø° ¥Î«ÿ ±√±›«— ¡°¿ª
-                  πÆ¿««ÿ ¡÷ººø‰.</p>
-               <br>
-               <table class="table">
-                  <thead>
-                     <tr>
-                        <th style="width: 5%; text-align: center;">no</th>
-                        <th style="width: 70%; text-align: center;">subject</th>
-                        <th style="width: 10%; text-align: center;">writer</th>
-                        <th style="width: 10%; text-align: center;">date</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <td style="text-align: center;">1</td>
-                        <td><a data-toggle="collapse" href="#qacollapse1"
-                           style="color: black;">¡¡æ∆ø‰</a>
-                           <div id="qacollapse1" class="panel-collapse collapse"
-                              style="margin-top: 15px;">
-                              <ul class="list-group">
-                                 <li class="list-group-item" style="border: 0">
-                                    <form action="">
-                                       <div class="input-group">
-                                          <span class="input-group-addon"><i
-                                             class="glyphicon glyphicon-lock"></i></span> <input
-                                             id="password" type="password" class="form-control"
-                                             name="password" placeholder="Password"
-                                             style="width: 200px"> <a href="#"
-                                             class="btn btn-default">»Æ¿Œ</a>
-                                       </div>
-                                    </form>
-                                 </li>
-                              </ul>
+			<div class="container-fluid">
 
-                           </div></td>
-                        <td style="text-align: center;">ø¯∫Û</td>
-                        <td style="text-align: center;">2017-07-03</td>
-                     </tr>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<td class="headTd" width="10%">No</td>
+										<td class="headTd" width="10%">ÏûëÏÑ±Ïûê</td>
+										<td class="headTd" width="30%">ÎåìÍ∏Ä ÎÇ¥Ïö©</td>
+										<td class="headTd" width="10%">ÎÇ† Ïßú</td>
+										<td class="headTd" width="10%">ÏÉÅÌÉú</td>
+									</tr>
+								</thead>
+								<tbody>
+								<%
+									list = dao.selectReply(map);
+								for(int i=0; i<list.size(); i++){
+									MasterReplyBean bean = list.get(i);
+									ckmap.put("store", bean.getStoreName());
+									ckmap.put("pnum",bean.getPnum());
+								
+								%>
+									<tr class="QeustionTr" id="<%=i%>">
+										<td><%=bean.getRM() %></td>
+										<td><%=bean.getId() %></td>
+										<td><%=bean.getContents() %></td>
+										<td><%=bean.getRegDate() %></td>
+										<%
+											int ck=0;
+											if(dao.checkReply(ckmap)==1){
+												 ck=1;									
+											}else{
+												 ck=0;
+											}
+										%>
+										<td><%String check=(ck==1)?"ÎåìÍ∑∏ ÌôïÏù∏":"ÎåìÍ∏Ä Îã¨Í∏∞";%></td>
+									</tr>
 
-
-                     <tr>
-                        <td>Mary</td>
-                        <td>Moe</td>
-                        <td>mary@example.com</td>
-                        <td>mary@example.com</td>
-                     </tr>
-                     <tr>
-                        <td>July</td>
-                        <td>Dooley</td>
-                        <td>july@example.com</td>
-                        <td>july@example.com</td>
-                     </tr>
-                  </tbody>
-               </table>
-
-               <!-- ∆‰¿Ã¬° -->
-               <div class="container" align="center">
-                  <ul class="pagination">
-                     <li><a href="#">&lsaquo;</a></li>
-                     <li><a href="#">1</a></li>
-                     <li><a href="#">2</a></li>
-                     <li><a href="#">3</a></li>
-                     <li><a href="#">4</a></li>
-                     <li><a href="#">5</a></li>
-                     <li><a href="#">&rsaquo;</a></li>
-                  </ul>
-               </div>
+									<tr class="completeTr">
+										<td colspan="4"><textarea rows="3"></textarea></td>
+										<td colspan="1"><button type="button"
+												class="btn btn-sm btn-primary">ÎãµÎ≥ÄÌïòÍ∏∞</button></td>
+									</tr>
+									<tr class="answerTr">
+										<td colspan="5"></td>
+									</tr>
+								<%} %>
+								</tbody>
+							</table>
+						</div>
+					</div>
 
 
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<!-- /#page-wrapper -->
+			<!-- ÌéòÏù¥ÏßÄÏù¥ÎèôÌéòÏù¥Ïßï -->
+			<div class="paging" style="text-align: center;">
+				<ul class="pagination">
+					<ul class="pager">
+						<li><a href="/BaegopangMaster/jsp/ReplyManage.jsp?page=1"
+							aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+						</a></li>
+						<li>
+						<li>
+							<%
+								if (currentBlock > 1) {
+									if (currentPage != startPage) {
+							%> <a
+							href="/BaegopangMaster/jsp/ReplyManage.jsp?page=<%=startPage - 1%>">
+								Previous </a> 
+								<%
+								 	} else {
+								 %> <a href="#">Previous</a> <%
+								 	}
+								 	} else {
+								 		if (currentPage != startPage) {
+								 %> <a
+							href="/BaegopangMaster/jsp/ReplyManage.jsp?page=<%=currentPage - 1%>">
+								Previous </a> <%
+ 	} else {
+ %> <a href="#">Previous</a> <%
+ 	}
+ 	}
+ %>
+						</li>
+						<span> <%
 
 
-            </div>
+ 	for (int i = startPage; i <= endPage; i++) {
+ 		if (i == currentPage) {
+ %>
+							<li><a href="#"><strong><%=i%></strong></a></li> <%
+ 	} else {
+ %>
+							<li><a
+								href="/BaegopangMaster/jsp/ReplyManage.jsp?page=<%=i%>">
+									<%=i%>
+							</a></li> <%
+ 	}
+ 	}
+ %>
+						</span>
+						<li>
+							<%
+								if (totalPage > endPage) {
+									if (currentPage != endPage) {
+							%> <a
+							href="/BaegopangMaster/jsp/ReplyManage.jsp?page=<%=currentPage + 1%>">
+								Next </a> <%
+ 	} else {
+ %> <a href="#">Next</a> <%
+ 	}
+ 	} else {
+ 		if (currentPage != endPage) {
+ %> <a
+							href="/BaegopangMaster/jsp/ReplyManage.jsp?page=<%=currentPage + 1%>">
+								Next </a> <%
+ 	} else {
+ %> <a href="#">Next</a> <%
+ 	}
+ 	}
+ %>
+						</li>
 
-         </div>
-<jsp:include page="footer.jsp"></jsp:include>
+						<li><a
+							href="/BaegopangMaster/jsp/ReplyManage.jsp?page=<%=totalPage%>"
+							aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+						</a></li>
+					</ul>
+			</div>
+		</div>
+		<!-- /#wrapper -->
+		<jsp:include page="footer.jsp"></jsp:include>
 </body>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 </html>

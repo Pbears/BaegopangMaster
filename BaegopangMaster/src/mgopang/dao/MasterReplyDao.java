@@ -80,17 +80,28 @@ public class MasterReplyDao {
 			closeSqlSession(sqlSession);
 		}
 	}
-	public int getRTotalRows() throws Exception{
+	public int getRTotalRows(String storename) throws Exception{
 		SqlSession sqlSession = null;
 		try {
 			sqlSession = sqlSessionFactory.openSession();
-			return sqlSession.selectOne("getRTotalRows");
+			return sqlSession.selectOne("getRTotalRows",storename);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return -1;
 		}finally {
 			closeSqlSession(sqlSession);
 		}
-		
      }
+	public int checkReply(HashMap<String, Object>ckmap) throws Exception{
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("checkReply",ckmap);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}finally {
+			closeSqlSession(sqlSession);
+		}
+	}
 }
