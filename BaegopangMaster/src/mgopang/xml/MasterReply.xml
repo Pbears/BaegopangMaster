@@ -18,9 +18,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 		<select id="checkReply" parameterType="java.util.Map" resultType="java.lang.Integer">
-		SELECT R.REPLY 
+		SELECT R.REPLY,R.CONTENTS 
 		FROM (SELECT STORENAME,REF,PNUM,CONTENTS,REPLY FROM REPLY WHERE STORENAME=#{storename} AND PNUM=#{pnum})R
-		WHERE R.REPLY=1;
+		WHERE R.REPLY=1
 	</select>	
 		
 </mapper>

@@ -68,12 +68,14 @@ textarea {
 </style>
 <script>
 	$(function() {
-		$("tr.answerTr, .completeTr, .alreadyTr").hide();
+		$("tr.answerTr, tr.completeTr").hide();
 		$("button.answerInsertBtn").click(function() {
 			$("form[id='" + $(this).attr("id") + "']").submit();
 		});
-		$("tr.QeustionTr, .completeTr").click(function() {
-			$(this).next().toggle(500);
+		$("tr.QeustionTr").click(function() {
+			if("replyCheck")
+			 $(this).next().toggle(500);
+			
 		});
 	});
 </script>
@@ -88,7 +90,7 @@ textarea {
 		List<MasterReplyBean> list = null;
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		HashMap<String, Object> ckmap = new HashMap<String, Object>();
+		
 		map.put("storename", storename);
 		int pageScale = 7;
 
@@ -135,11 +137,13 @@ textarea {
 								</thead>
 								<tbody>
 								<%
+									HashMap<String, Object> ckmap = new HashMap<String, Object>();
 									list = dao.selectReply(map);
+									ckmap.put("storename", storename);
 								for(int i=0; i<list.size(); i++){
 									MasterReplyBean bean = list.get(i);
-									ckmap.put("store", bean.getStoreName());
 									ckmap.put("pnum",bean.getPnum());
+									
 								
 								%>
 									<tr class="QeustionTr" id="<%=i%>">
@@ -147,24 +151,16 @@ textarea {
 										<td><%=bean.getId() %></td>
 										<td><%=bean.getContents() %></td>
 										<td><%=bean.getRegDate() %></td>
-										<%
-											int ck=0;
-											if(dao.checkReply(ckmap)==1){
-												 ck=1;									
-											}else{
-												 ck=0;
-											}
-										%>
-										<td><%String check=(ck==1)?"댓그 확인":"댓글 달기";%></td>
+										<td><%=(dao.checkReply(ckmap)==1)?"댓글 완료":"댓글 달기"%></td>
+										<input type="hidden" id="replyCheck" value=<%=(dao.checkReply(ckmap))%>>
 									</tr>
-
 									<tr class="completeTr">
 										<td colspan="4"><textarea rows="3"></textarea></td>
 										<td colspan="1"><button type="button"
 												class="btn btn-sm btn-primary">답변하기</button></td>
 									</tr>
 									<tr class="answerTr">
-										<td colspan="5"></td>
+										<td colspan="5">sdff</td>
 									</tr>
 								<%} %>
 								</tbody>

@@ -68,9 +68,6 @@ public class MasterReplyDao {
 	public List<MasterReplyBean>selectReply(HashMap<String, Object>map){
 		SqlSession sqlSession = null;
 		try {
-			System.out.println(map.get("start"));
-			System.out.println(map.get("end"));
-			System.out.println(map.get("storename"));
 			sqlSession = sqlSessionFactory.openSession();
 			return sqlSession.selectList("selectReply",map);
 		} catch (Exception e) {
@@ -98,7 +95,7 @@ public class MasterReplyDao {
 			sqlSession = sqlSessionFactory.openSession();
 			return sqlSession.selectOne("checkReply",ckmap);
 		} catch (Exception e) {
-			e.printStackTrace();
+			/*e.printStackTrace();*/
 			return -1;
 		}finally {
 			closeSqlSession(sqlSession);
