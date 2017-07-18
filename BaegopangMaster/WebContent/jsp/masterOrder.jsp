@@ -259,7 +259,7 @@
 				<div class="paging" style="text-align: center;">
 					<ul class="pagination">
 						<ul class="pager">
-							<li><a href="/Baegoapng/jsp/masterOrder.jsp?page=1"
+							<li><a href="/BaegopangMaster/jsp/masterOrder.jsp?page=1"
 								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 							</a></li>
 							<li>
@@ -268,7 +268,7 @@
 									if (currentBlock > 1) {
 										if (currentPage != startPage) {
 								%> <a
-								href="/Baegoapng/jsp/masterOrder.jsp?page=<%=startPage - 1%>&query=<%=query%>&data=<%=data%>">
+								href="/BaegopangMaster/jsp/masterOrder.jsp?page=<%=startPage - 1%>&query=<%=query%>&data=<%=data%>">
 									Previous </a> <%
  	} else {
  %> <a href="#">Previous</a> <%
@@ -276,7 +276,7 @@
  	} else {
  		if (currentPage != startPage) {
  %> <a
-								href="/Baegoapng/jsp/masterOrder.jsp?page=<%=currentPage - 1%>&query=<%=query%>&data=<%=data%>">
+								href="/BaegopangMaster/jsp/masterOrder.jsp?page=<%=currentPage - 1%>&query=<%=query%>&data=<%=data%>">
 									Previous </a> <%
  	} else {
  %> <a href="#">Previous</a> <%
@@ -296,7 +296,7 @@
  	} else {
  %>
 								<li><a
-									href="/Baegoapng/jsp/masterOrder.jsp?page=<%=i%>&query=<%=query%>&data=<%=data%>">
+									href="/BaegopangMaster/jsp/masterOrder.jsp?page=<%=i%>&query=<%=query%>&data=<%=data%>">
 										<%=i%>
 								</a></li> <%
  	}
@@ -308,7 +308,7 @@
 									if (totalPage > endPage) {
 										if (currentPage != endPage) {
 								%> <a
-								href="/Baegoapng/jsp/masterOrder.jsp?page=<%=currentPage + 1%>&query=<%=query%>&data=<%=data%>">
+								href="/BaegopangMaster/jsp/masterOrder.jsp?page=<%=currentPage + 1%>&query=<%=query%>&data=<%=data%>">
 									Next </a> <%
  	} else {
  %> <a href="#">Next</a> <%
@@ -316,7 +316,7 @@
  	} else {
  		if (currentPage != endPage) {
  %> <a
-								href="/Baegoapng/jsp/masterOrder.jsp?page=<%=currentPage + 1%>&query=<%=query%>&data=<%=data%>">
+								href="/BaegopangMaster/jsp/masterOrder.jsp?page=<%=currentPage + 1%>&query=<%=query%>&data=<%=data%>">
 									Next </a> <%
  	} else {
  %> <a href="#">Next</a> <%
@@ -326,7 +326,7 @@
 							</li>
 
 							<li><a
-								href="/Baegoapng/jsp/masterOrder.jsp?page=<%=totalPage%>&query=<%=query%>&data=<%=data%>"
+								href="/BaegopangMaster/jsp/masterOrder.jsp?page=<%=totalPage%>&query=<%=query%>&data=<%=data%>"
 								aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 							</a></li>
 						</ul>

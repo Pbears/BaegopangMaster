@@ -8,12 +8,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 		SELECT COUNT(*) FROM FOODORDER
 		WHERE STORENAME=#{storename}
+		AND
+		(STATE='승인대기' OR STATE='승인완료')
 		<if test="Q!=null">
 			AND ${Q} LIKE '%'||#{D}||'%'
 		</if>
-		AND (STATE='승인대기' OR STATE='승인완료')
 		ORDER BY ORDERTIME DESC
-  
+
 	</select>
 
 	<select id="getTotalRowCom" parameterType="java.util.HashMap"
@@ -21,10 +22,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 		SELECT COUNT(*) FROM FOODORDER
 		WHERE STORENAME=#{storename}
+		AND
+		STATE='배달완료'
 		<if test="Q2!=null">
 			AND ${Q2} LIKE '%'||#{D2}||'%'
 		</if>
-		AND STATE='배달완료'
 		ORDER BY ORDERTIME DESC
 
 	</select>
@@ -39,10 +41,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		HH24:MI:SS')ORDERTIME, STATE
 		FROM FOODORDER
 		WHERE STORENAME=#{storename}
+		AND STATE='배달완료'
 		<if test="query2!=null">
 			AND ${query2} LIKE '%'||#{data2}||'%'
 		</if>
-		AND STATE='배달완료'
 
 		ORDER BY ORDERTIME DESC
 
@@ -55,20 +57,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="selectOrder" resultType="order" parameterType="java.util.HashMap">
 
+
+
 		SELECT ORDERNUMBER, MEMBERID, MEMBERNAME, MEMBERTEL, MEMBERADDRESS,
-		PRICE, NVL(ORDERINFO,'없음') ORDERINFO,
+		PRICE, ORDERINFO,
+		MENUNAME, AMOUNT, STORENAME,
+		STOREADDRESS, STORETEL,
+		ORDERTIME, STATE
+		FROM(SELECT ORDERNUMBER, MEMBERID, MEMBERNAME, MEMBERTEL, MEMBERADDRESS,
+		PRICE,
+		NVL(ORDERINFO,'없음') ORDERINFO,
 		MENUNAME, AMOUNT, STORENAME,
 		STOREADDRESS, STORETEL,
 		TO_DATE(ORDERTIME,'YYYYMMDD
-		HH24:MI:SS')ORDERTIME, STATE
+		HH24:MI:SS')ORDERTIME, STATE,ROW_NUMBER()OVER(ORDER BY ORDERTIME
+		DESC,ORDERNUMBER ASC)RANK
 		FROM FOODORDER
 		WHERE STORENAME=#{storename}
-		<if test="query!=null">
-			AND ${query} LIKE '%'||#{data}||'%'
-		</if>
 		AND (STATE='승인대기' OR STATE='승인완료')
-
-		ORDER BY ORDERTIME DESC
+		<if test="query!=null">
+			AND ${query2} LIKE '%'||#{data2}||'%'
+		</if>
+		ORDER BY ORDERTIME DESC, ORDERNUMBER ASC)
+		WHERE RANK BETWEEN #{start} AND #{end}
 
 
 
@@ -126,13 +137,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<insert id="dropMaster" parameterType="java.util.HashMap">
-		INSERT INTO REQUESTDROP(ID,PW,NAME,ADDRESS,TEL,BIRTH,STORENAME)
+		INSERT INTO
+		REQUESTDROP(ID,PW,NAME,ADDRESS,TEL,BIRTH,STORENAME)
 		VALUES(#{id},#{pw},#{name},#{address},#{tel},TO_DATE(#{birth},'YYYY-MM-DD
 		HH24:MI:SS'),#{storename})
 	</insert>
 
 
 
-	
+
 
 </mapper>
