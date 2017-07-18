@@ -29,37 +29,17 @@ var chart2;
 var legend2;
 var selected2;
 
-var types2 = [{
-  type: "Fossil Energy",
-  percent: 70,
-  color: "#ff9e01",
-  subs: [{
-    type: "Oil",
-    percent: 15
-  }, {
-    type: "Coal",
-    percent: 35
-  }, {
-    type: "Nuclear",
-    percent: 20
-  }]
-}, {
-  type: "Green Energy",
-  percent: 30,
-  color: "#b0de09",
-  subs: [{
-    type: "Hydro",
-    percent: 15
-  }, {
-    type: "Wind",
-    percent: 10
-  }, {
-    type: "Other",
-    percent: 5
-  }]
-}];
+var types2;
 
 function generateChartData2() {
+	$.ajax({
+		url : "/BaegopangMaster/jsp/chartdata/ageData.jsp",
+		async : false,
+		dataType : "json",
+		success : function(data) {
+			types2 = data;
+		}
+	});	
   var chartData = [];
   for (var i = 0; i < types2.length; i++) {
     if (i == selected2) {

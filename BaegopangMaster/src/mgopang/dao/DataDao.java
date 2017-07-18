@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import mgopang.bean.AgeDataBean;
 import mgopang.bean.GenderDataBean;
 import mgopang.bean.OrderBean;
 import mgopang.bean.WeekDayDataBean;
@@ -61,8 +62,21 @@ public class DataDao {
 			SqlSession sqlSession = null;
 			try {
 				sqlSession = sqlSessionFactory.openSession();
-				System.out.println(map.get("storename"));
 				return sqlSession.selectList("selectWeekDayData",map);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}finally {
+				closeSqlSession(sqlSession);
+			}
+		}
+		
+		public List<AgeDataBean>selectAgeData(HashMap<String, Object>map){
+			SqlSession sqlSession = null;
+			try {
+				sqlSession = sqlSessionFactory.openSession();
+				System.out.println(map.get("storename"));
+				return sqlSession.selectList("selectAgeData",map);
 			} catch (Exception e) {
 				e.printStackTrace();
 				return null;
