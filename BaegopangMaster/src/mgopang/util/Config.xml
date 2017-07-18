@@ -31,6 +31,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     	    <typeAlias type="mgopang.bean.MasterReplyBean" alias="reply"/>
 			<typeAlias type="mgopang.bean.PointBean" alias="point"/>
 			<typeAlias type="mgopang.bean.GenderDataBean" alias="genderdata"/>
+			<typeAlias type="mgopang.bean.WeekDayDataBean" alias="daydata"/>
     </typeAliases>
     
     

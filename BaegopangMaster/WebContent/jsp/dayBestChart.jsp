@@ -29,37 +29,18 @@ var chart3;
 var legend3;
 var selected3;
 
-var types3 = [{
-  type: "Fossil Energy",
-  percent: 70,
-  color: "#ff9e01",
-  subs: [{
-    type: "Oil",
-    percent: 15
-  }, {
-    type: "Coal",
-    percent: 35
-  }, {
-    type: "Nuclear",
-    percent: 20
-  }]
-}, {
-  type: "Green Energy",
-  percent: 30,
-  color: "#b0de09",
-  subs: [{
-    type: "Hydro",
-    percent: 15
-  }, {
-    type: "Wind",
-    percent: 10
-  }, {
-    type: "Other",
-    percent: 5
-  }]
-}];
+var types3;
 
 function generateChartData3() {
+	$.ajax({
+		url : "/BaegopangMaster/jsp/chartdata/weekDayData.jsp",
+		async : false,
+		dataType : "json",
+		success : function(data) {
+			types3 = data;
+		}
+	});
+	
   var chartData = [];
   for (var i = 0; i < types3.length; i++) {
     if (i == selected3) {
