@@ -73,11 +73,24 @@ textarea {
 			$("form[id='" + $(this).attr("id") + "']").submit();
 		});
 		$("tr.QeustionTr").click(function() {
-			if("replyCheck")
-			 $(this).next().toggle(500);
-			
+		/* 	if($("#replyCheck")==0){
+				 $(this).next().toggle(500);
+			}else{
+				 $(this).next().next().toggle(500);
+			}  */
+			 $(this).next().next().toggle(500);
 		});
+		
 	});
+	
+	
+	function insertBtn(i){
+		var contents = document.getElementById("contents"+i);
+		var pnum = document.getElementById("pnum"+i);
+	
+		document.location="insert/insertReply.jsp?contents="+contents.value+"&pnum="+pnum.value;
+	}
+	
 </script>
 </head>
 <body>
@@ -90,7 +103,7 @@ textarea {
 		List<MasterReplyBean> list = null;
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		
+		HashMap<String, Object> omap = new HashMap<String, Object>();
 		map.put("storename", storename);
 		int pageScale = 7;
 
@@ -151,18 +164,36 @@ textarea {
 										<td><%=bean.getId() %></td>
 										<td><%=bean.getContents() %></td>
 										<td><%=bean.getRegDate() %></td>
-										<td><%=(dao.checkReply(ckmap)==1)?"댓글 완료":"댓글 달기"%></td>
+										<td id=""><%=(dao.checkReply(ckmap)==1)?"댓글 완료":"댓글 달기"%></td>
 										<input type="hidden" id="replyCheck" value=<%=(dao.checkReply(ckmap))%>>
+										<input type="hidden" id="pnum<%=i %>" value="<%=bean.getPnum()%>">
 									</tr>
 									<tr class="completeTr">
-										<td colspan="4"><textarea rows="3"></textarea></td>
-										<td colspan="1"><button type="button"
-												class="btn btn-sm btn-primary">답변하기</button></td>
+										<td colspan="4"><textarea rows="3"  id="contents<%=i %>"></textarea></td>
+										<td colspan="1">
+											<button type="button" id="insertReply" class="btn btn-sm btn-primary" onclick="insertBtn(<%=i %>)">
+											답변하기</button></td>
 									</tr>
+									<%
+									omap.put("storename", storename);
+									omap.put("pnum", bean.getPnum());
+									System.out.print(storename+" "+bean.getPnum());
+									
+									if((dao.checkReply(ckmap)==1)){
+										String con=dao.selectOneRep(map);
+										System.out.print(con);
+									%>
 									<tr class="answerTr">
-										<td colspan="5">sdff</td>
+										<td colspan="5"><%=con %></td>
 									</tr>
-								<%} %>
+								<%}else {%>
+									<tr class="answerTr">
+										<td colspan="5"></td>
+									</tr>
+								<%
+									}
+								} 
+								%>
 								</tbody>
 							</table>
 						</div>

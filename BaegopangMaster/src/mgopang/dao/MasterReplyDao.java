@@ -101,4 +101,29 @@ public class MasterReplyDao {
 			closeSqlSession(sqlSession);
 		}
 	}
+	public void insertReply(HashMap<String, Object>map)throws Exception{
+		  SqlSession sqlSession=sqlSessionFactory.openSession();
+		  try {
+			  sqlSession.insert("insertReply", map);
+			  sqlSession.commit();			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			sqlSession.rollback();
+		}finally{
+			sqlSession.close();
+		}
+	}
+	public String selectOneRep(HashMap<String, Object>map)throws Exception{
+		  SqlSession sqlSession=sqlSessionFactory.openSession();
+		  try {
+			return sqlSession.selectOne("selectOneRep", map);		
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		}finally{
+			sqlSession.close();
+		}
+	}
 }

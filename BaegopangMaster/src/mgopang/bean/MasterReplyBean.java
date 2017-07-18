@@ -2,11 +2,11 @@ package mgopang.bean;
 
 public class MasterReplyBean {
 	private int no;
-	private String storeName;
-	private String orderNumber;
+	private String storename;
+	private String ordernumber;
 	private String id;
 	private String contents;
-	private String regDate;
+	private String regdate;
 	private int ref;
 	private int pnum;
 	private int reply;
@@ -39,19 +39,19 @@ public class MasterReplyBean {
 	}
 
 	public String getStoreName() {
-		return storeName;
+		return storename;
 	}
 
 	public void setStoreName(String storeName) {
-		this.storeName = storeName;
+		this.storename = storeName;
 	}
 
 	public String getOrderNumber() {
-		return orderNumber;
+		return ordernumber;
 	}
 
 	public void setOrderNumber(String orderNumber) {
-		this.orderNumber = orderNumber;
+		this.ordernumber = orderNumber;
 	}
 
 	public String getId() {
@@ -71,11 +71,11 @@ public class MasterReplyBean {
 	}
 
 	public String getRegDate() {
-		return regDate;
+		return regdate;
 	}
 
 	public void setRegDate(String regDate) {
-		this.regDate = regDate;
+		this.regdate = regDate;
 	}
 
 	public int getRef() {
@@ -104,8 +104,8 @@ public class MasterReplyBean {
 
 	@Override
 	public String toString() {
-		return "MasterReplyBean [no=" + no + ", storeName=" + storeName + ", orderNumber=" + orderNumber + ", id=" + id
-				+ ", contents=" + contents + ", regDate=" + regDate + ", ref=" + ref + ", pnum=" + pnum + ", reply="
+		return "MasterReplyBean [no=" + no + ", storeName=" + storename + ", orderNumber=" + ordernumber + ", id=" + id
+				+ ", contents=" + contents + ", regDate=" + regdate + ", ref=" + ref + ", pnum=" + pnum + ", reply="
 				+ reply + ", RM=" + RM + ", state=" + state + "]";
 	}
 }

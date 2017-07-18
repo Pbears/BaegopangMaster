@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM(
 		SELECT ROW_NUMBER( )OVER(ORDER BY NO
 		DESC)RM,NO,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,ORDERNUMBER,ID,CONTENTS,REF,PNUM, REPLY,STORENAME FROM REPLY)
-		WHERE RM BETWEEN #{start} AND #{end} AND (STORENAME = #{storename} AND REPLY=0)
+		WHERE RM BETWEEN #{start} AND #{end} AND (STORENAME = #{storename} AND REPLY=0 desc)
   	</select>
   	
 	<select id="getRTotalRows" parameterType="java.lang.String" resultType="java.lang.Integer">
@@ -22,6 +22,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM (SELECT STORENAME,REF,PNUM,CONTENTS,REPLY FROM REPLY WHERE STORENAME=#{storename} AND PNUM=#{pnum})R
 		WHERE R.REPLY=1
 	</select>	
-		
+	
+	<insert id="insertReply" parameterType="java.util.HashMap">
+		<selectKey keyProperty="no" order="BEFORE" resultType="java.lang.Integer">
+			SELECT REPLY_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO REPLY(no,storename,orderNumber,id,contents,regdate,ref,pnum,reply)
+		VALUES(#{no},#{storename},'orderNumber','admin',#{contents},sysdate,#{pnum},#{pnum},1)
+	</insert>
+	
+	<select id="selectOneRep" parameterType="java.util.HashMap" resultType="java.lang.String">
+		SELECT CONTENTS FROM REPLY
+		WHERE STORENAME=#{storename} AND PNUM=#{pnum} AND REPLY=1
+	</select>
 </mapper>
 
