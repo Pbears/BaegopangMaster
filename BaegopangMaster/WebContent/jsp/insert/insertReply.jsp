@@ -13,15 +13,17 @@
 	<%
 		MasterBean mbean = (MasterBean) session.getAttribute("master");
 		String storename = mbean.getStorename();
+		String id=mbean.getId();
 		int pnum= Integer.parseInt(request.getParameter("pnum")); 
 		String contents = request.getParameter("contents");
-		System.out.print(storename+" "+pnum+" "+contents);
 		HashMap<String,Object>map = new HashMap<String,Object>();
 		map.put("storename",storename);
 		map.put("pnum",pnum);
 		map.put("contents",contents);
+		map.put("id",id);
 		MasterReplyDao dao=new MasterReplyDao();
 		dao.insertReply(map);
+		dao.updateReply(map);
 		
 		response.sendRedirect("../ReplyManage.jsp");
 	%>

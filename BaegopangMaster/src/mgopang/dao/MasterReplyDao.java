@@ -101,6 +101,20 @@ public class MasterReplyDao {
 			closeSqlSession(sqlSession);
 		}
 	}
+	
+	public void updateReply(HashMap<String, Object>map)throws Exception{
+		  SqlSession sqlSession=sqlSessionFactory.openSession();
+		  try {
+			  sqlSession.update("updateReply", map);
+			  sqlSession.commit();			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			sqlSession.rollback();
+		}finally{
+			sqlSession.close();
+		}
+	}
 	public void insertReply(HashMap<String, Object>map)throws Exception{
 		  SqlSession sqlSession=sqlSessionFactory.openSession();
 		  try {
@@ -126,4 +140,5 @@ public class MasterReplyDao {
 			sqlSession.close();
 		}
 	}
+
 }

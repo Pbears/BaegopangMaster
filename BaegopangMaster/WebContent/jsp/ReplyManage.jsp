@@ -73,14 +73,16 @@ textarea {
 			$("form[id='" + $(this).attr("id") + "']").submit();
 		});
 		$("tr.QeustionTr").click(function() {
-		/* 	if($("#replyCheck")==0){
-				 $(this).next().toggle(500);
-			}else{
-				 $(this).next().next().toggle(500);
-			}  */
-			 $(this).next().next().toggle(500);
+			var trId = $(this).attr('id');
+			var inputv = $('input[id="' + trId + '"]').attr('value');
+				
+				if(inputv==-1){
+					$(this).next().toggle(500);
+				}else{
+					$(this).next().next().toggle(500);
+				}
+	
 		});
-		
 	});
 	
 	
@@ -96,16 +98,17 @@ textarea {
 <body>
 	<%
 		MasterBean mbean = (MasterBean) session.getAttribute("master");
-		String masterid = mbean.getId();
+		String id=mbean.getId();
 		String storename = mbean.getStorename();
 		MasterReplyDao dao = new MasterReplyDao();
 
 		List<MasterReplyBean> list = null;
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		HashMap<String, Object> omap = new HashMap<String, Object>();
+	
 		map.put("storename", storename);
-		int pageScale = 7;
+		map.put("id", id);
+		int pageScale = 6;
 
 		int currentPage = 0;
 		int totalRow = dao.getRTotalRows(storename);
@@ -130,6 +133,7 @@ textarea {
 		map.put("end", end);
 	%>
 	<jsp:include page="header.jsp"></jsp:include>
+	<div>
 	<div id="wrapper">
 		<div id="page-wrapper">
 
@@ -151,22 +155,26 @@ textarea {
 								<tbody>
 								<%
 									HashMap<String, Object> ckmap = new HashMap<String, Object>();
+									MasterReplyBean replybean=null;
 									list = dao.selectReply(map);
+									int num=0;
 									ckmap.put("storename", storename);
+									ckmap.put("id", id);
 								for(int i=0; i<list.size(); i++){
+									HashMap<String, Object> omap = new HashMap<String, Object>();
 									MasterReplyBean bean = list.get(i);
+								//	System.out.print(bean);
 									ckmap.put("pnum",bean.getPnum());
 									
-								
 								%>
-									<tr class="QeustionTr" id="<%=i%>">
+									<tr class="QeustionTr" id="replyCheck<%=bean.getNo()%>">
 										<td><%=bean.getRM() %></td>
 										<td><%=bean.getId() %></td>
 										<td><%=bean.getContents() %></td>
 										<td><%=bean.getRegDate() %></td>
-										<td id=""><%=(dao.checkReply(ckmap)==1)?"댓글 완료":"댓글 달기"%></td>
-										<input type="hidden" id="replyCheck" value=<%=(dao.checkReply(ckmap))%>>
-										<input type="hidden" id="pnum<%=i %>" value="<%=bean.getPnum()%>">
+										<td id=""><%=(dao.checkReply(ckmap)==-1)?"댓글 달기":"댓글 완료"%></td>
+										<input type="hidden" name="replyList" id="replyCheck<%=bean.getNo()%>" value=<%=dao.checkReply(ckmap)%> />
+										<input type="hidden" id="pnum<%=i %>" value="<%=bean.getPnum()%>" />
 									</tr>
 									<tr class="completeTr">
 										<td colspan="4"><textarea rows="3"  id="contents<%=i %>"></textarea></td>
@@ -175,32 +183,18 @@ textarea {
 											답변하기</button></td>
 									</tr>
 									<%
-									omap.put("storename", storename);
-									omap.put("pnum", bean.getPnum());
-									System.out.print(storename+" "+bean.getPnum());
-									
-									if((dao.checkReply(ckmap)==1)){
-										String con=dao.selectOneRep(map);
-										System.out.print(con);
+										omap.put("pnum",bean.getPnum());
+										omap.put("id",mbean.getId());
 									%>
 									<tr class="answerTr">
-										<td colspan="5"><%=con %></td>
+										<td colspan="5"><%=dao.selectOneRep(omap) %></td>
 									</tr>
-								<%}else {%>
-									<tr class="answerTr">
-										<td colspan="5"></td>
-									</tr>
-								<%
-									}
-								} 
-								%>
+								<%} %>
 								</tbody>
 							</table>
 						</div>
 					</div>
-
-
-				</div>
+			</div>
 				<!-- /.container-fluid -->
 
 			</div>
@@ -271,6 +265,7 @@ textarea {
  %> <a href="#">Next</a> <%
  	}
  	}
+							
  %>
 						</li>
 
@@ -281,6 +276,7 @@ textarea {
 					</ul>
 			</div>
 		</div>
+	</div>
 		<!-- /#wrapper -->
 		<jsp:include page="footer.jsp"></jsp:include>
 </body>

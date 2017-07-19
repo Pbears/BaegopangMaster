@@ -8,19 +8,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   		CONTENTS,REGDATE,REF,PNUM,REPLY
 		FROM(
 		SELECT ROW_NUMBER( )OVER(ORDER BY NO
-		DESC)RM,NO,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,ORDERNUMBER,ID,CONTENTS,REF,PNUM, REPLY,STORENAME FROM REPLY)
-		WHERE RM BETWEEN #{start} AND #{end} AND (STORENAME = #{storename} AND REPLY=0 desc)
+		DESC)RM,NO,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,ORDERNUMBER,ID,CONTENTS,REF,PNUM, REPLY,STORENAME FROM REPLY WHERE id != #{id})
+		WHERE RM BETWEEN #{start} AND #{end} AND (STORENAME = #{storename})
   	</select>
   	
 	<select id="getRTotalRows" parameterType="java.lang.String" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM reply
-		WHERE STORENAME = #{storename} AND REPLY=0
+		WHERE STORENAME = #{storename} AND id != #{id}
 	</select>
 	
 		<select id="checkReply" parameterType="java.util.Map" resultType="java.lang.Integer">
-		SELECT R.REPLY,R.CONTENTS 
-		FROM (SELECT STORENAME,REF,PNUM,CONTENTS,REPLY FROM REPLY WHERE STORENAME=#{storename} AND PNUM=#{pnum})R
-		WHERE R.REPLY=1
+		SELECT R.REPLY
+		FROM (SELECT STORENAME,ID,REF,PNUM,CONTENTS,REPLY FROM REPLY WHERE STORENAME=#{storename} AND PNUM=#{pnum})R
+		WHERE id=#{id}
 	</select>	
 	
 	<insert id="insertReply" parameterType="java.util.HashMap">
@@ -28,12 +28,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			SELECT REPLY_SEQ.NEXTVAL FROM DUAL
 		</selectKey>
 		INSERT INTO REPLY(no,storename,orderNumber,id,contents,regdate,ref,pnum,reply)
-		VALUES(#{no},#{storename},'orderNumber','admin',#{contents},sysdate,#{pnum},#{pnum},1)
+		VALUES(#{no},#{storename},'orderNumber',#{id},#{contents},sysdate,#{pnum},#{pnum},0)
 	</insert>
+	
+	<update id="updateReply" parameterType="java.util.HashMap">
+		UPDATE REPLY SET REPLY=REPLY+1
+		WHERE PNUM=#{pnum} AND ID!=#{id}
+	</update>
 	
 	<select id="selectOneRep" parameterType="java.util.HashMap" resultType="java.lang.String">
 		SELECT CONTENTS FROM REPLY
-		WHERE STORENAME=#{storename} AND PNUM=#{pnum} AND REPLY=1
+		WHERE PNUM=#{pnum} AND id=#{id}
 	</select>
 </mapper>
 
