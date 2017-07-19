@@ -11,11 +11,11 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.io.PrintWriter"%>
 <%
-	//MasterBean master=(MasterBean)request.getSession().getAttribute("master");
-	//String storename = master.getStorename();
+	MasterBean master=(MasterBean)request.getSession().getAttribute("master");
+	String storename = master.getStorename();
 	HashMap<String, Object> map = new HashMap<String, Object>();
-	//map.put("storename", storename);
-	map.put("storename", "굽네치킨-역삼1동점");
+	map.put("storename", storename);
+	//map.put("storename", "굽네치킨-역삼1동점");
 	DataDao dao = new DataDao();
 	List<AgeDataBean> list = dao.selectAgeData(map);
 	//out.print(list);
