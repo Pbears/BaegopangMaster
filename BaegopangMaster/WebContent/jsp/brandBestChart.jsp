@@ -27,37 +27,29 @@
 </style>
 </head>
 <script>
+
+
+var loaddata;
+
+function getnewdata(){
+	$.ajax({
+		url : "/BaegopangMaster/jsp/chartdata/brandBestData.jsp",
+		async : false,
+		dataType : "json",
+		success : function(data) {
+			loaddata = data;
+		}
+	});	
+	return loaddata;
+}
+
+
+
+
 var chart = AmCharts.makeChart( "chartdiv", {
   "type": "pie",
   "theme": "none",
-  "dataProvider": [ {
-    "country": "Lithuania",
-    "litres": 501.9
-  }, {
-    "country": "Czech Republic",
-    "litres": 301.9
-  }, {
-    "country": "Ireland",
-    "litres": 201.1
-  }, {
-    "country": "Germany",
-    "litres": 165.8
-  }, {
-    "country": "Australia",
-    "litres": 139.9
-  }, {
-    "country": "Austria",
-    "litres": 128.3
-  }, {
-    "country": "UK",
-    "litres": 99
-  }, {
-    "country": "Belgium",
-    "litres": 60
-  }, {
-    "country": "The Netherlands",
-    "litres": 50
-  } ],
+  "dataProvider":getnewdata(),
   "valueField": "litres",
   "titleField": "country",
    "balloon":{
@@ -67,6 +59,14 @@ var chart = AmCharts.makeChart( "chartdiv", {
     "enabled": true
   }
 } );
+
+
+function setDataSet(dataset_url) {
+	  AmCharts.loadFile(dataset_url, {}, function(data) {
+	    chart.dataProvider = AmCharts.parseJSON(data);
+	    chart.validateData();
+	  });
+	}
 </script>
 
 <body>
@@ -76,6 +76,7 @@ var chart = AmCharts.makeChart( "chartdiv", {
 			<h1>∫Í∑£µÂBEST</h1>
 		</div>
 		<div class="col-sm-12">
+		
 			<div id="chartdiv" class="chartdiv"></div>
 
 		</div>

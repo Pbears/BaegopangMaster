@@ -76,6 +76,17 @@
 
 		}
 	}
+	for(int i=0;metc1.length<i;i++){
+		if(metc1[i]!=0){
+			
+			JSONObject subObj = new JSONObject();
+			subObj.put("type", "기타");
+			subObj.put("percent", metc1[i]);
+			subArray1[i].add(subObj);
+			
+		 }
+		}
+	
 
 	for (int i = 0; i < list.size(); i++) {
 		WeekDayDataBean bean = list.get(i);
@@ -95,11 +106,6 @@
 				subObj.put("type", bean.getMenuname());
 				subObj.put("percent", bean.getRatiomenu());
 				subArray1[0].add(subObj);
-			} else {
-				JSONObject subObj = new JSONObject();
-				subObj.put("type", "기타");
-				subObj.put("percent", metc1[0]);
-				subArray1[0].add(subObj);
 			}
 
 		} else if (bean.getWeekday().equals("화")) {
@@ -116,11 +122,6 @@
 				JSONObject subObj = new JSONObject();
 				subObj.put("type", bean.getMenuname());
 				subObj.put("percent", bean.getRatiomenu());
-				subArray1[1].add(subObj);
-			} else {
-				JSONObject subObj = new JSONObject();
-				subObj.put("type", "기타");
-				subObj.put("percent", metc1[1]);
 				subArray1[1].add(subObj);
 			}
 
@@ -139,11 +140,6 @@
 				subObj.put("type", bean.getMenuname());
 				subObj.put("percent", bean.getRatiomenu());
 				subArray1[2].add(subObj);
-			} else {
-				JSONObject subObj = new JSONObject();
-				subObj.put("type", "기타");
-				subObj.put("percent", metc1[2]);
-				subArray1[2].add(subObj);
 			}
 
 		} else if (bean.getWeekday().equals("목")) {
@@ -160,11 +156,6 @@
 				JSONObject subObj = new JSONObject();
 				subObj.put("type", bean.getMenuname());
 				subObj.put("percent", bean.getRatiomenu());
-				subArray1[3].add(subObj);
-			} else {
-				JSONObject subObj = new JSONObject();
-				subObj.put("type", "기타");
-				subObj.put("percent", metc1[3]);
 				subArray1[3].add(subObj);
 			}
 
@@ -183,12 +174,7 @@
 				subObj.put("type", bean.getMenuname());
 				subObj.put("percent", bean.getRatiomenu());
 				subArray1[4].add(subObj);
-			} else {
-				JSONObject subObj = new JSONObject();
-				subObj.put("type", "기타");
-				subObj.put("percent", metc1[4]);
-				subArray1[4].add(subObj);
-			}
+			} 
 
 		} else if (bean.getWeekday().equals("토")) {
 			if (dayRatio1[5] == null) {
@@ -204,11 +190,6 @@
 				JSONObject subObj = new JSONObject();
 				subObj.put("type", bean.getMenuname());
 				subObj.put("percent", bean.getRatiomenu());
-				subArray1[5].add(subObj);
-			} else {
-				JSONObject subObj = new JSONObject();
-				subObj.put("type", "기타");
-				subObj.put("percent", metc1[5]);
 				subArray1[5].add(subObj);
 			}
 
@@ -226,11 +207,6 @@
 				JSONObject subObj = new JSONObject();
 				subObj.put("type", bean.getMenuname());
 				subObj.put("percent", bean.getRatiomenu());
-				subArray1[6].add(subObj);
-			} else {
-				JSONObject subObj = new JSONObject();
-				subObj.put("type", "기타");
-				subObj.put("percent", metc1[6]);
 				subArray1[6].add(subObj);
 			}
 

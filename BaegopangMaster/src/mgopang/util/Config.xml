@@ -33,6 +33,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 			<typeAlias type="mgopang.bean.GenderDataBean" alias="genderdata"/>
 			<typeAlias type="mgopang.bean.WeekDayDataBean" alias="daydata"/>
 			<typeAlias type="mgopang.bean.AgeDataBean" alias="agedata"/>
+			<typeAlias type="mgopang.bean.BrandDataBean" alias="branddata"/>
     </typeAliases>
     
     

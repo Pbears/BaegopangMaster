@@ -64,6 +64,19 @@
 
 		}
 	}
+	
+	for(int i=0;metc2.length<i;i++){
+	if(metc2[i]!=0){
+		
+		JSONObject subObj = new JSONObject();
+		subObj.put("type", "기타");
+		subObj.put("percent", metc2[i]);
+		subArray2[i].add(subObj);
+		
+	 }
+	}
+	
+	
 
 	for (int i = 0; i < list.size(); i++) {
 		AgeDataBean bean = list.get(i);
@@ -83,12 +96,7 @@
 				subObj.put("type", bean.getMenuname());
 				subObj.put("percent", bean.getRatiomenu());
 				subArray2[0].add(subObj);
-			} else {
-				JSONObject subObj = new JSONObject();
-				subObj.put("type", "기타");
-				subObj.put("percent", metc2[0]);
-				subArray2[0].add(subObj);
-			}
+			} 
 
 		} else if (bean.getAge()==20) {
 			if (ageRatio2[1] == null) {
@@ -105,13 +113,7 @@
 				subObj.put("type", bean.getMenuname());
 				subObj.put("percent", bean.getRatiomenu());
 				subArray2[1].add(subObj);
-			} else {
-				JSONObject subObj = new JSONObject();
-				subObj.put("type", "기타");
-				subObj.put("percent", metc2[1]);
-				subArray2[1].add(subObj);
 			}
-
 		} else if (bean.getAge()==30) {
 			if (ageRatio2[2] == null) {
 				ageRatio2[2] = String.valueOf(bean.getRatioage());
@@ -126,11 +128,6 @@
 				JSONObject subObj = new JSONObject();
 				subObj.put("type", bean.getMenuname());
 				subObj.put("percent", bean.getRatiomenu());
-				subArray2[2].add(subObj);
-			} else {
-				JSONObject subObj = new JSONObject();
-				subObj.put("type", "기타");
-				subObj.put("percent", metc2[2]);
 				subArray2[2].add(subObj);
 			}
 
@@ -149,11 +146,6 @@
 				subObj.put("type", bean.getMenuname());
 				subObj.put("percent", bean.getRatiomenu());
 				subArray2[3].add(subObj);
-			} else {
-				JSONObject subObj = new JSONObject();
-				subObj.put("type", "기타");
-				subObj.put("percent", metc2[3]);
-				subArray2[3].add(subObj);
 			}
 
 		} else if (bean.getAge()==50) {
@@ -170,11 +162,6 @@
 				JSONObject subObj = new JSONObject();
 				subObj.put("type", bean.getMenuname());
 				subObj.put("percent", bean.getRatiomenu());
-				subArray2[4].add(subObj);
-			} else {
-				JSONObject subObj = new JSONObject();
-				subObj.put("type", "기타");
-				subObj.put("percent", metc2[4]);
 				subArray2[4].add(subObj);
 			}
 

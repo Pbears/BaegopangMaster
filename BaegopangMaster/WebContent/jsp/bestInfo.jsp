@@ -34,7 +34,7 @@
 						<div class="col-sm-12"><jsp:include page="genderBestChart.jsp"></jsp:include></div>
 						<div class="col-sm-12"><jsp:include page="ageBestChart.jsp"></jsp:include></div>	
 						<div class="col-sm-12"><jsp:include page="dayBestChart.jsp"></jsp:include></div>	
-						<div class="col-sm-12"><jsp:include page="brandBestChart.jsp"></jsp:include>	</div>			
+						<div class="col-sm-12"><jsp:include page="brandBestChart.jsp"></jsp:include></div>			
 						
 						</div>
 						
