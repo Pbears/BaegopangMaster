@@ -40,7 +40,7 @@
 		String data2 = request.getParameter("data2");
 		OrderDao dao = new OrderDao();
 		HashMap<String, Object> map2 = new HashMap<String, Object>();
-		
+
 		MasterBean storename1 = (MasterBean) request.getSession().getAttribute("master");
 
 		map2.put("storename", storename1.getStorename());
@@ -51,7 +51,7 @@
 		int currentPage = 0;
 		int totalRow = dao.getTotalRowCom(map2);
 		try {
-			currentPage = Integer.parseInt(request.getParameter("page"));
+			currentPage = Integer.parseInt(request.getParameter("page2"));
 		} catch (Exception e) {
 			currentPage = 1;
 		}
@@ -236,7 +236,7 @@
 				<div class="paging" style="text-align: center;">
 					<ul class="pagination">
 						<ul class="pager">
-							<li><a href="/Baegoapng/jsp/masterOrder.jsp?page2=1"
+							<li><a href="/BaegopangMaster/jsp/masterOrder.jsp?page2=1"
 								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 							</a></li>
 							<li>
@@ -245,7 +245,7 @@
 									if (currentBlock > 1) {
 										if (currentPage != startPage) {
 								%> <a
-								href="/Baegoapng/jsp/masterOrder.jsp?page2=<%=startPage - 1%>&query2=<%=query2%>&data2=<%=data2%>">
+								href="/BaegopangMaster/jsp/masterOrder.jsp?page2=<%=startPage - 1%>&query2=<%=query2%>&data2=<%=data2%>">
 									Previous </a> <%
  	} else {
  %> <a href="#">Previous</a> <%
@@ -253,7 +253,7 @@
  	} else {
  		if (currentPage != startPage) {
  %> <a
-								href="/Baegoapng/jsp/masterOrder.jsp?page2=<%=currentPage - 1%>&query2=<%=query2%>&data2=<%=data2%>">
+								href="/BaegopangMaster/jsp/masterOrder.jsp?page2=<%=currentPage - 1%>&query2=<%=query2%>&data2=<%=data2%>">
 									Previous </a> <%
  	} else {
  %> <a href="#">Previous</a> <%
@@ -273,7 +273,7 @@
  	} else {
  %>
 								<li><a
-									href="/Baegoapng/jsp/masterOrder.jsp?page2=<%=i%>&query2=<%=query2%>&data2=<%=data2%>">
+									href="/BaegopangMaster/jsp/masterOrder.jsp?page2=<%=i%>&query2=<%=query2%>&data2=<%=data2%>">
 										<%=i%>
 								</a></li> <%
  	}
@@ -285,7 +285,7 @@
 									if (totalPage > endPage) {
 										if (currentPage != endPage) {
 								%> <a
-								href="/Baegoapng/jsp/masterOrder.jsp?page2=<%=currentPage + 1%>&query2=<%=query2%>&data2=<%=data2%>">
+								href="/BaegopangMaster/jsp/masterOrder.jsp?page2=<%=currentPage + 1%>&query2=<%=query2%>&data2=<%=data2%>">
 									Next </a> <%
  	} else {
  %> <a href="#">Next</a> <%
@@ -293,7 +293,7 @@
  	} else {
  		if (currentPage != endPage) {
  %> <a
-								href="/Baegoapng/jsp/masterOrder.jsp?page2=<%=currentPage + 1%>&query2=<%=query2%>&data2=<%=data2%>">
+								href="/BaegopangMaster/jsp/masterOrder.jsp?page2=<%=currentPage + 1%>&query2=<%=query2%>&data2=<%=data2%>">
 									Next </a> <%
  	} else {
  %> <a href="#">Next</a> <%
@@ -302,8 +302,10 @@
  %>
 							</li>
 
+
+
 							<li><a
-								href="/Baegoapng/jsp/masterOrder.jsp?page2=<%=totalPage%>&query2=<%=query2%>&data2=<%=data2%>"
+								href="/BaegopangMaster/jsp/masterOrder.jsp?page2=<%=totalPage%>&query=<%=query2%>&data=<%=data2%>"
 								aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 							</a></li>
 						</ul>

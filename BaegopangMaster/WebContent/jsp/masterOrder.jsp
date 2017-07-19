@@ -55,6 +55,7 @@
 		
 
 		map.put("storename", storename.getStorename());
+		//map.put("storename", "굽네치킨-역삼1동점");
 
 		int pageScale = 10;
 		map.put("Q", query);
@@ -75,7 +76,7 @@
 		int currentBlock = currentPage % pageScale == 0 ? (currentPage / pageScale) : (currentPage / pageScale + 1);
 		int startPage = 1 + (currentBlock - 1) * pageScale;
 		int endPage = pageScale + (currentBlock - 1) * pageScale;
-		//   out.println(startPage+" "+endPage+ " "+currentBlock+" "+totalPage);
+		//out.println(startPage+" "+endPage+ " "+currentBlock+" "+totalPage);
 		if (totalPage <= endPage)
 			endPage = totalPage;
 		map.put("start", start);
@@ -90,7 +91,7 @@
 		}
 	%>
 
-	<jsp:include page="header.jsp" />
+	 <jsp:include page="header.jsp" /> 
 
 
 
@@ -343,7 +344,7 @@
 	</div>
 
 
-	<jsp:include page="masterOrder2.jsp"></jsp:include>
+	 <jsp:include page="masterOrder2.jsp"></jsp:include> 
 
 
 
@@ -352,7 +353,7 @@
 
 
 
-	<jsp:include page="footer.jsp"></jsp:include>
+	 <jsp:include page="footer.jsp"></jsp:include> 
 </body>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script
