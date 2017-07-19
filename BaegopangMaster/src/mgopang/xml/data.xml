@@ -81,6 +81,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		GROUP BY MENUNAME)
 
 	</select>
+	
+	<select id="selectDaySalesData" parameterType="java.util.HashMap"
+		resultType="daysales">
+
+		 SELECT ORDERDAY, SUM(SALE) DAYSALE
+        FROM(SELECT ORDERDAY,(AMOUNT*PRICE)SALE FROM ORDERDATA WHERE STORENAME=#{storename})
+        GROUP BY ORDERDAY
+        ORDER BY ORDERDAY ASC
+
+	</select>
 
 
 
