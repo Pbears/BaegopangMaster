@@ -18,7 +18,7 @@
 	//map.put("storename", "굽네치킨-역삼1동점");
 	DataDao dao = new DataDao();
 	List<AgeDataBean> list = dao.selectAgeData(map);
-	//out.print(list);
+	//out.print(list); 
 
 	 JSONObject[] ageObj2 = { new JSONObject(), new JSONObject(), new JSONObject(), new JSONObject(),
 			new JSONObject()};
