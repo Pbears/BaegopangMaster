@@ -5,7 +5,7 @@
 <link href="/BaegopangMaster/css/Main.css" rel="stylesheet" />
 <style>
 html {
-	margin: 50px;
+	margin: 10px;
 }
 
 header {
@@ -19,6 +19,10 @@ header {
 	margin: auto;
 	margin-bottom: 50px;
 	width: 1600px;
+}
+
+#headerContainer{
+	width: 100%
 }
 
 #mainTitle {
@@ -36,24 +40,12 @@ header {
 	margin-left: 200px;
 }
 
-#headerContainer {
-	margin: auto;
-}
-
-.searchContainer {
-	margin: o auto;
-}
-
-#searchWindow {
-	width: 500px;
-}
-
 button#loginBtn.btn btn-default btn-lg {
 	width: 35px;
 	height: 35px;
 }
 </style>
-<header>
+<header class="col-lg-12">
 	<%
 	MasterBean master = (MasterBean)session.getAttribute("master");
 	%>

@@ -27,9 +27,9 @@
 </style>
 </head>
 <body>
-	 <footer class="footer-distributed">
+	 <footer class="footer-distributed col-lg-12">
          <div class="footer-left">
-            <h4>곰여섯마리 첫 프로젝트</h4>
+            <h4>곰다섯마리 첫 프로젝트</h4>
             <p class="footer-links">
                <a href="#">Home</a>
                ·

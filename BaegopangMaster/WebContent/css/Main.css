@@ -2,7 +2,9 @@
 @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 body {
 	margin:0;
-	background: #f1f0ef;
+	/* background: #f1f0ef; */
+	background : white;
+
 	padding-top: 0;
 }
 #logo{
@@ -66,7 +68,6 @@ input[type=submit]:hover {
     background: lightslategrey;
     text-decoration: underline;
 }
-
 .mid_contents {
     border-radius: 5px;
     padding: 0;
@@ -78,17 +79,18 @@ input[type=submit]:hover {
 .bot_contents{
 	margin-left: 11%;
 	width: 80%;
-	background: #f1f0ef;
+	/* background: #f1f0ef; */
+	background : white;
 	display: -webkit-box;
 	margin-bottom: 40px;
 }
 #notice,#point,#service{
-	border: 1px solid;
+	/* border: 1px solid;
 	width: 29%;
 	height: 250px;
 	margin-right: 100px;
 	border: 1px solid #ccc;
-	background: white;
+	background: white; */
 }
 #wpoint {
 	height: 70px;
@@ -173,20 +175,23 @@ input[type=submit]:hover {
 .dropdown3:hover .dropbtn3, .dropdown4:hover .dropbtn4, .dropdown5:hover .dropbtn5 {
     background-color: #FFB559;
 }
-.carousel-inner {
-	height: 320px;
-	margin-top: 20px;
+
+div#mainTopDiv div, div#mainDownDiv div{
+	margin: 15px;
 }
 
+.slide{
+	width: 100%;
+}
 .bot_contents p{
 	margin: 0 0 10px;
-	padding: 20px 30px;
+	padding: 20px 0 0 0;
 	font-size: 25px;
 	font-weight: bold;
 }
-.noti_title p{
-	padding: 20px;
-}
+ .noti_title p{
+	float: right;
+} 
 
 #service > img{
 	width: 80%;
@@ -194,10 +199,13 @@ input[type=submit]:hover {
 	height: 110px;
 	
 }
-#notice_list{
-	margin-left: 50px;
+ #notice_list{
+	margin-top: 30px;
 }
 #notice_list > ui > li{
-	padding: 10px;	
+	padding: 20px;	
 	font-size: 15px;
+} 
+.panel-body > h5{
+	display: inline-block;
 }
