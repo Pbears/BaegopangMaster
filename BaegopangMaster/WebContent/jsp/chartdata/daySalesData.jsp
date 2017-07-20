@@ -30,11 +30,12 @@
 		JSONObject jsonObj=new JSONObject();
 		jsonObj.put("date", bean.getOrderday());
 		jsonObj.put("value", bean.getDaysale());
+		//System.out.println(jsonObj.toString());
 		totalArray.add(jsonObj);
 	}
 
 	//현재페이지의 목록데이터
-	out.print(totalArray.toString());
+	//out.print(totalArray.toString());
 
 	 	PrintWriter pw = response.getWriter();
 		pw.print(totalArray.toString());
