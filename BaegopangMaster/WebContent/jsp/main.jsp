@@ -1,3 +1,5 @@
+<%@page import="mgopang.dao.PointDao"%>
+<%@page import="mgopang.bean.PointBean"%>
 <%@page import="mgopang.bean.NoticeBean"%>
 <%@page import="java.util.List"%>
 <%@page import="mgopang.dao.NoticeDao"%>
@@ -18,6 +20,7 @@
 <link rel="stylesheet" href="/BaegopangMaster/css/bootstrap.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	function mouseOv(obj) {
 		obj.style.background = "#84D5CE";
@@ -28,6 +31,12 @@
 	function noticeView(i){
 		var obj=document.getElementById("li"+i).value; 
 		//window.open("selectQuestion.jsp?title="+obj,"noticeCk","width=400, height=300")
+	}
+	function replyPage() {
+		location.href="ReplyManage	.jsp";
+	}
+	function questionPage() {
+		location.href="question.jsp";
 	}
 </script>
 </head>
@@ -90,7 +99,7 @@
 			</div>
 			<div class="panel-body">
 				<div class="info_user">
-					<img src="../img/noimage.jpg" width="180px" height="180px" />
+					<img src="../img/noimage.jpg" width="120px" height="120px" />
 					<div class="myinfo">
 						<p>
 							이름 :
@@ -100,7 +109,7 @@
 							<%=bean.getStorename()%></p>
 						<p>
 							포인트 :
-							<%=bean.getPoint()%></p>
+							<%=bean.getPoint()%>팡</p>
 					</div>
 				</div>
 			</div>
@@ -123,7 +132,7 @@
 							 		NoticeBean nbean = list.get(i);
 							 %> <a id="noticeAll"
 							onclick="window.open('Notice.jsp?title=<%=nbean.getTitle()%>',target='_blank','width=300', 'height=200')">
-							<li style="font-size: 15px; margin-bottom: 15px; color: black;"
+							<li style="font-size: 18px; margin-bottom: 15px; color: black;"
 							id="li<%=i%>" onclick="noticeView(<%=i%>)"
 							value="<%=nbean.getTitle()%>"><%=nbean.getTitle()%></li>
 							</a> <%
@@ -134,28 +143,38 @@
 						onclick="window.open('NoticeList.jsp','_blank','width=400', 'height=500')"
 						style="padding: 0px;" class="noti_title">
 						<p
-							style="display: inline-block; font-size: 15px; color: #646464;">더보기</p>
+							style="display: inline-block; font-size: 15px; color: #646464; margin-top: 15px;">더보기</p>
 					</a>
 				</div>
 			</div>
 		</div>
-	
+		<%
+			PointDao bdao= new PointDao();
+			PointDao gdao= new PointDao();
+			PointBean bbean = bdao.mybrandPoint(storename);
+			
+		%>
 		<div class="panel panel-default col-lg-4">
 			<div class="panel-heading">
-				<h3 class="panel-title">내가게 순위</h3>
+				<h3 class="panel-title"  style="font-weight: bold;">내가게 순위</h3>
 			</div>
 			<div class="panel-body">
 				<div id="brand_rank"
-					style="display: inline-block; float: left; padding: 0 40px; margin-right: 20px; text-align: center;">
-					<h5>브랜드 별</h5>
+					style="display: inline-block; float: left; padding: 0 40px; margin:0 30px; text-align: center;">
+					<h4 style="font-weight: bold;">브랜드 별</h4>
 					<img src="/BaegopangMaster/img/noimg.jpg" width="80px"
 						height="80px" style="border-radius: 50px;">
+					<h2><%=bbean.getNum() %>등</h2>
 				</div>
+				<%
+				PointBean gbean = gdao.myguPoint(storename);
+				%>
 				<div id="gu_rank"
-					style="display: inline-block; float: left; padding: 0 40px; text-align: center;">
-					<h5>구 별</h5>
+					style="display: inline-block; float: left; padding: 0 40px; text-align: center; margin:0 30px;">
+					<h4 style="font-weight: bold;">구 별</h4>
 					<img src="/BaegopangMaster/img/noimg.jpg" width="80px"
 						height="80px" style="border-radius: 50px;">
+						<h2><%=gbean.getNum() %>등</h2>
 				</div>
 			</div>
 		</div>
@@ -163,11 +182,11 @@
 	
 		<div class="panel panel-default col-lg-3">
 			<div class="panel-heading">
-				<h3 class="panel-title">문의</h3>
+				<h3 class="panel-title"  style="font-weight: bold;">문의</h3>
 			</div>
 			<div class="panel-body">
-				<h5>댓글 확인하러 가기</h5>
-				<h5>문의 하러 가기</h5>
+				<h5 onclick="replyPage()" style="margin-top: 30px;">댓글 확인하러 가기</h5>
+				<h5 onclick="questionPage()" style="margin-top: 20px;">문의 하러 가기</h5>
 			</div>
 		</div>
 	</div>

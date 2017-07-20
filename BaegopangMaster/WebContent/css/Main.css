@@ -207,5 +207,14 @@ div#mainTopDiv div, div#mainDownDiv div{
 	font-size: 15px;
 } 
 .panel-body > h5{
-	display: inline-block;
+	font-size: 18px;
+	padding-bottom: 39px;
+}
+.carousel-inner>.item>img {
+	height: 320px;
+}
+
+#brand_rank > h2, #gu_rank > h2{
+	color: #FF8C00;
+	font-weight: bold;	
 }
