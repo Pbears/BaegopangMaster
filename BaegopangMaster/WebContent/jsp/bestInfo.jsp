@@ -52,7 +52,6 @@
 			<div class="col-sm-1" ></div>
 		</div>
 		<div class="col-sm-12" style="height:100px;"></div>
-	</div>
  
  
 

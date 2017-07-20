@@ -13,29 +13,31 @@
 
 
 <body style="background-color: white;">
-	 <jsp:include page="header.jsp"></jsp:include>
-
+ <jsp:include page="header.jsp"></jsp:include>
+	
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-12" style="height: 100px;"></div>
-			<div class="col-sm-1"></div>
+		<div class="col-sm-12" style="height:100px;"></div>
+			<div class="col-sm-1" ></div>
 			<div class="col-sm-10">
 
 
 				<!--내부  -->
 
-				<div class="container-fluid" align="center">
+				<div class="container-fluid" align="center" >
 					<div class="row">
 						<!-- 차트1-->
-						<div class="col-sm-12">
 						
-						<jsp:include page="daySalesChart.jsp"></jsp:include>					
-
+						<div class="col-sm-12">						
+						<div class="col-sm-12"><jsp:include page="daySalesChart.jsp"></jsp:include></div>
+						<div class="col-sm-12"><jsp:include page="weekdaySalesChart.jsp"></jsp:include>   </div>	
+						
+						
 						</div>
-						<div class="col-sm-12" style="height: 100px;"></div>
-
-						<!--차트2 -->
-						<div class="col-sm-12"></div>
+						
+						
+						</div>
+						<!--  -->						
 					</div>
 				</div>
 
@@ -44,10 +46,9 @@
 
 
 			</div>
-			<div class="col-sm-1"></div>
+			<div class="col-sm-1" ></div>
 		</div>
-		<div class="col-sm-12" style="height: 100px;"></div>
-	</div>
+		<div class="col-sm-12" style="height:100px;"></div>
 
 
 	<jsp:include page="footer.jsp"></jsp:include>
