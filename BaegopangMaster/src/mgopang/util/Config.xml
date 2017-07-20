@@ -36,6 +36,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 			<typeAlias type="mgopang.bean.BrandDataBean" alias="branddata"/>
 			<typeAlias type="mgopang.bean.DaySalesDataBean" alias="daysales"/>
 			<typeAlias type="mgopang.bean.WeekdaySalesDataBean" alias="weekdaysales"/>
+			<typeAlias type="mgopang.bean.MonthSalesDataBean" alias="monthsales"/>
     </typeAliases>
     
     

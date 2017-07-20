@@ -19,6 +19,7 @@
 
 	DataDao dao = new DataDao();
 	List<DaySalesDataBean> list = dao.selectDaySalesData(map);
+	String[] color={"#FF0F00","#FF9E01","#F8FF01","#04D215","#0D8ECF","#2A0CD0","#8A0CCF"}; 
 	//out.print(list);
 	
 	JSONArray totalArray=new JSONArray();
