@@ -129,11 +129,11 @@ function zoomChart() {
 
  <div class="col-sm-12">
 		<div class="col-sm-12" align="center">
-			<h1>일매출</h1>
+			<h1>매출</h1>
 		</div>
 		<div class="col-sm-12">
 		
-			<div id="chartdiv" style="margin-top: "></div>
+			<div id="chartdiv"></div>
 
 		</div>
 	</div>

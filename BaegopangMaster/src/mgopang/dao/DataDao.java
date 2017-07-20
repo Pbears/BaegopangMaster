@@ -13,6 +13,7 @@ import mgopang.bean.DaySalesDataBean;
 import mgopang.bean.GenderDataBean;
 import mgopang.bean.OrderBean;
 import mgopang.bean.WeekDayDataBean;
+import mgopang.bean.WeekdaySalesDataBean;
 import mgopang.util.SqlSessionFactoryManager;
 
 public class DataDao {	
@@ -105,6 +106,19 @@ public class DataDao {
 			try {
 				sqlSession = sqlSessionFactory.openSession();
 				return sqlSession.selectList("selectDaySalesData",map);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}finally {
+				closeSqlSession(sqlSession);
+			}
+		}
+		
+		public List<WeekdaySalesDataBean>selectWeekDaySalesData(HashMap<String, Object>map){
+			SqlSession sqlSession = null;
+			try {
+				sqlSession = sqlSessionFactory.openSession();
+				return sqlSession.selectList("selectWeekDaySalesData",map);
 			} catch (Exception e) {
 				e.printStackTrace();
 				return null;

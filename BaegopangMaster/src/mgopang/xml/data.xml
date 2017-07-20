@@ -81,14 +81,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		GROUP BY MENUNAME)
 
 	</select>
-	
+
 	<select id="selectDaySalesData" parameterType="java.util.HashMap"
 		resultType="daysales">
 
-		 SELECT ORDERDAY, SUM(SALE) DAYSALE
-        FROM(SELECT ORDERDAY,(AMOUNT*PRICE)SALE FROM ORDERDATA WHERE STORENAME=#{storename})
-        GROUP BY ORDERDAY
-        ORDER BY ORDERDAY ASC
+		SELECT ORDERDAY, SUM(SALE) DAYSALE
+		FROM(SELECT
+		ORDERDAY,(AMOUNT*PRICE)SALE FROM ORDERDATA WHERE
+		STORENAME=#{storename})
+		GROUP BY ORDERDAY
+		ORDER BY ORDERDAY ASC
+
+	</select>
+
+
+	<select id="selectWeekDaySalesData" parameterType="java.util.HashMap"
+		resultType="weekdaysales">
+
+		SELECT DISTINCT WEEKDAY, (SUM(SALES) OVER(PARTITION BY
+		WEEKDAY)/COUNT(ORDERDAY) OVER(PARTITION BY WEEKDAY)) AVGSALES,
+		DECODE(WEEKDAY,'일','1','월','2','화','3','수','4','목','5','금','6','7')
+		STEP
+		FROM(
+		SELECT WEEKDAY,ORDERDAY,(SUM(AMOUNT)*SUM(PRICE))SALES
+		FROM ORDERDATA
+		WHERE STORENAME=#{storename}
+		GROUP BY WEEKDAY,ORDERDAY)
+		ORDER BY STEP
 
 	</select>
 
