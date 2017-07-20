@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="Q!=null">
 			AND ${Q} LIKE '%'||#{D}||'%'
 		</if>
-		ORDER BY ORDERTIME DESC
+		
 
 	</select>
 
@@ -27,26 +27,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="Q2!=null">
 			AND ${Q2} LIKE '%'||#{D2}||'%'
 		</if>
-		ORDER BY ORDERTIME DESC
+		
 
 	</select>
 
 	<select id="selectOrderCom" resultType="order" parameterType="java.util.HashMap">
 
 		SELECT ORDERNUMBER, MEMBERID, MEMBERNAME, MEMBERTEL, MEMBERADDRESS,
-		PRICE, NVL(ORDERINFO,'없음') ORDERINFO,
+		PRICE, ORDERINFO,
+		MENUNAME, AMOUNT, STORENAME,
+		STOREADDRESS, STORETEL,
+		ORDERTIME, STATE
+		FROM(SELECT ORDERNUMBER, MEMBERID, MEMBERNAME, MEMBERTEL, MEMBERADDRESS,
+		PRICE,
+		NVL(ORDERINFO,'없음') ORDERINFO,
 		MENUNAME, AMOUNT, STORENAME,
 		STOREADDRESS, STORETEL,
 		TO_DATE(ORDERTIME,'YYYYMMDD
-		HH24:MI:SS')ORDERTIME, STATE
+		HH24:MI:SS')ORDERTIME, STATE,ROW_NUMBER()OVER(ORDER BY ORDERTIME
+		DESC,ORDERNUMBER ASC)RANK
 		FROM FOODORDER
 		WHERE STORENAME=#{storename}
 		AND STATE='배달완료'
 		<if test="query2!=null">
 			AND ${query2} LIKE '%'||#{data2}||'%'
 		</if>
-
-		ORDER BY ORDERTIME DESC
+		ORDER BY ORDERTIME DESC, ORDERNUMBER ASC)
+		WHERE RANK BETWEEN #{start2} AND #{end2}
 
 
 
@@ -76,7 +83,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE STORENAME=#{storename}
 		AND (STATE='승인대기' OR STATE='승인완료')
 		<if test="query!=null">
-			AND ${query2} LIKE '%'||#{data2}||'%'
+			AND ${query} LIKE '%'||#{data}||'%'
 		</if>
 		ORDER BY ORDERTIME DESC, ORDERNUMBER ASC)
 		WHERE RANK BETWEEN #{start} AND #{end}
