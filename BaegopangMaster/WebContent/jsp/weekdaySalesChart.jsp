@@ -19,13 +19,11 @@
   width: 100%;
   height: 500px;
 }
-
 .amcharts-export-menu-top-right {
   top: 10px;
   right: 0;
 }
 </style>
-
 </head>
 
 <script>
