@@ -227,7 +227,7 @@
 						</tr>
 
 						<tr>
-							<td colspan="7">
+							<td colspan="8">
 								<div id="collapse<%=i%>" class="panel-collapse collapse">
 									<ul class="list-group">
 										<li class="list-group-item" style="background-color: #f1f0ef">메뉴
