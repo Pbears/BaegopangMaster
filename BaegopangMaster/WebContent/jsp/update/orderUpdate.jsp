@@ -65,7 +65,7 @@
     	map.put("state", "°ÅÀı");
     	dao.updateOrder(map);   	
     }
-     
+      
     response.sendRedirect("/BaegopangMaster/jsp/masterOrder.jsp");
     
     

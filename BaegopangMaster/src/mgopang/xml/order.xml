@@ -153,7 +153,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateMemberPang" parameterType="java.util.HashMap">
 		UPDATE MEMBER SET
 		PANG = ((SELECT PANG FROM MEMBER WHERE ID=#{memberid})+#{price}*0.1) WHERE
-		ID=#{memberid}
+		ID=#{memberid} 
 	</update>
 
 
