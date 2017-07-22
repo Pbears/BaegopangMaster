@@ -149,6 +149,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{id},#{pw},#{name},#{address},#{tel},TO_DATE(#{birth},'YYYY-MM-DD
 		HH24:MI:SS'),#{storename})
 	</insert>
+	
+	<update id="updateMemberPang" parameterType="java.util.HashMap">
+		UPDATE MEMBER SET
+		PANG = ((SELECT PANG FROM MEMBER WHERE ID=#{memberid})+#{price}*0.1) WHERE
+		ID=#{memberid}
+	</update>
 
 
 

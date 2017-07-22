@@ -219,5 +219,19 @@ public class OrderDao {
 			session.close();
 		}
 	}
+	
+	public void updateMemberPang(HashMap<String, Object> map){
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.update("updateMemberPang", map);
+			session.commit();
+		} catch (Exception e) {
+			session.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}		
+	}
+
 
 }
