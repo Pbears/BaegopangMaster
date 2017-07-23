@@ -140,5 +140,18 @@ public class MasterReplyDao {
 			sqlSession.close();
 		}
 	}
+	public void getPoint(String id){
+		  SqlSession sqlSession=sqlSessionFactory.openSession();
+		  try {
+			  sqlSession.update("getPoint", id);
+			  sqlSession.commit();			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			sqlSession.rollback();
+		}finally{
+			sqlSession.close();
+		}
+	}
 
 }
