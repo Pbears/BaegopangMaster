@@ -8,8 +8,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   		CONTENTS,REGDATE,REF,PNUM,REPLY
 		FROM(
 		SELECT ROW_NUMBER( )OVER(ORDER BY NO
-		DESC)RM,NO,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,ORDERNUMBER,ID,CONTENTS,REF,PNUM, REPLY,STORENAME FROM REPLY WHERE id != #{id})
-		WHERE RM BETWEEN #{start} AND #{end} AND (STORENAME = #{storename})
+		DESC)RM,NO,TO_CHAR(REGDATE,'YYYY/MM/DD')REGDATE,ORDERNUMBER,ID,CONTENTS,REF,PNUM, REPLY,STORENAME FROM REPLY WHERE id != #{id} AND STORENAME = #{storename})
+		WHERE RM BETWEEN #{start} AND #{end}
   	</select>
   	
 	<select id="getRTotalRows" parameterType="java.lang.String" resultType="java.lang.Integer">
@@ -40,5 +40,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT CONTENTS FROM REPLY
 		WHERE PNUM=#{pnum} AND id=#{id}
 	</select>
+	
+	<update id="getPoint" parameterType="java.lang.String">
+		UPDATE MASTER SET POINT=(SELECT COUNT(ID)*10 FROM REPLY WHERE ID=#{id})
+		WHERE ID=#{id}
+	</update>
 </mapper>
 

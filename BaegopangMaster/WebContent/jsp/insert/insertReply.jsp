@@ -24,6 +24,7 @@
 		MasterReplyDao dao=new MasterReplyDao();
 		dao.insertReply(map);
 		dao.updateReply(map);
+		dao.getPoint(id);
 		
 		response.sendRedirect("../ReplyManage.jsp");
 	%>

@@ -81,23 +81,21 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  -->
 
 
-        </dataSource>
-        <!-- 
-           Connection conn=ds.getConnection();
-         -->
-      </environment>
-    </environments>
-    <mappers>
-      <mapper resource="mgopang/xml/order.xml"/>
-	<mapper resource="mgopang/xml/member.xml"/>
-	<mapper resource="mgopang/xml/zipcode.xml"/>
-	 <mapper resource="mgopang/xml/menuManage.xml"/>
-      <mapper resource="mgopang/xml/Masteraskadmin.xml"/>
-      <mapper resource="mgopang/xml/Notice.xml"/>
-      <mapper resource="mgopang/xml/MasterReply.xml"/>
-       <mapper resource="mgopang/xml/Point.xml"/>
-       <mapper resource="mgopang/xml/data.xml"/>
-    </mappers>
+			</dataSource>
+			<!-- Connection conn=ds.getConnection(); -->
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="mgopang/xml/order.xml" />
+		<mapper resource="mgopang/xml/member.xml" />
+		<mapper resource="mgopang/xml/zipcode.xml" />
+		<mapper resource="mgopang/xml/menuManage.xml" />
+		<mapper resource="mgopang/xml/Masteraskadmin.xml" />
+		<mapper resource="mgopang/xml/Notice.xml" />
+		<mapper resource="mgopang/xml/MasterReply.xml" />
+		<mapper resource="mgopang/xml/Point.xml" />
+		<mapper resource="mgopang/xml/data.xml" />
+	</mappers>
 </configuration>
 
 

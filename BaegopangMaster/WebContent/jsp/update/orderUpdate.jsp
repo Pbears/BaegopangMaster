@@ -58,13 +58,14 @@
     	out.print(memberid);
     	
     	dao.updateOrder(map); 
-    	dao2.insertOrderData(map);   	
+    	dao2.insertOrderData(map);  
+    	dao.updateMemberPang(map);
     	
     }else if(flag.equals("refuse")){
     	map.put("state", "°ÅÀı");
     	dao.updateOrder(map);   	
     }
-     
+      
     response.sendRedirect("/BaegopangMaster/jsp/masterOrder.jsp");
     
     

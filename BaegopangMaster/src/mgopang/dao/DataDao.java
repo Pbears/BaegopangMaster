@@ -11,6 +11,7 @@ import mgopang.bean.AgeDataBean;
 import mgopang.bean.BrandDataBean;
 import mgopang.bean.DaySalesDataBean;
 import mgopang.bean.GenderDataBean;
+import mgopang.bean.MonthSalesDataBean;
 import mgopang.bean.OrderBean;
 import mgopang.bean.WeekDayDataBean;
 import mgopang.bean.WeekdaySalesDataBean;
@@ -119,6 +120,19 @@ public class DataDao {
 			try {
 				sqlSession = sqlSessionFactory.openSession();
 				return sqlSession.selectList("selectWeekDaySalesData",map);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}finally {
+				closeSqlSession(sqlSession);
+			}
+		}
+		
+		public List<MonthSalesDataBean>selectMonthSalesData(HashMap<String, Object>map){
+			SqlSession sqlSession = null;
+			try {
+				sqlSession = sqlSessionFactory.openSession();
+				return sqlSession.selectList("selectMonthSalesData",map);
 			} catch (Exception e) {
 				e.printStackTrace();
 				return null;

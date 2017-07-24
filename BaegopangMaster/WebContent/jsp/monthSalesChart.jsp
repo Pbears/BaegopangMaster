@@ -15,39 +15,41 @@
 <title>Insert title here</title>
 
 <style>
-#chartdiv2 {
+#chartdiv3 {
   width: 100%;
   height: 500px;
 }
+
 .amcharts-export-menu-top-right {
   top: 10px;
   right: 0;
 }
 </style>
+
 </head>
 
 <script>
 
-var loaddata2;
+var loaddata3;
 
-function getnewdata2(){
+function getnewdata3(){
 	$.ajax({
-		url : "/BaegopangMaster/jsp/chartdata/weekdaySalesData.jsp",
+		url : "/BaegopangMaster/jsp/chartdata/monthSalesData.jsp",
 		async : false,
 		dataType : "json",
 		success : function(data) {
-			loaddata2 = data;
+			loaddata3 = data;
 		}
 	});	
-	return loaddata2;
+	return loaddata3;
 }
 
 
-var chart = AmCharts.makeChart("chartdiv2", {
+var chart = AmCharts.makeChart("chartdiv3", {
   "type": "serial",
   "theme": "light",
   "marginRight": 70,
-  "dataProvider": getnewdata2(),
+  "dataProvider": getnewdata3(),
   "startDuration": 1,
   "graphs": [{
     "balloonText": "<b>[[category]]: [[value]]</b>",
@@ -78,11 +80,11 @@ var chart = AmCharts.makeChart("chartdiv2", {
 
 <div class="col-sm-12">
 		<div class="col-sm-12" align="center">
-			<h1>요일별 평균매출</h1><br><br>
+			<h1>월별 평균매출</h1><br><br>
 		</div>
 		<div class="col-sm-12">
 		
-			<div id="chartdiv2"></div>
+			<div id="chartdiv3"></div>
 
 		</div>
 	</div>
