@@ -36,6 +36,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 			<typeAlias type="mgopang.bean.BrandDataBean" alias="branddata"/>
 			<typeAlias type="mgopang.bean.DaySalesDataBean" alias="daysales"/>
 			<typeAlias type="mgopang.bean.WeekdaySalesDataBean" alias="weekdaysales"/>
+			<typeAlias type="mgopang.bean.MonthSalesDataBean" alias="monthsales"/>
     </typeAliases>
     
     
@@ -70,8 +71,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
             
            <!-- 아마존 RDS -->
           <property name="url" value="jdbc:oracle:thin:@psh-oracle.csnsvkq0ah8f.ap-northeast-2.rds.amazonaws.com:1521:orcl"/>
-				<property name="username" value="babysean" />
-				<property name="password" value="12341234" />  
+			<property name="username" value="babysean" />
+			<property name="password" value="12341234" />  
          
          <!-- LOCAL DB -->
        <!--   <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" />

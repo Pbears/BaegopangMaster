@@ -15,6 +15,7 @@ public class ZipCodeDao {
 	public ZipCodeDao(){
 		sqlSessionFactory=SqlSessionFactoryManager.getSqlSessionFactory();
 	}
+	
 	private void closeSqlSession(Closeable c) {
 		try {
 			if (c != null)
@@ -23,8 +24,10 @@ public class ZipCodeDao {
 			e.printStackTrace();
 		}
 	}
+	
 	public List<ZipcodeBean> searchAddress(String dong){
 		SqlSession sqlSession = null;
+		System.out.println(dong);
 		try {
 			sqlSession = sqlSessionFactory.openSession();
 			return sqlSession.selectList("searchAddress", dong);

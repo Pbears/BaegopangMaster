@@ -158,10 +158,6 @@ body {
 		window.open("/BaegopangMaster/jsp/login/addressPage.jsp","address input" ,"width=500, height=500");
 	});
 	
-	$("input#id").blur(function(){
-		window.open("/BaegopangMaster/jsp/login/idCheck.jsp?id="+$(this).val());
-	});
-	
 	$("input#pw").blur(function(){
 		if($("input#pw").val().trim().length==0 || !$("input#pw").val()){
 			$("div#divPw").attr('class','col-sm-10 has-error');
