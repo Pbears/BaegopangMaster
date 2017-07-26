@@ -207,7 +207,8 @@ table{
 	/* display: none; */
 	display: inline-block;
 	width: 736px;
-	margin-left: 5%;
+	float: right;
+	margin-right: 100px;
 }
 #insertMenu #insertTop p{
 	margin: 0;
